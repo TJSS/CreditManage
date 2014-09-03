@@ -2,6 +2,8 @@
 Thumbs.db
 ehthumbs.db
 
+.git
+
 # Folder config file
 Desktop.ini
 
@@ -27,6 +29,9 @@ $RECYCLE.BIN/
 
 # Icon must ends with two \r.
 Icon
+# idea files
+.idea
+*.iml
 
 # Thumbnails
 ._*
