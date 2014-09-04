@@ -11,19 +11,19 @@
         </action>
     </package>
 
-    <package name="front" namespace="/front" extends="struts-default">
-        <interceptors>
-            <interceptor name="check_wx" class="wxidInterceptor"/>
-            <interceptor-stack name="myFrontStack">
-                <interceptor-ref name="check_wx"/>
-                <interceptor-ref name="defaultStack"/>
-            </interceptor-stack>
-        </interceptors>
+    <!--<package name="front" namespace="/front" extends="struts-default">-->
+        <!--<interceptors>-->
+            <!--<interceptor name="check_wx" class="wxidInterceptor"/>-->
+            <!--<interceptor-stack name="myFrontStack">-->
+                <!--<interceptor-ref name="check_wx"/>-->
+                <!--<interceptor-ref name="defaultStack"/>-->
+            <!--</interceptor-stack>-->
+        <!--</interceptors>-->
 
-        <default-interceptor-ref name="myFrontStack"/>
+        <!--<default-interceptor-ref name="myFrontStack"/>-->
 
-        <global-results>
-            <result name="wxidError">/WEB-INF/front/wxid_error.jsp</result>
-        </global-results>
-    </package>
+        <!--<global-results>-->
+            <!--<result name="wxidError">/WEB-INF/front/wxid_error.jsp</result>-->
+        <!--</global-results>-->
+    <!--</package>-->
 </struts>

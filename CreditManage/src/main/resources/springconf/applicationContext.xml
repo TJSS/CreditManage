@@ -40,33 +40,23 @@
 
 
     <!-- 配置Dao -->
-    <bean id="rankDao" class="org.tju.wx.dao.impl.RankDaoImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="sessionFactory">
-            <ref bean="sessionFactory"/>
-        </property>
+    <bean id="xxDao" class="com.pingancar.creditmanage.dao.impl.XXDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <!--<property name="sessionFactory">-->
+            <!--<ref bean="sessionFactory"/>-->
+        <!--</property>-->
     </bean>
 
-
     <!-- 配置Service -->
-    <bean id="rankService" class="org.tju.wx.service.impl.RankServiceImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="rankDao">
-            <ref bean="rankDao" />
+    <bean id="xxService" class="com.pingancar.creditmanage.service.impl.XXServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="xxDao">
+            <ref bean="xxDao"/>
         </property>
     </bean>
 
     <!-- 配置Action -->
-    <bean id="testAction" class="org.tju.wx.test.testAction" abstract="false" lazy-init="default" autowire="default">
-        <property name="announceOpService">
-            <ref bean="announceOpService" />
-        </property>
-    </bean>
-
-    <bean id="activityAction" class="org.tju.wx.action.ActivityAction" abstract="false" lazy-init="default" autowire="default">
-        <property name="activityOpService">
-            <ref bean="activityOpService" />
-        </property>
-        <property name="act_voteOpService">
-            <ref bean="act_voteOpService" />
+    <bean id="xxAction" class="com.pingancar.creditmanage.action.XXAction" abstract="false" lazy-init="default" autowire="default">
+        <property name="xxService">
+            <ref bean="xxService"/>
         </property>
     </bean>
 </beans>
