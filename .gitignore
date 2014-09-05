@@ -3,6 +3,8 @@ Thumbs.db
 ehthumbs.db
 
 .git
+~*
+template/tjuwx/target/
 
 # Folder config file
 Desktop.ini
