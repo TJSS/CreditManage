@@ -10,17 +10,17 @@ import java.util.List;
  */
 public class ShopUserDaoImpl implements ShopUserDao {
     @Override
-    public boolean addShopUser(ShopUserDao shopUserDao) {
+    public boolean addShopUser(ShopUserPojo shopUserPojo) {
         return false;
     }
 
     @Override
-    public boolean updateShopUser(ShopUserDao shopUserDao) {
+    public boolean updateShopUser(ShopUserPojo shopUserPojo) {
         return false;
     }
 
     @Override
-    public boolean deleteShopUser(ShopUserDao shopUserDao) {
+    public boolean deleteShopUser(ShopUserPojo shopUserPojo) {
         return false;
     }
 

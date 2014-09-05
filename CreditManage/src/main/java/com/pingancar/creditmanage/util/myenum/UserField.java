@@ -1,7 +1,5 @@
 package com.pingancar.creditmanage.util.myenum;
 
-import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
-
 /**
  * Created by Administrator on 2014/9/6 0006.
  */
