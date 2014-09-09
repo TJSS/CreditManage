@@ -1,40 +1,50 @@
 package com.pingancar.creditmanage.dao;
 
-import com.pingancar.creditmanage.pojo.ShopInfoPojo;
-import com.pingancar.creditmanage.util.myenum.ShopInfoField;
+import com.pingancar.creditmanage.pojo.ShopinfoPojo;
 
 import java.util.List;
 
 /**
- * Created by Administrator on 2014/9/6 0006.
+ *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
 public interface ShopInfoDao {
-    /**
-     * 添加商店信息
-     * @param shopInfoPojo
-     * @return
-     */
-    public boolean addShopInfo(ShopInfoPojo shopInfoPojo);
 
-    /**
-     * 更新商店信息
-     * @param shopInfoPojo
-     * @return
-     */
-    public boolean updateShopInfo(ShopInfoPojo shopInfoPojo);
+	public ShopinfoPojo findById(Integer id);
 
-    /**
-     * 删除商店信息
-     * @param shopInfoPojo
-     * @return
-     */
-    public boolean deleteShopInfo(ShopInfoPojo shopInfoPojo);
+	public List<ShopinfoPojo> findAll();
 
-    /**
-     * 查询商店信息
-     * @param shopInfoFieldList
-     * @param valueList
-     * @return
-     */
-    public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoFieldList, List<String> valueList);
+	public Integer save(ShopinfoPojo shopinfo);
+
+	public void delete(ShopinfoPojo shopinfo);
+
+	public void update(ShopinfoPojo shopinfo);
+
+	public List<ShopinfoPojo> findByShopid(String shopid);
+
+	public List<ShopinfoPojo> findByPaserviceinfoid(String paserviceinfoid);
+
+	public List<ShopinfoPojo> findByName(String name);
+
+	public List<ShopinfoPojo> findByLocation(String location);
+
+	public List<ShopinfoPojo> findByXpos(Double xpos);
+
+	public List<ShopinfoPojo> findByYpos(Double ypos);
+
+	public List<ShopinfoPojo> findByInterf(String interf);
+
+	public List<ShopinfoPojo> findByTag1(String tag1);
+
+	public List<ShopinfoPojo> findByTag2(String tag2);
+
+	public List<ShopinfoPojo> findByCon(String con);
+
+	public List<ShopinfoPojo> findByStatus(String status);
+
+	public List findBySqlSentence(String queryString);
+
+	public List findBySqlSentence(String queryString, Object value);
+
+	public List findBySqlSentence(String queryString, Object... values);
+
 }

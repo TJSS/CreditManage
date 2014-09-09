@@ -6,7 +6,7 @@
 <struts>
     <package name="default" namespace="/" extends="struts-default">
         <default-action-ref name="backHome"/>
-        <action name="backHome" >
+        <action name="login" class="com.pingancar.creditmanage.action.AdminAction" method="login">
             <result name="success">/index.jsp</result>
         </action>
     </package>

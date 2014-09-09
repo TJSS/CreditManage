@@ -1,40 +1,41 @@
 package com.pingancar.creditmanage.dao;
 
-import com.pingancar.creditmanage.pojo.PAServicePojo;
-import com.pingancar.creditmanage.util.myenum.PAServiceField;
+import com.pingancar.creditmanage.pojo.PaservicePojo;
 
 import java.util.List;
-
 /**
- * Created by Administrator on 2014/9/6 0006.
+ *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public interface PAServiceDao {
-    /**
-     * 获取服务信息
-     * @param paServiceFieldList
-     * @param valueList
-     * @return
-     */
-    public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldList, List<String> valueList);
+public interface PaserviceDao {
 
-    /**
-     * 添加服务
-     * @param paServicePojo
-     * @return
-     */
-    public boolean addPAService(PAServicePojo paServicePojo);
+	public PaservicePojo findById(Integer id);
 
-    /**
-     * 更新服务
-     * @param paServicePojo
-     * @return
-     */
-    public boolean updatePAService(PAServicePojo paServicePojo);
+	public List<PaservicePojo> findAll();
 
-    /**
-     * 删除服务
-     * @param paServicePojo
-     * @return
-     */
-    public boolean deletePAService(PAServicePojo paServicePojo);
+	public Integer save(PaservicePojo paservice);
+
+	public void delete(PaservicePojo paservice);
+
+	public void update(PaservicePojo paservice);
+
+	public List<PaservicePojo> findByPaserviceinfoid(String paserviceinfoid);
+
+	public List<PaservicePojo> findByPaserviceid(String paserviceid);
+
+	public List<PaservicePojo> findByType(String type);
+
+	public List<PaservicePojo> findByTag1(String tag1);
+
+	public List<PaservicePojo> findByLeftnum(Integer leftnum);
+
+	public List<PaservicePojo> findByAmount(Integer amount);
+
+	public List<PaservicePojo> findByCreditcost(Double creditcost);
+
+	public List findBySqlSentence(String queryString);
+
+	public List findBySqlSentence(String queryString, Object value);
+
+	public List findBySqlSentence(String queryString, Object... values);
+
 }

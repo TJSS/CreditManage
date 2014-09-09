@@ -1,40 +1,36 @@
 package com.pingancar.creditmanage.dao;
 
-import com.pingancar.creditmanage.pojo.OrderListPojo;
-import com.pingancar.creditmanage.util.myenum.OrderListField;
-
+import org.tju.scs.damai.innovationFund.pojo.OrderlistPojo;
 import java.util.List;
-
 /**
- * Created by Administrator on 2014/9/6 0006.
+ *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public interface OrderListDao {
-    /**
-     * 获取订单
-     * @param orderListFieldList
-     * @param valueList
-     * @return
-     */
-    public List<OrderListPojo> queryOrderList(List<OrderListField> orderListFieldList, List<String> valueList);
+public interface OrderlistDao {
 
-    /**
-     * 添加订单
-     * @param orderListPojo
-     * @return
-     */
-    public boolean addOrderList(OrderListPojo orderListPojo);
+	public OrderlistPojo findById(Integer id);
 
-    /**
-     * 更新订单
-     * @param orderListPojo
-     * @return
-     */
-    public boolean updateOrderList(OrderListPojo orderListPojo);
+	public List<OrderlistPojo> findAll();
 
-    /**
-     * 删除订单
-     * @param orderListPojo
-     * @return
-     */
-    public boolean deleteOrderList(OrderListPojo orderListPojo);
+	public Integer save(OrderlistPojo orderlist);
+
+	public void delete(OrderlistPojo orderlist);
+
+	public void update(OrderlistPojo orderlist);
+
+	public List<OrderlistPojo> findByOrderlistid(String orderlistid);
+
+	public List<OrderlistPojo> findByPaserviceid(String paserviceid);
+
+	public List<OrderlistPojo> findByUsername(String username);
+
+	public List<OrderlistPojo> findByOrdertime(Timestamp ordertime);
+
+	public List<OrderlistPojo> findByStatus(String status);
+
+	public List findBySqlSentence(String queryString);
+
+	public List findBySqlSentence(String queryString, Object value);
+
+	public List findBySqlSentence(String queryString, Object... values);
+
 }

@@ -5,20 +5,28 @@ import com.pingancar.creditmanage.pojo.CreditPojo;
 import java.util.List;
 
 /**
- * Created by Administrator on 2014/9/6 0006.
+ *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
 public interface CreditDao {
-    /**
-     * 获取服务信息
-     * @param username
-     * @return
-     */
-    public List<CreditPojo> queryCreditByUsername(String username);
 
-    /**
-     * 更新积分
-     * @param creditPojo
-     * @return
-     */
-    public boolean updateCredit(CreditPojo creditPojo);
+	public CreditPojo findById(Integer id);
+
+	public List<CreditPojo> findAll();
+
+	public Integer save(CreditPojo credit);
+
+	public void delete(CreditPojo credit);
+
+	public void update(CreditPojo credit);
+
+	public List<CreditPojo> findByUsername(String username);
+
+	public List<CreditPojo> findByCredit(Double credit);
+
+	public List findBySqlSentence(String queryString);
+
+	public List findBySqlSentence(String queryString, Object value);
+
+	public List findBySqlSentence(String queryString, Object... values);
+
 }

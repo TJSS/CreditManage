@@ -1,38 +1,32 @@
 package com.pingancar.creditmanage.dao;
 
-import com.pingancar.creditmanage.pojo.ShopUserPojo;
-
+import org.tju.scs.damai.innovationFund.pojo.ShopuserPojo;
 import java.util.List;
-
 /**
- * Created by Administrator on 2014/9/6 0006.
+ *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public interface ShopUserDao {
-    /**
-     * 添加商店用户
-     * @param shopUserPojo
-     * @return
-     */
-    public boolean addShopUser(ShopUserPojo shopUserPojo);
+public interface ShopuserDao {
 
-    /**
-     * 更新商店用户
-     * @param shopUserPojo
-     * @return
-     */
-    public boolean updateShopUser(ShopUserPojo shopUserPojo);
+	public ShopuserPojo findById(Integer id);
 
-    /**
-     * 删除商店用户
-     * @param shopUserPojo
-     * @return
-     */
-    public boolean deleteShopUser(ShopUserPojo shopUserPojo);
+	public List<ShopuserPojo> findAll();
 
-    /**
-     * 查询商店用户
-     * @param username
-     * @return
-     */
-    public List<ShopUserPojo> queryShopUser(String username);
+	public Integer save(ShopuserPojo shopuser);
+
+	public void delete(ShopuserPojo shopuser);
+
+	public void update(ShopuserPojo shopuser);
+
+	public List<ShopuserPojo> findByShopid(String shopid);
+
+	public List<ShopuserPojo> findByUsername(String username);
+
+	public List<ShopuserPojo> findByPasswd(String passwd);
+
+	public List findBySqlSentence(String queryString);
+
+	public List findBySqlSentence(String queryString, Object value);
+
+	public List findBySqlSentence(String queryString, Object... values);
+
 }
