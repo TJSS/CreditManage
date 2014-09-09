@@ -6,7 +6,8 @@ ehthumbs.db
 ~*
 template/tjuwx/target/
 CreditManage/target/
-.class
+CreditManage/target/classes/struts.xml
+*.class
 
 # Folder config file
 Desktop.ini
