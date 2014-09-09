@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost_3306
-Source Server Version : 50154
+Source Server Version : 50612
 Source Host           : localhost:3306
 Source Database       : creditmanage
 
 Target Server Type    : MYSQL
-Target Server Version : 50154
+Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2014-09-06 13:02:47
+Date: 2014-09-09 10:04:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,7 +24,7 @@ CREATE TABLE `admin` (
   `username` varchar(10) NOT NULL,
   `passwd` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin
@@ -39,7 +39,7 @@ CREATE TABLE `advertisement` (
   `adid` varchar(20) NOT NULL,
   `imgurl` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of advertisement
@@ -54,7 +54,7 @@ CREATE TABLE `credit` (
   `username` varchar(20) NOT NULL,
   `credit` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of credit
@@ -72,7 +72,7 @@ CREATE TABLE `orderlist` (
   `ordertime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `status` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orderlist
@@ -92,7 +92,7 @@ CREATE TABLE `paservice` (
   `amount` int(11) NOT NULL,
   `creditcost` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of paservice
@@ -113,7 +113,7 @@ CREATE TABLE `paserviceinfo` (
   `servicestart` datetime DEFAULT NULL,
   `serviceend` datetime DEFAULT NULL,
   PRIMARY KEY (`paserviceinfoid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of paserviceinfo
@@ -137,7 +137,7 @@ CREATE TABLE `shopinfo` (
   `con` varchar(11) DEFAULT NULL,
   `status` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shopinfo
@@ -153,7 +153,7 @@ CREATE TABLE `shopuser` (
   `username` varchar(20) NOT NULL,
   `passwd` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shopuser
@@ -180,7 +180,7 @@ CREATE TABLE `user` (
   `endtime` datetime DEFAULT NULL,
   `mobilephone` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
