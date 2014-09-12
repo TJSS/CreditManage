@@ -11,11 +11,12 @@ public class CreditAction extends ActionSupport{
     private CreditService creditService;
     private CreditPojo creditPojo;
 
-    public String updateCredit(CreditPojo creditPojo){
+    public String updateCredit(){
         boolean result= creditService.updateCredit(creditPojo);
         if(result){
             return SUCCESS;
         }else{
+            addActionError("更新积分错误");
             return ERROR;
         }
     }
