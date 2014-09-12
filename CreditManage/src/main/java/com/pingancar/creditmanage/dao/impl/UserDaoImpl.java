@@ -1,7 +1,7 @@
 package com.pingancar.creditmanage.dao.impl;
 
-import org.tju.scs.damai.innovationFund.pojo.UserPojo;
-import org.tju.scs.damai.innovationFund.dao.UserDao;
+import com.pingancar.creditmanage.dao.UserDao;
+import com.pingancar.creditmanage.pojo.UserPojo;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 

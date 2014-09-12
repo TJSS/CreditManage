@@ -4,7 +4,7 @@ package com.pingancar.creditmanage.pojo;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public class PaserviceinfoPojo {
+public class PAServiceInfoPojo {
 
 	Integer paserviceinfoid;
 	String imgurl;
@@ -134,7 +134,7 @@ public class PaserviceinfoPojo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PaserviceinfoPojo other = (PaserviceinfoPojo) obj;
+		PAServiceInfoPojo other = (PAServiceInfoPojo) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

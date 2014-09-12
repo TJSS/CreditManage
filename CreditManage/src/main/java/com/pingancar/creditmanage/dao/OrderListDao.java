@@ -1,6 +1,6 @@
 package com.pingancar.creditmanage.dao;
 
-import com.pingancar.creditmanage.pojo.OrderlistPojo;
+import com.pingancar.creditmanage.pojo.OrderListPojo;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -8,27 +8,27 @@ import java.util.List;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public interface OrderlistDao {
+public interface OrderListDao {
 
-	public OrderlistPojo findById(Integer id);
+	public OrderListPojo findById(Integer id);
 
-	public List<OrderlistPojo> findAll();
+	public List<OrderListPojo> findAll();
 
-	public Integer save(OrderlistPojo orderlist);
+	public Integer save(OrderListPojo orderlist);
 
-	public void delete(OrderlistPojo orderlist);
+	public void delete(OrderListPojo orderlist);
 
-	public void update(OrderlistPojo orderlist);
+	public void update(OrderListPojo orderlist);
 
-	public List<OrderlistPojo> findByOrderlistid(String orderlistid);
+	public List<OrderListPojo> findByOrderlistid(String orderlistid);
 
-	public List<OrderlistPojo> findByPaserviceid(String paserviceid);
+	public List<OrderListPojo> findByPaserviceid(String paserviceid);
 
-	public List<OrderlistPojo> findByUsername(String username);
+	public List<OrderListPojo> findByUsername(String username);
 
-	public List<OrderlistPojo> findByOrdertime(Timestamp ordertime);
+	public List<OrderListPojo> findByOrdertime(Timestamp ordertime);
 
-	public List<OrderlistPojo> findByStatus(String status);
+	public List<OrderListPojo> findByStatus(String status);
 
 	public List findBySqlSentence(String queryString);
 

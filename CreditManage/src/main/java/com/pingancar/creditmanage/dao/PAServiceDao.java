@@ -1,36 +1,36 @@
 package com.pingancar.creditmanage.dao;
 
-import com.pingancar.creditmanage.pojo.PaservicePojo;
+import com.pingancar.creditmanage.pojo.PAServicePojo;
 
 import java.util.List;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public interface PaserviceDao {
+public interface PAServiceDao {
 
-	public PaservicePojo findById(Integer id);
+	public PAServicePojo findById(Integer id);
 
-	public List<PaservicePojo> findAll();
+	public List<PAServicePojo> findAll();
 
-	public Integer save(PaservicePojo paservice);
+	public Integer save(PAServicePojo paservice);
 
-	public void delete(PaservicePojo paservice);
+	public void delete(PAServicePojo paservice);
 
-	public void update(PaservicePojo paservice);
+	public void update(PAServicePojo paservice);
 
-	public List<PaservicePojo> findByPaserviceinfoid(String paserviceinfoid);
+	public List<PAServicePojo> findByPaserviceinfoid(String paserviceinfoid);
 
-	public List<PaservicePojo> findByPaserviceid(String paserviceid);
+	public List<PAServicePojo> findByPaserviceid(String paserviceid);
 
-	public List<PaservicePojo> findByType(String type);
+	public List<PAServicePojo> findByType(String type);
 
-	public List<PaservicePojo> findByTag1(String tag1);
+	public List<PAServicePojo> findByTag1(String tag1);
 
-	public List<PaservicePojo> findByLeftnum(Integer leftnum);
+	public List<PAServicePojo> findByLeftnum(Integer leftnum);
 
-	public List<PaservicePojo> findByAmount(Integer amount);
+	public List<PAServicePojo> findByAmount(Integer amount);
 
-	public List<PaservicePojo> findByCreditcost(Double creditcost);
+	public List<PAServicePojo> findByCreditcost(Double creditcost);
 
 	public List findBySqlSentence(String queryString);
 

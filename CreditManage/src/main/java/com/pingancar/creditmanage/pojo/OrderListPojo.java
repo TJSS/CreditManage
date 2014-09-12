@@ -4,7 +4,7 @@ package com.pingancar.creditmanage.pojo;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public class OrderlistPojo {
+public class OrderListPojo {
 
 	Integer id;
 	String orderlistid;
@@ -98,7 +98,7 @@ public class OrderlistPojo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OrderlistPojo other = (OrderlistPojo) obj;
+		OrderListPojo other = (OrderListPojo) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

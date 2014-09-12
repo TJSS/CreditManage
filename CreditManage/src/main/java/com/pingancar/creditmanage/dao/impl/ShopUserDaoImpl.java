@@ -1,7 +1,7 @@
 package com.pingancar.creditmanage.dao.impl;
 
-import org.tju.scs.damai.innovationFund.pojo.ShopuserPojo;
-import org.tju.scs.damai.innovationFund.dao.ShopuserDao;
+import com.pingancar.creditmanage.dao.ShopUserDao;
+import com.pingancar.creditmanage.pojo.ShopUserPojo;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public class ShopuserDaoImpl implements ShopuserDao {
+public class ShopUserDaoImpl implements ShopUserDao {
 
 	SessionFactory sessionFactory;
 	HibernateTemplate hibernateTemplate;
@@ -25,41 +25,41 @@ public class ShopuserDaoImpl implements ShopuserDao {
 		return hibernateTemplate;
 	}
 
-	public ShopuserPojo findById(Integer id){
-		return (ShopuserPojo)getHibernateTemplate().get(ShopuserPojo.class, id);
+	public ShopUserPojo findById(Integer id){
+		return (ShopUserPojo)getHibernateTemplate().get(ShopUserPojo.class, id);
 	}
 
-	public List<ShopuserPojo> findAll(){
+	public List<ShopUserPojo> findAll(){
 		String query = "from ShopuserPojo";
-		return (List<ShopuserPojo>)(getHibernateTemplate().find(query));
+		return (List<ShopUserPojo>)(getHibernateTemplate().find(query));
 	}
 
-	public Integer save(ShopuserPojo shopuser){
+	public Integer save(ShopUserPojo shopuser){
 		return (Integer)getHibernateTemplate().save(shopuser);
 	}
 
-	public void delete(ShopuserPojo shopuser){
+	public void delete(ShopUserPojo shopuser){
 		getHibernateTemplate().delete(shopuser);
 	}
 
-	public void update(ShopuserPojo shopuser){
+	public void update(ShopUserPojo shopuser){
 
 		getHibernateTemplate().update(shopuser);
 	}
 
-	public List<ShopuserPojo> findByShopid(String shopid){
-		String query = "from ShopuserPojo temp where temp.shopid = ?";
-		return (List<ShopuserPojo>)(getHibernateTemplate().find(query, shopid));
+	public List<ShopUserPojo> findByShopid(String shopid){
+		String query = "from ShopUserPojo temp where temp.shopid = ?";
+		return (List<ShopUserPojo>)(getHibernateTemplate().find(query, shopid));
 	}
 
-	public List<ShopuserPojo> findByUsername(String username){
-		String query = "from ShopuserPojo temp where temp.username = ?";
-		return (List<ShopuserPojo>)(getHibernateTemplate().find(query, username));
+	public List<ShopUserPojo> findByUsername(String username){
+		String query = "from ShopUserPojo temp where temp.username = ?";
+		return (List<ShopUserPojo>)(getHibernateTemplate().find(query, username));
 	}
 
-	public List<ShopuserPojo> findByPasswd(String passwd){
-		String query = "from ShopuserPojo temp where temp.passwd = ?";
-		return (List<ShopuserPojo>)(getHibernateTemplate().find(query, passwd));
+	public List<ShopUserPojo> findByPasswd(String passwd){
+		String query = "from ShopUserPojo temp where temp.passwd = ?";
+		return (List<ShopUserPojo>)(getHibernateTemplate().find(query, passwd));
 	}
 
 	public List findBySqlSentence(String queryString){

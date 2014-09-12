@@ -4,7 +4,7 @@ package com.pingancar.creditmanage.pojo;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
-public class PaservicePojo {
+public class PAServicePojo {
 
 	Integer id;
 	String paserviceinfoid;
