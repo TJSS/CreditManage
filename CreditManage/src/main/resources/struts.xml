@@ -15,6 +15,21 @@
             <result name="success">/</result>
             <result name="error">/</result>
         </action>
+
+        <action name=" registerUser" class="com.pingancar.creditmanage.action.UserAction" method="registerUser">
+            <result name="success">/</result>
+            <result name="error">/</result>
+        </action>
+
+        <action name=" login" class="com.pingancar.creditmanage.action.UserAction" method="login">
+            <result name="success">/</result>
+            <result name="error">/</result>
+        </action>
+
+        <action name=" updateUser" class="com.pingancar.creditmanage.action.UserAction" method="updateUser">
+            <result name="success">/</result>
+            <result name="error">/</result>
+        </action>
     </package>
 
     <!--<package name="front" namespace="/front" extends="struts-default">-->

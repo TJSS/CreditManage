@@ -111,4 +111,10 @@
             <ref bean="creditService"/>
         </property>
     </bean>
+
+    <bean id="userAction" class="com.pingancar.creditmanage.action.UserAction" abstract="false" lazy-init="default" autowire="default">
+        <property name="userService">
+            <ref bean="userService"/>
+        </property>
+    </bean>
 </beans>
