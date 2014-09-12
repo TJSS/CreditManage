@@ -48,21 +48,35 @@
 
     <!-- 配置Service -->
     <!-- 管理员Service-->
-    <bean id="UserService" class="com.pingancar.creditmanage.service.impl.UserServiceImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="UserDao">
-            <ref bean="UserDao"/>
+    <bean id="adminService" class="com.pingancar.creditmanage.service.impl.AdminServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="adminDao">
+            <ref bean="adminDao"/>
         </property>
     </bean>
     <!-- 积分Service-->
-    <bean id="CreditService" class="com.pingancar.creditmanage.service.impl.CreditServiceImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="CreditDao">
-            <ref bean="CreditDao"/>
+    <bean id="creditService" class="com.pingancar.creditmanage.service.impl.CreditServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="creditDao">
+            <ref bean="creditDao"/>
         </property>
     </bean>
     <!-- 订单表Service -->
-    <bean id="OrderListService" class="com.pingancar.creditmanage.service.impl.OrderListServiceImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="OrderListDao">
-            <ref bean="OrderListDao"/>
+    <!--<bean id="orderListService" class="com.pingancar.creditmanage.service.impl.OrderListServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="orderListDao">
+            <ref bean="orderListDao"/>
+        </property>
+    </bean>
+     -->
+    <!-- 订单表Service -->
+    <!-- <bean id="paServiceInfoService" class="com.pingancar.creditmanage.service.impl.PAServiceInfoServiceImpl" abstract="false" lazy-init="default" autowire="default">
+         <property name="paServiceInfoDao">
+             <ref bean="paServiceInfotDao"/>
+         </property>
+     </bean>
+     -->
+    <!-- 用户Service -->
+    <bean id="userService" class="com.pingancar.creditmanage.service.impl.UserServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="userDao">
+            <ref bean="userDao"/>
         </property>
     </bean>
 
