@@ -68,9 +68,14 @@
 
 
     <!-- 配置Action -->
-    <bean id="xxAction" class="com.pingancar.creditmanage.action.XXAction" abstract="false" lazy-init="default" autowire="default">
-        <property name="xxService">
-            <ref bean="xxService"/>
+    <bean id="adminAction" class="com.pingancar.creditmanage.action.AdminAction" abstract="false" lazy-init="default" autowire="default">
+        <property name="adminService">
+            <ref bean="adminService"/>
+        </property>
+    </bean>
+    <bean id="creditAction" class="com.pingancar.creditmanage.action.CreditAction" abstract="false" lazy-init="default" autowire="default">
+        <property name="creditService">
+            <ref bean="creditService"/>
         </property>
     </bean>
 </beans>
