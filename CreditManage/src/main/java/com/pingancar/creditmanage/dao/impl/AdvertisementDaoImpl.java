@@ -1,7 +1,7 @@
 package com.pingancar.creditmanage.dao.impl;
 
-import org.tju.scs.damai.innovationFund.pojo.AdvertisementPojo;
-import org.tju.scs.damai.innovationFund.dao.AdvertisementDao;
+import com.pingancar.creditmanage.dao.AdvertisementDao;
+import com.pingancar.creditmanage.pojo.AdvertisementPojo;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -14,7 +14,7 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
 	SessionFactory sessionFactory;
 	HibernateTemplate hibernateTemplate;
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
+    public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
@@ -30,30 +30,33 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
 	}
 
 	public List<AdvertisementPojo> findAll(){
-		String query = "from AdvertisementPojo";
+		String query = "from Advertisement";
 		return (List<AdvertisementPojo>)(getHibernateTemplate().find(query));
 	}
 
+    @Override
 	public Integer save(AdvertisementPojo advertisement){
 		return (Integer)getHibernateTemplate().save(advertisement);
 	}
 
-	public void delete(AdvertisementPojo advertisement){
+	@Override
+    public void delete(AdvertisementPojo advertisement){
 		getHibernateTemplate().delete(advertisement);
 	}
 
-	public void update(AdvertisementPojo advertisement){
+	@Override
+    public void update(AdvertisementPojo advertisement){
 
 		getHibernateTemplate().update(advertisement);
 	}
 
 	public List<AdvertisementPojo> findByAdid(String adid){
-		String query = "from AdvertisementPojo temp where temp.adid = ?";
+		String query = "from Advertisement temp where temp.adid = ?";
 		return (List<AdvertisementPojo>)(getHibernateTemplate().find(query, adid));
 	}
 
 	public List<AdvertisementPojo> findByImgurl(String imgurl){
-		String query = "from AdvertisementPojo temp where temp.imgurl = ?";
+		String query = "from Advertisement temp where temp.imgurl = ?";
 		return (List<AdvertisementPojo>)(getHibernateTemplate().find(query, imgurl));
 	}
 

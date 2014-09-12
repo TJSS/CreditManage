@@ -1,6 +1,6 @@
 package com.pingancar.creditmanage.service.impl;
 
-import com.pingancar.creditmanage.dao.PaserviceinfoDao;
+import com.pingancar.creditmanage.dao.PAServiceInfoDao;
 import com.pingancar.creditmanage.pojo.PAServiceInfoPojo;
 import com.pingancar.creditmanage.service.PAServiceInfoService;
 
@@ -18,7 +18,8 @@ public class PAServiceServiceImpl implements PAServiceInfoService {
 
     @Override
     public boolean addPAServiceInfo(PAServiceInfoPojo paServiceInfoPojo) {
-        return  paServiceInfoDao.save(paServiceInfoPojo);
+        return false;
+        //return  paServiceInfoDao.save(paServiceInfoPojo);
     }
 
     @Override

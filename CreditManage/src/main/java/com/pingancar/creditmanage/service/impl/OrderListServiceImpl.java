@@ -1,6 +1,6 @@
 package com.pingancar.creditmanage.service.impl;
 
-import com.pingancar.creditmanage.dao.OrderlistDao;
+import com.pingancar.creditmanage.dao.OrderListDao;
 import com.pingancar.creditmanage.service.OrderListService;
 import com.pingancar.creditmanage.util.myenum.OrderListField;
 import com.pingancar.creditmanage.pojo.OrderListPojo;
@@ -29,7 +29,8 @@ public class OrderListServiceImpl implements OrderListService {
 
     @Override
     public boolean addOrderList(OrderListPojo orderListPojo) {
-        return  orderListDao.save(orderListPojo);
+        return false;
+        //return orderListDao.save(orderListPojo);
     }
 
     @Override

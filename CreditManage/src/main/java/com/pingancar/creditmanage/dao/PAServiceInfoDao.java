@@ -2,6 +2,7 @@ package com.pingancar.creditmanage.dao;
 
 import com.pingancar.creditmanage.pojo.PAServiceInfoPojo;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**

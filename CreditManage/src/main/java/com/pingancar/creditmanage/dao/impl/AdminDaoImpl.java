@@ -1,7 +1,7 @@
 package com.pingancar.creditmanage.dao.impl;
 
-import org.tju.scs.damai.innovationFund.pojo.AdminPojo;
-import org.tju.scs.damai.innovationFund.dao.AdminDao;
+import com.pingancar.creditmanage.dao.AdminDao;
+import com.pingancar.creditmanage.pojo.AdminPojo;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -30,11 +30,12 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	public List<AdminPojo> findAll(){
-		String query = "from AdminPojo";
+		String query = "from Admin";
 		return (List<AdminPojo>)(getHibernateTemplate().find(query));
 	}
 
-	public Integer save(AdminPojo admin){
+    @Override
+    public Integer save(AdminPojo admin){
 		return (Integer)getHibernateTemplate().save(admin);
 	}
 
@@ -48,12 +49,12 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	public List<AdminPojo> findByUsername(String username){
-		String query = "from AdminPojo temp where temp.username = ?";
+		String query = "from Admin temp where temp.username = ?";
 		return (List<AdminPojo>)(getHibernateTemplate().find(query, username));
 	}
 
 	public List<AdminPojo> findByPasswd(String passwd){
-		String query = "from AdminPojo temp where temp.passwd = ?";
+		String query = "from Admin temp where temp.passwd = ?";
 		return (List<AdminPojo>)(getHibernateTemplate().find(query, passwd));
 	}
 

@@ -23,7 +23,8 @@ public class UserServiceImpl implements UserService {
         if(result1.size()>0||result2.size()>0){
             return false;
         }
-        return userDao.save(userPojo);
+        userDao.save(userPojo);
+        return true;
     }
 
     @Override
@@ -62,5 +63,7 @@ public class UserServiceImpl implements UserService {
         if(p.matcher(userPojo.getPasswd()).find()||p.matcher(userPojo.getUsername()).find()){
             return false;
         }
+
+        return true;
     }
 }

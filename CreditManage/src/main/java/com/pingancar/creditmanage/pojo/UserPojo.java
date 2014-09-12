@@ -1,6 +1,8 @@
 package com.pingancar.creditmanage.pojo;
 
 
+import java.sql.Timestamp;
+
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */

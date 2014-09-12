@@ -1,6 +1,6 @@
 package com.pingancar.creditmanage.dao;
 
-import com.pingancar.creditmanage.pojo.ShopinfoPojo;
+import com.pingancar.creditmanage.pojo.ShopInfoPojo;
 
 import java.util.List;
 
@@ -9,37 +9,37 @@ import java.util.List;
  */
 public interface ShopInfoDao {
 
-	public ShopinfoPojo findById(Integer id);
+	public ShopInfoPojo findById(Integer id);
 
-	public List<ShopinfoPojo> findAll();
+	public List<ShopInfoPojo> findAll();
 
-	public Integer save(ShopinfoPojo shopinfo);
+	public Integer save(ShopInfoPojo shopinfo);
 
-	public void delete(ShopinfoPojo shopinfo);
+	public void delete(ShopInfoPojo shopinfo);
 
-	public void update(ShopinfoPojo shopinfo);
+	public void update(ShopInfoPojo shopinfo);
 
-	public List<ShopinfoPojo> findByShopid(String shopid);
+	public List<ShopInfoPojo> findByShopid(String shopid);
 
-	public List<ShopinfoPojo> findByPaserviceinfoid(String paserviceinfoid);
+	public List<ShopInfoPojo> findByPaserviceinfoid(String paserviceinfoid);
 
-	public List<ShopinfoPojo> findByName(String name);
+	public List<ShopInfoPojo> findByName(String name);
 
-	public List<ShopinfoPojo> findByLocation(String location);
+	public List<ShopInfoPojo> findByLocation(String location);
 
-	public List<ShopinfoPojo> findByXpos(Double xpos);
+	public List<ShopInfoPojo> findByXpos(Double xpos);
 
-	public List<ShopinfoPojo> findByYpos(Double ypos);
+	public List<ShopInfoPojo> findByYpos(Double ypos);
 
-	public List<ShopinfoPojo> findByInterf(String interf);
+	public List<ShopInfoPojo> findByInterf(String interf);
 
-	public List<ShopinfoPojo> findByTag1(String tag1);
+	public List<ShopInfoPojo> findByTag1(String tag1);
 
-	public List<ShopinfoPojo> findByTag2(String tag2);
+	public List<ShopInfoPojo> findByTag2(String tag2);
 
-	public List<ShopinfoPojo> findByCon(String con);
+	public List<ShopInfoPojo> findByCon(String con);
 
-	public List<ShopinfoPojo> findByStatus(String status);
+	public List<ShopInfoPojo> findByStatus(String status);
 
 	public List findBySqlSentence(String queryString);
 

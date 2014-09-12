@@ -1,6 +1,8 @@
 package com.pingancar.creditmanage.dao;
 
-import org.tju.scs.damai.innovationFund.pojo.UserPojo;
+import com.pingancar.creditmanage.pojo.UserPojo;
+
+import java.sql.Timestamp;
 import java.util.List;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014

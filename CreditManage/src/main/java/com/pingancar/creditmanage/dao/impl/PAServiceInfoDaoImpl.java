@@ -5,6 +5,7 @@ import com.pingancar.creditmanage.pojo.PAServiceInfoPojo;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import java.sql.Timestamp;
 import java.util.List;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
@@ -30,10 +31,11 @@ public class PAServiceInfoDaoImpl implements PAServiceInfoDao {
 	}
 
 	public List<PAServiceInfoPojo> findAll(){
-		String query = "from PAServiceInfoPojo";
+		String query = "from PAServiceInfo";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query));
 	}
 
+    @Override
 	public Integer save(PAServiceInfoPojo paserviceinfo){
 		return (Integer)getHibernateTemplate().save(paserviceinfo);
 	}
@@ -47,48 +49,51 @@ public class PAServiceInfoDaoImpl implements PAServiceInfoDao {
 		getHibernateTemplate().update(paserviceinfo);
 	}
 
+    @Override
 	public List<PAServiceInfoPojo> findByPaserviceinfoid(Integer paserviceinfoid){
-		String query = "from PAServiceInfoPojo temp where temp.paserviceinfoid = ?";
+		String query = "from PAServiceInfo temp where temp.paserviceinfoid = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, paserviceinfoid));
 	}
 
 	public List<PAServiceInfoPojo> findByImgurl(String imgurl){
-		String query = "from PAServiceInfoPojo temp where temp.imgurl = ?";
+		String query = "from PAServiceInfo temp where temp.imgurl = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, imgurl));
 	}
 
 	public List<PAServiceInfoPojo> findByTag1(String tag1){
-		String query = "from PAServiceInfoPojo temp where temp.tag1 = ?";
+		String query = "from PAServiceInfo temp where temp.tag1 = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, tag1));
 	}
 
 	public List<PAServiceInfoPojo> findByTag2(String tag2){
-		String query = "from PAServiceInfoPojo temp where temp.tag2 = ?";
+		String query = "from PAServiceInfo temp where temp.tag2 = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, tag2));
 	}
 
 	public List<PAServiceInfoPojo> findByTag3(String tag3){
-		String query = "from PAServiceInfoPojo temp where temp.tag3 = ?";
+		String query = "from PAServiceInfo temp where temp.tag3 = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, tag3));
 	}
 
 	public List<PAServiceInfoPojo> findByTag4(String tag4){
-		String query = "from PAServiceInfoPojo temp where temp.tag4 = ?";
+		String query = "from PAServiceInfo temp where temp.tag4 = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, tag4));
 	}
 
 	public List<PAServiceInfoPojo> findByTag5(String tag5){
-		String query = "from PAServiceInfoPojo temp where temp.tag5 = ?";
+		String query = "from PAServiceInfo temp where temp.tag5 = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, tag5));
 	}
 
+    @Override
 	public List<PAServiceInfoPojo> findByServicestart(Timestamp servicestart){
-		String query = "from PAServiceInfoPojo temp where temp.servicestart = ?";
+		String query = "from PAServiceInfo temp where temp.servicestart = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, servicestart));
 	}
 
+    @Override
 	public List<PAServiceInfoPojo> findByServiceend(Timestamp serviceend){
-		String query = "from PAServiceInfoPojo temp where temp.serviceend = ?";
+		String query = "from PAServiceInfo temp where temp.serviceend = ?";
 		return (List<PAServiceInfoPojo>)(getHibernateTemplate().find(query, serviceend));
 	}
 
@@ -102,5 +107,6 @@ public class PAServiceInfoDaoImpl implements PAServiceInfoDao {
 	public List findBySqlSentence(String queryString, Object... values){
 		return getHibernateTemplate().find(queryString, values);
 	}
+
 
 }

@@ -5,6 +5,7 @@ import com.pingancar.creditmanage.pojo.OrderListPojo;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import java.sql.Timestamp;
 import java.util.List;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
@@ -30,11 +31,12 @@ public class OrderListDaoImpl implements OrderListDao {
 	}
 
 	public List<OrderListPojo> findAll(){
-		String query = "from OrderListPojo";
+		String query = "from OrderList";
 		return (List<OrderListPojo>)(getHibernateTemplate().find(query));
 	}
 
-	public Integer save(OrderListPojo orderlist){
+    @Override
+    public Integer save(OrderListPojo orderlist){
 		return (Integer)getHibernateTemplate().save(orderlist);
 	}
 
@@ -48,27 +50,28 @@ public class OrderListDaoImpl implements OrderListDao {
 	}
 
 	public List<OrderListPojo> findByOrderlistid(String orderlistid){
-		String query = "from OrderListPojo temp where temp.orderlistid = ?";
+		String query = "from OrderList temp where temp.orderlistid = ?";
 		return (List<OrderListPojo>)(getHibernateTemplate().find(query, orderlistid));
 	}
 
 	public List<OrderListPojo> findByPaserviceid(String paserviceid){
-		String query = "from OrderListPojo temp where temp.paserviceid = ?";
+		String query = "from OrderList temp where temp.paserviceid = ?";
 		return (List<OrderListPojo>)(getHibernateTemplate().find(query, paserviceid));
 	}
 
 	public List<OrderListPojo> findByUsername(String username){
-		String query = "from OrderListPojo temp where temp.username = ?";
+		String query = "from OrderList temp where temp.username = ?";
 		return (List<OrderListPojo>)(getHibernateTemplate().find(query, username));
 	}
 
-	public List<OrderListPojo> findByOrdertime(Timestamp ordertime){
-		String query = "from OrderListPojo temp where temp.ordertime = ?";
+    @Override
+    public List<OrderListPojo> findByOrdertime(Timestamp ordertime){
+		String query = "from OrderList temp where temp.ordertime = ?";
 		return (List<OrderListPojo>)(getHibernateTemplate().find(query, ordertime));
 	}
 
 	public List<OrderListPojo> findByStatus(String status){
-		String query = "from OrderListPojo temp where temp.status = ?";
+		String query = "from OrderList temp where temp.status = ?";
 		return (List<OrderListPojo>)(getHibernateTemplate().find(query, status));
 	}
 

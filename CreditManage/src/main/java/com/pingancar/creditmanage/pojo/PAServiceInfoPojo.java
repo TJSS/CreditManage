@@ -1,11 +1,12 @@
 package com.pingancar.creditmanage.pojo;
 
 
+import java.sql.Timestamp;
+
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
 public class PAServiceInfoPojo {
-
 	Integer paserviceinfoid;
 	String imgurl;
 	String tag1;
@@ -122,7 +123,7 @@ public class PAServiceInfoPojo {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((paserviceinfoid == null) ? 0 : paserviceinfoid.hashCode());
 		return result;
 	}
 
@@ -135,10 +136,10 @@ public class PAServiceInfoPojo {
 		if (getClass() != obj.getClass())
 			return false;
 		PAServiceInfoPojo other = (PAServiceInfoPojo) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (paserviceinfoid == null) {
+			if (other.paserviceinfoid != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!paserviceinfoid.equals(other.paserviceinfoid))
 			return false;
 		return true;
 	}

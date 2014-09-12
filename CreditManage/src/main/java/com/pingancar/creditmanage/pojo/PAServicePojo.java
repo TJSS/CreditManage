@@ -122,7 +122,7 @@ public class PAServicePojo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PaservicePojo other = (PaservicePojo) obj;
+		PAServicePojo other = (PAServicePojo) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

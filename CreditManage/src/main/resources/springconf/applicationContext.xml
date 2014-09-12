@@ -90,16 +90,6 @@
         </property>
     </bean>
 
-
-
-    <!-- 用户Service -->
-    <bean id="userService" class="com.pingancar.creditmanage.service.impl.UserServiceImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="userDao">
-            <ref bean="userDao"/>
-        </property>
-    </bean>
-
-
     <!-- 配置Action -->
     <bean id="adminAction" class="com.pingancar.creditmanage.action.AdminAction" abstract="false" lazy-init="default" autowire="default">
         <property name="adminService">

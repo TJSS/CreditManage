@@ -1,10 +1,9 @@
 package com.pingancar.creditmanage.service.impl;
 
 import com.pingancar.creditmanage.dao.ShopInfoDao;
-import com.pingancar.creditmanage.dao.ShopuserDao;
+import com.pingancar.creditmanage.dao.ShopUserDao;
 import com.pingancar.creditmanage.pojo.ShopInfoPojo;
 import com.pingancar.creditmanage.pojo.ShopUserPojo;
-import com.pingancar.creditmanage.pojo.ShopuserPojo;
 import com.pingancar.creditmanage.service.ShopService;
 import com.pingancar.creditmanage.util.myenum.ShopInfoField;
 
@@ -34,7 +33,8 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public boolean addShopInfo(ShopInfoPojo shopInfoPojo) {
-        return shopInfoDao.save(shopInfoPojo);
+        return false;
+        //return shopInfoDao.save(shopInfoPojo);
     }
 
     @Override
@@ -64,7 +64,8 @@ public class ShopServiceImpl implements ShopService {
         }
         List<ShopUserPojo> result=shopUserDao.findByUsername(shopUserPojo.getUsername());
         if(!(result.size()>0)){
-            return shopUserDao.save(shopUserPojo);
+            return false;
+            //return shopUserDao.save(shopUserPojo);
         }
         return false;
     }
@@ -83,7 +84,7 @@ public class ShopServiceImpl implements ShopService {
         return false;
     }
 
-    private boolean checkUser(ShopuserPojo shopuserPojo){
+    private boolean checkUser(ShopUserPojo shopUserPojo){
         //密码不能小于6位
         if(shopUserPojo.getPasswd().length()<6){
             return false;
@@ -99,5 +100,7 @@ public class ShopServiceImpl implements ShopService {
         if(p.matcher(shopUserPojo.getPasswd()).find()||p.matcher(shopUserPojo.getUsername()).find()){
             return false;
         }
+
+        return true;
     }
 }

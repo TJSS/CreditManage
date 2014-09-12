@@ -1,7 +1,7 @@
 package com.pingancar.creditmanage.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pingancar.creditmanage.pojo.OrderlistPojo;
+import com.pingancar.creditmanage.pojo.OrderListPojo;
 import com.pingancar.creditmanage.service.OrderListService;
 
 /**
