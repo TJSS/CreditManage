@@ -47,11 +47,25 @@
     </bean>
 
     <!-- 配置Service -->
-    <bean id="xxService" class="com.pingancar.creditmanage.service.impl.XXServiceImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="xxDao">
-            <ref bean="xxDao"/>
+    <!-- 管理员Service-->
+    <bean id="UserService" class="com.pingancar.creditmanage.service.impl.UserServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="UserDao">
+            <ref bean="UserDao"/>
         </property>
     </bean>
+    <!-- 积分Service-->
+    <bean id="CreditService" class="com.pingancar.creditmanage.service.impl.CreditServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="CreditDao">
+            <ref bean="CreditDao"/>
+        </property>
+    </bean>
+    <!-- 订单表Service -->
+    <bean id="OrderListService" class="com.pingancar.creditmanage.service.impl.OrderListServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="OrderListDao">
+            <ref bean="OrderListDao"/>
+        </property>
+    </bean>
+
 
     <!-- 配置Action -->
     <bean id="xxAction" class="com.pingancar.creditmanage.action.XXAction" abstract="false" lazy-init="default" autowire="default">
