@@ -59,20 +59,39 @@
             <ref bean="creditDao"/>
         </property>
     </bean>
-    <!-- 订单表Service -->
-    <!--<bean id="orderListService" class="com.pingancar.creditmanage.service.impl.OrderListServiceImpl" abstract="false" lazy-init="default" autowire="default">
+    <!-- 订单Service -->
+    <bean id="orderListService" class="com.pingancar.creditmanage.service.impl.OrderListServiceImpl" abstract="false" lazy-init="default" autowire="default">
         <property name="orderListDao">
             <ref bean="orderListDao"/>
         </property>
     </bean>
-     -->
-    <!-- 订单表Service -->
-    <!-- <bean id="paServiceInfoService" class="com.pingancar.creditmanage.service.impl.PAServiceInfoServiceImpl" abstract="false" lazy-init="default" autowire="default">
+    <!-- 服务信息Service -->
+     <bean id="paServiceInfoService" class="com.pingancar.creditmanage.service.impl.PAServiceInfoServiceImpl" abstract="false" lazy-init="default" autowire="default">
          <property name="paServiceInfoDao">
-             <ref bean="paServiceInfotDao"/>
+             <ref bean="paServiceInfoDao"/>
          </property>
      </bean>
-     -->
+    <!-- 服务Service -->
+    <bean id="paServiceService" class="com.pingancar.creditmanage.service.impl.PAServiceServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="paServiceDao">
+            <ref bean="paServiceDao"/>
+        </property>
+    </bean>
+    <!-- 商店Service -->
+    <bean id="shopService" class="com.pingancar.creditmanage.service.impl.ShopServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="shopDao">
+            <ref bean="shopDao"/>
+        </property>
+    </bean>
+    <!-- 用户Service -->
+    <bean id="userService" class="com.pingancar.creditmanage.service.impl.UserServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="userDao">
+            <ref bean="userDao"/>
+        </property>
+    </bean>
+
+
+
     <!-- 用户Service -->
     <bean id="userService" class="com.pingancar.creditmanage.service.impl.UserServiceImpl" abstract="false" lazy-init="default" autowire="default">
         <property name="userDao">
