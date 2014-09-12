@@ -14,8 +14,8 @@ public class AdminAction extends ActionSupport {
     public String login(){
         boolean result = adminService.login(adminPojo);
 
-        addActionMessage("aaaa");
-        addActionError("111");
+
+        addActionError("错误代码1");
         if(result){
             return SUCCESS;
         } else {

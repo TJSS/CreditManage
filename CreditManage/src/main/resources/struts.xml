@@ -8,6 +8,12 @@
         <default-action-ref name="backHome"/>
         <action name="login" class="com.pingancar.creditmanage.action.AdminAction" method="login">
             <result name="success">/index.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="updateCredit" class="com.pingancar.creditmagage.action.CreditAction" method="updateCreadit">
+            <result name="success">/</result>
+            <result name="error">/</result>
         </action>
     </package>
 
