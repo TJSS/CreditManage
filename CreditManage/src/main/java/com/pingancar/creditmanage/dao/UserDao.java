@@ -1,6 +1,7 @@
 package com.pingancar.creditmanage.dao;
 
 import com.pingancar.creditmanage.pojo.UserPojo;
+import com.pingancar.creditmanage.util.myenum.UserField;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.List;
  *Created by system on Tue Sep 09 11:17:13 CST 2014
  */
 public interface UserDao {
+
+    public List<UserPojo> queryUser(List<UserField> userFieldList, List<String> valueList);
 
 	public UserPojo findById(Integer id);
 
@@ -18,6 +21,7 @@ public interface UserDao {
 	public void delete(UserPojo user);
 
 	public void update(UserPojo user);
+
 
 	public List<UserPojo> findByPasswd(String passwd);
 

@@ -1,6 +1,7 @@
 package com.pingancar.creditmanage.dao;
 
 import com.pingancar.creditmanage.pojo.OrderListPojo;
+import com.pingancar.creditmanage.util.myenum.OrderListField;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -10,11 +11,15 @@ import java.util.List;
  */
 public interface OrderListDao {
 
-	public OrderListPojo findById(Integer id);
+	public List<OrderListPojo> queryOrderList(List<OrderListField> orderListFieldsList,List<String> valuesList);
+
+    public OrderListPojo findById(Integer id);
 
 	public List<OrderListPojo> findAll();
 
 	public Integer save(OrderListPojo orderlist);
+
+    public void add(OrderListPojo orderlist);
 
 	public void delete(OrderListPojo orderlist);
 
