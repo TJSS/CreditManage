@@ -40,10 +40,58 @@
 
 
     <!-- 配置Dao -->
-    <bean id="xxDao" class="com.pingancar.creditmanage.dao.impl.XXDaoImpl" abstract="false" lazy-init="default" autowire="default">
-        <!--<property name="sessionFactory">-->
-            <!--<ref bean="sessionFactory"/>-->
-        <!--</property>-->
+    <bean id="adminDao" class="com.pingancar.creditmanage.dao.impl.AdminDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="advertisementDao" class="com.pingancar.creditmanage.dao.impl.AdminDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="creditDao" class="com.pingancar.creditmanage.dao.impl.CreditDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="orderListDao" class="com.pingancar.creditmanage.dao.impl.OrderListDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="paServiceDao" class="com.pingancar.creditmanage.dao.impl.PAServiceDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="paServiceInfoDao" class="com.pingancar.creditmanage.dao.impl.PAServiceInfoDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="shopInfoDao" class="com.pingancar.creditmanage.dao.impl.ShopInfoDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="shopUserDao" class="com.pingancar.creditmanage.dao.impl.ShopUserDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="userDao" class="com.pingancar.creditmanage.dao.impl.UserDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
     </bean>
 
     <!-- 配置Service -->
