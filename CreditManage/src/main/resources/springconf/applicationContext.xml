@@ -115,7 +115,7 @@
     </bean>
 
     <bean id = "pAServiceAction" class = "com.pingancar.creditmanage.action.PAServiceAction" abstract = "false" lazy-init="default" autowire="default">
-        <property name="paServiceService">
+        <property name="paServiceService"  >
            <ref bean="paServiceService"/>
         </property>
     </bean>
