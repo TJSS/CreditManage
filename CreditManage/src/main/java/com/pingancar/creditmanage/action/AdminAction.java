@@ -16,7 +16,7 @@ public class AdminAction extends ActionSupport {
         if(result){
             return SUCCESS;
         } else {
-            addActionError("错误代码1");
+            addActionError("登录失败");
             return ERROR;
         }
     }

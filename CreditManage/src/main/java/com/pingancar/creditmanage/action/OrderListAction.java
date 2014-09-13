@@ -2,6 +2,7 @@ package com.pingancar.creditmanage.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.pingancar.creditmanage.pojo.OrderListPojo;
+import com.pingancar.creditmanage.pojo.OrderListPojo;
 import com.pingancar.creditmanage.service.OrderListService;
 
 /**
@@ -10,7 +11,39 @@ import com.pingancar.creditmanage.service.OrderListService;
 public class OrderListAction extends ActionSupport{
     private OrderListService orderListService;
     private OrderListPojo orderlistPojo;
+    public String addOrderList(){
+        boolean result=orderListService.addOrderList(orderlistPojo);
+        if(result){
+            return SUCCESS;
+        }else{
+            addActionError("添加订单失败");
+            return ERROR;
+        }
+    }
+    public String updateOrderList(){
+        boolean result=orderListService.updateOrderList(orderlistPojo);
+        if(result){
+            return SUCCESS;
+        }else{
+            addActionError("更新订单失败");
+            return ERROR;
+        }
+    }
+    public String deleteOrderList(){
+        boolean result=orderListService.deleteOrderList(orderlistPojo);
+        if(result){
+            return SUCCESS;
+        }else{
+            addActionError("删除订单");
+            return ERROR;
+        }
+    }
 
+    public OrderListService getOrderListService() {
+        return orderListService;
+    }
 
-
+    public void setOrderListService(OrderListService orderListService) {
+        this.orderListService = orderListService;
+    }
 }
