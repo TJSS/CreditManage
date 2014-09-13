@@ -1,8 +1,10 @@
 package com.pingancar.creditmanage.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.pingancar.creditmanage.pojo.UserPojo;
 import com.pingancar.creditmanage.service.UserService;
+import com.pingancar.creditmanage.util.myenum.UserType;
 
 /**
  * Created by kx on 2014/9/12.
@@ -22,11 +24,17 @@ public class UserAction extends ActionSupport{
     public String login(){
         boolean result=userService.login(userPojo);
         if(result){
+            ActionContext.getContext().getSession().put("user", userPojo);
+            ActionContext.getContext().getSession().put("type", UserType.Common);
             return SUCCESS;
         } else {
             addActionError("登陆错误");
             return ERROR;
         }
+    }
+    public String logout(){
+        ActionContext.getContext().getSession().put("type", UserType.Reader);
+        return SUCCESS;
     }
     public String updateUser(){
         boolean result=userService.updateUser(userPojo);
