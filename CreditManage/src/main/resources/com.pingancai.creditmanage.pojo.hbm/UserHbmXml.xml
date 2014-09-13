@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>	<!-- Created by the tjuscs ncfxy -->
+	<class name="com.pingancar.creditmanage.pojo.UserPojo" table="user" lazy="true">
+		<id name="id" type="java.lang.Integer" column="id">
+			<generator class="native"/>
+		</id>
+
+		<property name="passwd" type="java.lang.String" column="passwd" length="20" />
+
+		<property name="username" type="java.lang.String" column="username" length="20" />
+
+		<property name="con" type="java.lang.String" column="con" length="11" />
+
+		<property name="email" type="java.lang.String" column="email" length="255" />
+
+		<property name="regtime" type="java.sql.Timestamp" column="regtime" length="19" />
+
+		<property name="premium" type="java.lang.Double" column="premium" length="22" />
+
+		<property name="insured" type="java.lang.String" column="insured" length="20" />
+
+		<property name="carowner" type="java.lang.String" column="carowner" length="20" />
+
+		<property name="factory" type="java.lang.String" column="factory" length="20" />
+
+		<property name="cartype" type="java.lang.String" column="cartype" length="20" />
+
+		<property name="carnumber" type="java.lang.String" column="carnumber" length="20" />
+
+		<property name="starttime" type="java.sql.Timestamp" column="starttime" length="19" />
+
+		<property name="endtime" type="java.sql.Timestamp" column="endtime" length="19" />
+
+		<property name="mobilephone" type="java.lang.String" column="mobilephone" length="11" />
+
+	</class>
+</hibernate-mapping>
