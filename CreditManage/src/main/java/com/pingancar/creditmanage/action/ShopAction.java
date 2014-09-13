@@ -1,9 +1,11 @@
 package com.pingancar.creditmanage.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.pingancar.creditmanage.pojo.ShopInfoPojo;
 import com.pingancar.creditmanage.pojo.ShopUserPojo;
 import com.pingancar.creditmanage.service.ShopService;
+import com.pingancar.creditmanage.util.myenum.UserType;
 
 /**
  * Created by kx on 2014/9/13
@@ -15,12 +17,18 @@ public class ShopAction extends ActionSupport{
     public String login(){
         boolean result = shopService.login(shopUserPojo);
         if (result){
+            ActionContext.getContext().getSession().put("user", shopUserPojo);
+            ActionContext.getContext().getSession().put("type", UserType.Producer);
             return SUCCESS;
         }else {
             addActionError("商家登陆失败");
             return ERROR;
         }
 
+    }
+    public String logout(){
+        ActionContext.getContext().getSession().put("type", UserType.Reader);
+        return SUCCESS;
     }
     public String addShopInfo(){
         boolean result = shopService.addShopInfo(shopInfoPojo);
