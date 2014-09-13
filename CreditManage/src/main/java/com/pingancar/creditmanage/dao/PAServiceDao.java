@@ -1,6 +1,7 @@
 package com.pingancar.creditmanage.dao;
 
 import com.pingancar.creditmanage.pojo.PAServicePojo;
+import com.pingancar.creditmanage.util.myenum.PAServiceField;
 
 import java.util.List;
 /**
@@ -8,7 +9,9 @@ import java.util.List;
  */
 public interface PAServiceDao {
 
-	public PAServicePojo findById(Integer id);
+	public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldsLis,List<String> valuesList);
+
+    public PAServicePojo findById(Integer id);
 
 	public List<PAServicePojo> findAll();
 

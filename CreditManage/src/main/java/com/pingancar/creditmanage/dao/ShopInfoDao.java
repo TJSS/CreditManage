@@ -1,6 +1,7 @@
 package com.pingancar.creditmanage.dao;
 
 import com.pingancar.creditmanage.pojo.ShopInfoPojo;
+import com.pingancar.creditmanage.util.myenum.ShopInfoField;
 
 import java.util.List;
 
@@ -9,11 +10,15 @@ import java.util.List;
  */
 public interface ShopInfoDao {
 
+    public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoList,List<String> valuesList);
+
 	public ShopInfoPojo findById(Integer id);
 
 	public List<ShopInfoPojo> findAll();
 
 	public Integer save(ShopInfoPojo shopinfo);
+
+    public void add(ShopInfoPojo shopinfo);
 
 	public void delete(ShopInfoPojo shopinfo);
 
