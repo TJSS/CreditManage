@@ -107,4 +107,28 @@
             <ref bean="userService"/>
         </property>
     </bean>
+
+    <bean id = "orderListAction" class = "com.pingancar.creditmanage.action.OrderListAction" abstract = "false" lazy-init="default" autowire="default">
+        <property name="orderListService">
+            <ref bean = "orderListService"/>
+        </property>
+    </bean>
+
+    <bean id = "pAServiceAction" class = "com.pingancar.creditmanage.action.PAServiceAction" abstract = "false" lazy-init="default" autowire="default">
+        <property name="paServiceService"  >
+           <ref bean="paServiceService"/>
+        </property>
+    </bean>
+
+    <bean id = "pAServiceInfoAction" class = "com.pingancar.creditmanage.action.PAServiceInfoAction" abstract = "false" lazy-init="default" autowire="default">
+        <property name="paServiceInfoService">
+            <ref bean = "paServiceInfoService"/>
+        </property>
+    </bean>
+
+    <bean id = "shopAction" class = "com.pingancar.creditmanage.action.ShopAction" abstract = "false" lazy-init="default" autowire="default">
+        <property name="shopService">
+            <ref bean = "shopService"/>
+        </property>
+    </bean>
 </beans>
