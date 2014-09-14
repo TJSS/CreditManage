@@ -4,7 +4,9 @@ ehthumbs.db
 
 .git
 ~*
-
+/template/tjuwx/target/
+/template/tjuwx/src/main/resources/
+/CreditManage/target/
 *.class
 
 # Folder config file
