@@ -2,6 +2,7 @@ package com.pingancar.creditmanage.dao.impl;
 
 import com.pingancar.creditmanage.dao.ShopInfoDao;
 import com.pingancar.creditmanage.pojo.ShopInfoPojo;
+import com.pingancar.creditmanage.util.myenum.ShopInfoField;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -25,7 +26,20 @@ public class ShopInfoDaoImpl implements ShopInfoDao {
 		return hibernateTemplate;
 	}
 
-	public ShopInfoPojo findById(Integer id){
+    @Override
+    public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoList, List<String> valuesList) {
+        String query = "select * from shopinfo ol";
+        for(int i = 0; i < shopInfoList.size(); i++){
+            if( i != 0 ){
+                query += " and ";
+            }
+            query += shopInfoList.get(i).toString();
+        }
+
+        return  (List<ShopInfoPojo>)getHibernateTemplate().find(query);
+    }
+
+    public ShopInfoPojo findById(Integer id){
 		return (ShopInfoPojo)getHibernateTemplate().get(ShopInfoPojo.class, id);
 	}
 
@@ -38,7 +52,12 @@ public class ShopInfoDaoImpl implements ShopInfoDao {
 		return (Integer)getHibernateTemplate().save(shopinfo);
 	}
 
-	public void delete(ShopInfoPojo shopinfo){
+    @Override
+    public void add(ShopInfoPojo shopinfo) {
+
+    }
+
+    public void delete(ShopInfoPojo shopinfo){
 		getHibernateTemplate().delete(shopinfo);
 	}
 

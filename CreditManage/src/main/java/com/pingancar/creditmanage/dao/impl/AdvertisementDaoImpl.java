@@ -51,12 +51,12 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
 	}
 
 	public List<AdvertisementPojo> findByAdid(String adid){
-		String query = "from Advertisement temp where temp.adid = ?";
+		String query = "from advertisement temp where temp.adid = ?";
 		return (List<AdvertisementPojo>)(getHibernateTemplate().find(query, adid));
 	}
 
 	public List<AdvertisementPojo> findByImgurl(String imgurl){
-		String query = "from Advertisement temp where temp.imgurl = ?";
+		String query = "from advertisement temp where temp.imgurl = ?";
 		return (List<AdvertisementPojo>)(getHibernateTemplate().find(query, imgurl));
 	}
 
