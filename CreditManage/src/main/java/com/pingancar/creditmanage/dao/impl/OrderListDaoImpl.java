@@ -2,9 +2,11 @@ package com.pingancar.creditmanage.dao.impl;
 
 import com.pingancar.creditmanage.dao.OrderListDao;
 import com.pingancar.creditmanage.pojo.OrderListPojo;
+import com.pingancar.creditmanage.util.myenum.OrderListField;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import javax.persistence.criteria.Order;
 import java.sql.Timestamp;
 import java.util.List;
 /**
@@ -15,7 +17,7 @@ public class OrderListDaoImpl implements OrderListDao {
 	SessionFactory sessionFactory;
 	HibernateTemplate hibernateTemplate;
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
+    public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 

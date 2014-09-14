@@ -8,7 +8,7 @@
         <default-action-ref name="backHome"/>
         <action name="login" class="com.pingancar.creditmanage.action.AdminAction" method="login">
             <result name="success">/index.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="error">/login.jsp</result>
         </action>
 
         <action name="updateCredit" class="com.pingancar.creditmagage.action.CreditAction" method="updateCreadit">
@@ -21,12 +21,12 @@
             <result name="error">/</result>
         </action>
 
-        <action name=" login" class="com.pingancar.creditmanage.action.UserAction" method="login">
+        <action name="userLogin" class="com.pingancar.creditmanage.action.UserAction" method="login">
             <result name="success">/</result>
             <result name="error">/</result>
         </action>
 
-        <action name=" updateUser" class="com.pingancar.creditmanage.action.UserAction" method="updateUser">
+        <action name="updateUser" class="com.pingancar.creditmanage.action.UserAction" method="updateUser">
             <result name="success">/</result>
             <result name="error">/</result>
         </action>

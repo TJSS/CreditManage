@@ -22,5 +22,5 @@ public enum OrderListField {
     /**
      * 订单状态
      */
-    STATUS;
+    STATUS
 }
