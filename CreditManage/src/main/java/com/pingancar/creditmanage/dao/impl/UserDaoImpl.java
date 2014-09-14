@@ -2,6 +2,7 @@ package com.pingancar.creditmanage.dao.impl;
 
 import com.pingancar.creditmanage.dao.UserDao;
 import com.pingancar.creditmanage.pojo.UserPojo;
+import com.pingancar.creditmanage.util.myenum.UserField;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -26,7 +27,20 @@ public class UserDaoImpl implements UserDao {
 		return hibernateTemplate;
 	}
 
-	public UserPojo findById(Integer id){
+    @Override
+    public List<UserPojo> queryUser(List<UserField> userFieldList, List<String> valueList) {
+        String query = "select * from user ol";
+        for(int i = 0; i < userFieldList.size(); i++){
+            if( i != 0 ){
+                query += " and ";
+            }
+            query += userFieldList.get(i).toString();
+        }
+
+        return  (List<UserPojo>)getHibernateTemplate().find(query);
+    }
+
+    public UserPojo findById(Integer id){
 		return (UserPojo)getHibernateTemplate().get(UserPojo.class, id);
 	}
 

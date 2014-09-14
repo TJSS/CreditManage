@@ -2,6 +2,7 @@ package com.pingancar.creditmanage.dao.impl;
 
 import com.pingancar.creditmanage.dao.PAServiceDao;
 import com.pingancar.creditmanage.pojo.PAServicePojo;
+import com.pingancar.creditmanage.util.myenum.PAServiceField;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -25,7 +26,20 @@ public class PAServiceDaoImpl implements PAServiceDao {
 		return hibernateTemplate;
 	}
 
-	public PAServicePojo findById(Integer id){
+    @Override
+    public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldsLis, List<String> valuesList) {
+        String query = "select * from paservice ol";
+        for(int i = 0; i < paServiceFieldsLis.size(); i++){
+            if( i != 0 ){
+                query += " and ";
+            }
+            query += paServiceFieldsLis.get(i).toString();
+        }
+
+        return  (List<PAServicePojo>)getHibernateTemplate().find(query);
+    }
+
+    public PAServicePojo findById(Integer id){
 		return (PAServicePojo)getHibernateTemplate().get(PAServicePojo.class, id);
 	}
 

@@ -28,7 +28,20 @@ public class OrderListDaoImpl implements OrderListDao {
 		return hibernateTemplate;
 	}
 
-	public OrderListPojo findById(Integer id){
+    @Override
+    public List<OrderListPojo> queryOrderList(List<OrderListField> orderListFieldsList, List<String> valuesList) {
+        String query = "select * from orderlist ol";
+        for(int i = 0; i < orderListFieldsList.size(); i++){
+            if( i != 0 ){
+                query += " and ";
+            }
+            query += orderListFieldsList.get(i).toString();
+        }
+
+        return  (List<OrderListPojo>)getHibernateTemplate().find(query);
+    }
+
+    public OrderListPojo findById(Integer id){
 		return (OrderListPojo)getHibernateTemplate().get(OrderListPojo.class, id);
 	}
 
@@ -42,7 +55,13 @@ public class OrderListDaoImpl implements OrderListDao {
 		return (Integer)getHibernateTemplate().save(orderlist);
 	}
 
-	public void delete(OrderListPojo orderlist){
+    //add()与save()有区别么？
+    @Override
+    public void add(OrderListPojo orderlist) {
+
+    }
+
+    public void delete(OrderListPojo orderlist){
 		getHibernateTemplate().delete(orderlist);
 	}
 
