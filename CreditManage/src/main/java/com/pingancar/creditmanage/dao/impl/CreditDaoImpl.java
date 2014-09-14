@@ -30,7 +30,7 @@ public class CreditDaoImpl implements CreditDao {
 	}
 
 	public List<CreditPojo> findAll(){
-		String query = "from credit";
+		String query = "from CreditPojo";
 		return (List<CreditPojo>)(getHibernateTemplate().find(query));
 	}
 
@@ -48,12 +48,12 @@ public class CreditDaoImpl implements CreditDao {
 	}
 
 	public List<CreditPojo> findByUsername(String username){
-		String query = "from credit temp where temp.username = ?";
+		String query = "from CreditPojo temp where temp.username = ?";
 		return (List<CreditPojo>)(getHibernateTemplate().find(query, username));
 	}
 
 	public List<CreditPojo> findByCredit(Double credit){
-		String query = "from credit temp where temp.credit = ?";
+		String query = "from CreditPojo temp where temp.credit = ?";
 		return (List<CreditPojo>)(getHibernateTemplate().find(query, credit));
 	}
 

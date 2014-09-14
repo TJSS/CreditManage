@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background:#fff;
+}
+
+.container{
+	font-size:1.4em;
+	 text-align:center; 
+	 padding-left:5%;
+	 padding-right:5%;
+	 width:90%;
+}
+
+.ui-field-contain>label~[class*=ui-], .ui-field-contain .ui-controlgroup-controls{
+	padding:0.05em;
+}
+
+.ui-field-contain>label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain>.ui-rangeslider>label .vmiddle{
+	margin: .1em 2% 0 0;
+	vertical-align:middle;
+}
+
+.my-btn{
+	font-size: 1.2em;
+	background: #f60;
+	color:#fff;
+	font-family:"Microsoft YaHei UI";
+}

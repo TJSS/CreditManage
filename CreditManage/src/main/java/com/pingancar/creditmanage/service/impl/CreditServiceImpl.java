@@ -46,4 +46,11 @@ public class CreditServiceImpl implements CreditService {
         return true;
     }
 
+    public CreditDao getCreditDao() {
+        return creditDao;
+    }
+
+    public void setCreditDao(CreditDao creditDao) {
+        this.creditDao = creditDao;
+    }
 }

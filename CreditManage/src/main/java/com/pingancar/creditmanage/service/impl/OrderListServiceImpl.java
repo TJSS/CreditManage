@@ -46,4 +46,12 @@ public class OrderListServiceImpl implements OrderListService {
         orderListDao.delete(orderListPojo);
         return false;
     }
+
+    public OrderListDao getOrderListDao() {
+        return orderListDao;
+    }
+
+    public void setOrderListDao(OrderListDao orderListDao) {
+        this.orderListDao = orderListDao;
+    }
 }

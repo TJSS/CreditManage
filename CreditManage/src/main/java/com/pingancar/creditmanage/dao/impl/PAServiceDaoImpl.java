@@ -28,7 +28,7 @@ public class PAServiceDaoImpl implements PAServiceDao {
 
     @Override
     public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldsLis, List<String> valuesList) {
-        String query = "select * from paservice ol";
+        String query = "select * from PAServicePojoPojo ol";
         for(int i = 0; i < paServiceFieldsLis.size(); i++){
             if( i != 0 ){
                 query += " and ";
@@ -44,7 +44,7 @@ public class PAServiceDaoImpl implements PAServiceDao {
 	}
 
 	public List<PAServicePojo> findAll(){
-		String query = "from PAService";
+		String query = "from PAServicePojo";
 		return (List<PAServicePojo>)(getHibernateTemplate().find(query));
 	}
 
@@ -62,37 +62,37 @@ public class PAServiceDaoImpl implements PAServiceDao {
 	}
 
 	public List<PAServicePojo> findByPaserviceinfoid(String paserviceinfoid){
-		String query = "from PAService temp where temp.paserviceinfoid = ?";
+		String query = "from PAServicePojo temp where temp.paserviceinfoid = ?";
 		return (List<PAServicePojo>)(getHibernateTemplate().find(query, paserviceinfoid));
 	}
 
 	public List<PAServicePojo> findByPaserviceid(String paserviceid){
-		String query = "from PAService temp where temp.paserviceid = ?";
+		String query = "from PAServicePojo temp where temp.paserviceid = ?";
 		return (List<PAServicePojo>)(getHibernateTemplate().find(query, paserviceid));
 	}
 
 	public List<PAServicePojo> findByType(String type){
-		String query = "from PAService temp where temp.type = ?";
+		String query = "from PAServicePojo temp where temp.type = ?";
 		return (List<PAServicePojo>)(getHibernateTemplate().find(query, type));
 	}
 
 	public List<PAServicePojo> findByTag1(String tag1){
-		String query = "from PAService temp where temp.tag1 = ?";
+		String query = "from PAServicePojo temp where temp.tag1 = ?";
 		return (List<PAServicePojo>)(getHibernateTemplate().find(query, tag1));
 	}
 
 	public List<PAServicePojo> findByLeftnum(Integer leftnum){
-		String query = "from PAService temp where temp.leftnum = ?";
+		String query = "from PAServicePojo temp where temp.leftnum = ?";
 		return (List<PAServicePojo>)(getHibernateTemplate().find(query, leftnum));
 	}
 
 	public List<PAServicePojo> findByAmount(Integer amount){
-		String query = "from PAService temp where temp.amount = ?";
+		String query = "from PAServicePojo temp where temp.amount = ?";
 		return (List<PAServicePojo>)(getHibernateTemplate().find(query, amount));
 	}
 
 	public List<PAServicePojo> findByCreditcost(Double creditcost){
-		String query = "from PAService temp where temp.creditcost = ?";
+		String query = "from PAServicePojo temp where temp.creditcost = ?";
 		return (List<PAServicePojo>)(getHibernateTemplate().find(query, creditcost));
 	}
 

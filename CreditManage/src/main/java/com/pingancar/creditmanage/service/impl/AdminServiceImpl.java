@@ -31,12 +31,19 @@ public class AdminServiceImpl implements AdminService {
         }
         List<AdminPojo> result=adminDao.findByUsername(adminPojo.getUsername());
         if(result.size()>0){
-            if(result.get(0).getPasswd()==adminPojo.getPasswd()){
+            if(result.get(0).getPasswd().equals(adminPojo.getPasswd())){
                 return true;
             }
         }
         return false;
     }
 
+    public AdminDao getAdminDao() {
+        return adminDao;
+    }
+
+    public void setAdminDao(AdminDao adminDao) {
+        this.adminDao = adminDao;
+    }
 }
 

@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	font-family: "Microsoft YaHei" ! important; 
+}
+
+#header {
+	width: 100%;
+	height: 4em;	
+}
+
+#header-logo {
+	width: 14.611111111em;
+	height: 1.333333333em;
+	margin: auto;
+	display: block;
+	padding-top: 1.2em;
+}
+
+#ad-area {
+	position: relative;
+	width: 40em;
+	height: 12.38888889em;
+	margin: auto;
+}
+
+#ad {
+	width: 40em;
+	height: 12.38888889em;
+	margin: 0;
+	display: block;	
+}
+
+#point-group {
+	position: absolute;
+	left: 2em;
+	bottom: 1em;	
+}
+
+.ad-point {
+	display: block;
+	float: left;
+	margin-right: 0.2em;
+	width: 1.166666667em;
+	height: 1.11111111em;
+}
+
+#menu-area {
+	width: 100%;
+	height: 18.55555556em;
+	margin: auto;
+}
+
+.button {
+	width: 6.8888888889em;
+	height: 6.8888888889em;
+	display: block;
+	float: left;
+	margin: 1.3em 1.555em;
+}
+
+.divide {
+	width: 100%;
+	height: 1.333333333em;
+	background-color: #eeeeee;	
+}
+
+.list {
+	width: 16.7222222222em;
+	height: 8.8333333333em;
+	border: 1px solid #d4d4d4;	
+	margin-top: 1.16666666667em;
+	display: block;
+}
+
+.list-left {
+	float: left;	
+	margin-left: 2em;
+}
+
+.list-right {
+	float: right;
+	margin-right: 2em;	
+}
+
+#sub-page-header{
+	position: absolute;
+	width: 100%;
+	height: 4em;
+	text-align:center;
+	background:#eee;
+}
+
+/*css*/
+.theBanner { position: relative; overflow: auto; }
+.theBanner li { list-style: none; height: 12.38888889;}
+.theBanner ul {margin:0px; padding:0px;}
+.theBanner ul li { float: left; }
+.theBanner .dots { position: absolute; left: 0; right: 0; bottom: 1em; }
+.theBanner .dots li { display: inline-block; width: 0.5em; height: 0.5em; margin: 0 0.1em; text-indent: -999em; border: 2px solid #fff; border-radius: 6px; cursor: pointer; opacity: 1; -webkit-transition: background .5s, opacity .5s; -moz-transition: background .5s, opacity .5s; transition: background .5s, opacity .5s; background: #eee;}
+.theBanner .dots li.active { background: #f60; opacity: 1; }
+
+@charset "utf-8";
+/* CSS Document */
+body{
+	background:#fff;
+}
+
+.container{
+	background:#fff;
+	font-size:1.4em;
+	 text-align:center; 
+	 padding-left:5%;
+	 padding-right:5%;
+	 width:90%;
+}
+
+.ui-field-contain>label~[class*=ui-], .ui-field-contain .ui-controlgroup-controls{
+	padding:0.05em;
+}
+
+.ui-field-contain>label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain>.ui-rangeslider>label .vmiddle{
+	margin: .1em 2% 0 0;
+	vertical-align:middle;
+}
+
+.ui-mobile label{
+	font-size:1.2em;
+}
+
+.my-btn{
+	font-size: 1.2em;
+	background: #f60;
+	color:#fff;
+	font-family:"Microsoft YaHei UI";
+}
+
+.img-display{
+	width: 24em;
+	height: 15em;
+}
+
+.sub-title{
+	height: 2.5em;
+	background-color: #eeeeee;
+}
+
+.sub-title-text{
+	padding-top: 0.5em;
+	padding-left:3.2em;
+}
+
+.credit-area{
+	margin: 0.5em 1em 5em 1em;
+}
+
+.ui-btn.my-btn.my-btn-adjust{
+	margin: 0.5em 1em 1em 1em;
+}
+
+.need-credit{
+	margin-top: 1.2em;
+	font-size: 1.2em;
+}
+
+.info{
+	text-align:left;
+	margin: 0.5em 1em 1em 1em;
+}

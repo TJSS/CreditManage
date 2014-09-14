@@ -30,7 +30,7 @@ public class AdvertisementDaoImpl implements AdvertisementDao {
 	}
 
 	public List<AdvertisementPojo> findAll(){
-		String query = "from Advertisement";
+		String query = "from AdvertisementPojo";
 		return (List<AdvertisementPojo>)(getHibernateTemplate().find(query));
 	}
 

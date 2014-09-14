@@ -30,7 +30,7 @@ public class ShopUserDaoImpl implements ShopUserDao {
 	}
 
 	public List<ShopUserPojo> findAll(){
-		String query = "from Shopuser";
+		String query = "from ShopuserPojo";
 		return (List<ShopUserPojo>)(getHibernateTemplate().find(query));
 	}
 

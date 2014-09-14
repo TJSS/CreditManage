@@ -36,4 +36,12 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
         paServiceInfoDao.delete(paServiceInfoPojo);
         return false;
     }
+
+    public PAServiceInfoDao getPaServiceInfoDao() {
+        return paServiceInfoDao;
+    }
+
+    public void setPaServiceInfoDao(PAServiceInfoDao paServiceInfoDao) {
+        this.paServiceInfoDao = paServiceInfoDao;
+    }
 }

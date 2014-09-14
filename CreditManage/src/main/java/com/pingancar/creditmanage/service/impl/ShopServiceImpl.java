@@ -103,4 +103,20 @@ public class ShopServiceImpl implements ShopService {
 
         return true;
     }
+
+    public ShopUserDao getShopUserDao() {
+        return shopUserDao;
+    }
+
+    public void setShopUserDao(ShopUserDao shopUserDao) {
+        this.shopUserDao = shopUserDao;
+    }
+
+    public ShopInfoDao getShopInfoDao() {
+        return shopInfoDao;
+    }
+
+    public void setShopInfoDao(ShopInfoDao shopInfoDao) {
+        this.shopInfoDao = shopInfoDao;
+    }
 }

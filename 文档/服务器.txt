@@ -1,3 +1,0 @@
-ip:114.215.140.130
-id: Administrator
-PWD: fHrJsQrJ66351935
