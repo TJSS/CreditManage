@@ -92,6 +92,9 @@
         <property name="sessionFactory">
             <ref bean="sessionFactory" />
         </property>
+        <property name="creditDao">
+            <ref bean="creditDao" />
+        </property>
     </bean>
 
     <!-- 配置Service -->

@@ -1,6 +1,8 @@
 package com.pingancar.creditmanage.dao.impl;
 
+import com.pingancar.creditmanage.dao.CreditDao;
 import com.pingancar.creditmanage.dao.UserDao;
+import com.pingancar.creditmanage.pojo.CreditPojo;
 import com.pingancar.creditmanage.pojo.UserPojo;
 import com.pingancar.creditmanage.util.myenum.UserField;
 import org.hibernate.SessionFactory;
@@ -13,6 +15,7 @@ import java.util.List;
  */
 public class UserDaoImpl implements UserDao {
 
+    private CreditDao creditDao;
 	SessionFactory sessionFactory;
 	HibernateTemplate hibernateTemplate;
 
@@ -26,6 +29,10 @@ public class UserDaoImpl implements UserDao {
 		}
 		return hibernateTemplate;
 	}
+
+    public double calculateCredit(double money){
+        return money/5;
+    }
 
     @Override
     public List<UserPojo> queryUser(List<UserField> userFieldList, List<String> valueList) {
@@ -55,7 +62,14 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public Integer save(UserPojo user){
-		return (Integer)getHibernateTemplate().save(user);
+		double credit = calculateCredit(user.getPremium());
+        List<CreditPojo> cpList = creditDao.findByUsername(user.getUsername());
+        if(!cpList.isEmpty()){
+            CreditPojo cp = cpList.get(0);
+            cp.setCredit(credit);
+            getHibernateTemplate().save(cp);
+        }
+        return (Integer)getHibernateTemplate().save(user);
 	}
 
 	public void delete(UserPojo user){
@@ -148,4 +162,19 @@ public class UserDaoImpl implements UserDao {
 		return getHibernateTemplate().find(queryString, values);
 	}
 
+    public CreditDao getCreditDao() {
+        return creditDao;
+    }
+
+    public void setCreditDao(CreditDao creditDao) {
+        this.creditDao = creditDao;
+    }
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+        this.hibernateTemplate = hibernateTemplate;
+    }
 }
