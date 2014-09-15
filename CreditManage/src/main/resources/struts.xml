@@ -70,17 +70,17 @@
             <result name = "error">/</result>
         </action>
 
-        <action name="  updateShopInfo" class="com.pingancar.creditmanage.action.ShopAction" method = " updateShopInfo">
+        <action name="updateShopInfo" class="com.pingancar.creditmanage.action.ShopAction" method = " updateShopInfo">
             <result name="success">/</result>
             <result name = "error">/</result>
         </action>
 
-        <action name=" deleteShopInfo" class="com.pingancar.creditmanage.action.ShopAction" method = "deleteShopInfo">
+        <action name="deleteShopInfo" class="com.pingancar.creditmanage.action.ShopAction" method = "deleteShopInfo">
             <result name="success">/</result>
             <result name = "error">/</result>
         </action>
 
-        <action name=" addShopUser " class="com.pingancar.creditmanage.action.ShopAction" method = " addShopUser">
+        <action name="addShopUser " class="com.pingancar.creditmanage.action.ShopAction" method = " addShopUser">
             <result name="success">/</result>
             <result name = "error">/</result>
         </action>
@@ -90,7 +90,7 @@
             <result name = "error">/</result>
         </action>
 
-        <action name="  deleteShopUser" class="com.pingancar.creditmanage.action.ShopAction" method = " deleteShopUser">
+        <action name="deleteShopUser" class="com.pingancar.creditmanage.action.ShopAction" method = " deleteShopUser">
             <result name="success">/</result>
             <result name = "error">/</result>
         </action>
