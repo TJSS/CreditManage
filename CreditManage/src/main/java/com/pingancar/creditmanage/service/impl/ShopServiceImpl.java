@@ -41,7 +41,7 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public boolean updateShopInfo(ShopInfoPojo shopInfoPojo) {
        //返回值呀返回值
-        List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid()));
+        List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid());
         if(result.size()<1){
             return false;
         }
@@ -78,7 +78,7 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public boolean deleteShopInfo(ShopInfoPojo shopInfoPojo) {
-        List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid()));
+        List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid());
         if(result.size()<1){
             return false;
         }
@@ -89,7 +89,7 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoFieldList, List<String> valueList) {
         //不懂不懂瞎写的
-        return shopInfoDao.findBySqlSentence(shopInfoFieldList.toString(),valueList);
+        return shopInfoDao.queryShopInfo(shopInfoFieldList,valueList);
 
     }
 
