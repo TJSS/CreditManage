@@ -33,15 +33,15 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public boolean addShopInfo(ShopInfoPojo shopInfoPojo) {
-        return false;
-        //return shopInfoDao.save(shopInfoPojo);
+        shopInfoDao.save(shopInfoPojo);
+        return true;
     }
 
     @Override
     public boolean updateShopInfo(ShopInfoPojo shopInfoPojo) {
        //返回值呀返回值
         shopInfoDao.save(shopInfoPojo);
-        return false;
+        return true;
     }
 
     @Override
@@ -74,14 +74,14 @@ public class ShopServiceImpl implements ShopService {
     public boolean updateShopUser(ShopUserPojo shopUserPojo) {
         //还是没有下面也没有
        shopUserDao.update(shopUserPojo);
-        return false;
+        return true;
     }
 
     @Override
     public boolean deleteShopUser(ShopUserPojo shopUserPojo) {
 
         shopUserDao.delete(shopUserPojo);
-        return false;
+        return true;
     }
 
     private boolean checkUser(ShopUserPojo shopUserPojo){

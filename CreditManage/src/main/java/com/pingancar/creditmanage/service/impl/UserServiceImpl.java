@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
       if(checkUser(userPojo)){
           List<UserPojo> result= userDao.findByUsername(userPojo.getUsername());
           if(result.size()>0){
-              if(result.get(0).getPasswd()==userPojo.getPasswd()){
+              if(result.get(0).getPasswd().equals(userPojo.getPasswd())){
                   return true;
               }
           }

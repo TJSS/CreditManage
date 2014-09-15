@@ -22,17 +22,21 @@ public class PAServiceServiceImpl implements PAServiceService {
 
     @Override
     public boolean addPAService(PAServicePojo paServicePojo) {
-        return false;
+
+        paServiceDao.save(paServicePojo);
+        return true;
     }
 
     @Override
     public boolean updatePAService(PAServicePojo paServicePojo) {
-        return false;
+        paServiceDao.update(paServicePojo);
+        return true;
     }
 
     @Override
     public boolean deletePAService(PAServicePojo paServicePojo) {
-        return false;
+        paServiceDao.delete(paServicePojo);
+        return true;
     }
 
     public PAServiceDao getPaServiceDao() {

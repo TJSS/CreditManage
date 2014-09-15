@@ -41,8 +41,8 @@
 -->
     </div>
     <div id="menu-area">
-    	<a href="login.html"><img src="images/button-login.png" class="button"></a>
-    	<a href="reg.html"><img src="images/button-register.png" class="button"></a>
+    	<a href="login.jsp"><img src="images/button-login.png" class="button"></a>
+    	<a href="reg.jsp"><img src="images/button-register.png" class="button"></a>
     	<a href="#exchange-list" data-rel="dialog" data-transition="slidedown" ><img src="images/button-credit.png" class="button"></a>
     	<img src="images/button-upload.png" class="button">
     	<img src="images/button-service.png" class="button">
@@ -52,7 +52,7 @@
     </div>
     <div class="divide"></div>
     <div id="exchange-list">
-        <a href="details.html"><img src="images/item-washcar.png" class="list list-left"/></a>
+        <a href="details.jsp"><img src="images/item-washcar.png" class="list list-left"/></a>
         <img src="images/item-vertify.png" class="list list-right"/>
         <img src="images/item-drive.png" class="list list-left"/>
         <img src="images/item-maintain.png" class="list list-right"/>
