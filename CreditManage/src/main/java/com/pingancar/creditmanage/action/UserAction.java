@@ -26,6 +26,7 @@ public class UserAction extends ActionSupport{
         userPojo.setCon(phone);
         userPojo.setEmail(email);
 
+        //System.out.println(username);
         boolean result=userService.registerUser(userPojo);
         if(result){
             return SUCCESS;

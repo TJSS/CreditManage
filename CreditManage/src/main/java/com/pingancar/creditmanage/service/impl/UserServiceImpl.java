@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
     @Override
     public boolean registerUser(UserPojo userPojo) {
-        if(checkUser(userPojo)){
+        if(!checkUser(userPojo)){
             return false;
         }
         List<UserPojo> result1= userDao.findByUsername(userPojo.getUsername());
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
         if(result2.size()<1){
             return false;
         }
-        if(result1.size()>0||result2.get(0).getUsername().equals(null)){
+        if(result1.size()>0||result2.get(0).getUsername().equals("")){
             return false;
         }
         UserPojo re =result2.get(0) ;
