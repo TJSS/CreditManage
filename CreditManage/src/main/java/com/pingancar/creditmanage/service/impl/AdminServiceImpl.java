@@ -4,6 +4,7 @@ import com.pingancar.creditmanage.dao.AdminDao;
 import com.pingancar.creditmanage.pojo.AdminPojo;
 import com.pingancar.creditmanage.service.AdminService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -30,6 +31,9 @@ public class AdminServiceImpl implements AdminService {
             return false;
         }
         List<AdminPojo> result=adminDao.findByUsername(adminPojo.getUsername());
+        if(result == null){
+            result = new ArrayList<AdminPojo>();
+        }
         if(result.size()>0){
             if(result.get(0).getPasswd().equals(adminPojo.getPasswd())){
                 return true;

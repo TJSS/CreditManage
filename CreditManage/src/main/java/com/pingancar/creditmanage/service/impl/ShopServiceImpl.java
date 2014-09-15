@@ -8,6 +8,7 @@ import com.pingancar.creditmanage.pojo.ShopUserPojo;
 import com.pingancar.creditmanage.service.ShopService;
 import com.pingancar.creditmanage.util.myenum.ShopInfoField;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -24,8 +25,11 @@ public class ShopServiceImpl implements ShopService {
             return false;
         }
         List<ShopUserPojo> result=shopUserDao.findByUsername(shopUserPojo.getUsername());
+        if(result == null){
+            result = new ArrayList<ShopUserPojo>();
+        }
         if(result.size()>0){
-            if(result.get(0).getPasswd()==shopUserPojo.getPasswd()){
+            if(result.get(0).getPasswd().equals(shopUserPojo.getPasswd())){
                 return true;
             }
         }
@@ -42,6 +46,9 @@ public class ShopServiceImpl implements ShopService {
     public boolean updateShopInfo(ShopInfoPojo shopInfoPojo) {
        //返回值呀返回值
         List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid());
+        if(result == null){
+            result = new ArrayList<ShopInfoPojo>();
+        }
         if(result.size()<1){
             return false;
         }
@@ -79,6 +86,9 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public boolean deleteShopInfo(ShopInfoPojo shopInfoPojo) {
         List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid());
+        if(result == null){
+            result = new ArrayList<ShopInfoPojo>();
+        }
         if(result.size()<1){
             return false;
         }
@@ -98,6 +108,9 @@ public class ShopServiceImpl implements ShopService {
             return false;
         }
         List<ShopUserPojo> result=shopUserDao.findByUsername(shopUserPojo.getUsername());
+        if(result == null){
+            result = new ArrayList<ShopUserPojo>();
+        }
         if(!(result.size()>0)){
             return false;
 
@@ -109,6 +122,9 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public boolean updateShopUser(ShopUserPojo shopUserPojo) {
        List<ShopUserPojo> result= shopUserDao.findByShopid(shopUserPojo.getShopid());
+        if(result == null){
+            result = new ArrayList<ShopUserPojo>();
+        }
        if(result.size()<1){
            return false;
        }
@@ -129,6 +145,9 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public boolean deleteShopUser(ShopUserPojo shopUserPojo) {
         List<ShopUserPojo> result= shopUserDao.findByShopid(shopUserPojo.getShopid());
+        if(result == null){
+            result = new ArrayList<ShopUserPojo>();
+        }
         if(result.size()<1){
             return false;
         }

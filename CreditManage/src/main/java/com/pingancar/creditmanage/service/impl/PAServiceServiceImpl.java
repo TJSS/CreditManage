@@ -34,19 +34,19 @@ public class PAServiceServiceImpl implements PAServiceService {
             return false;
         }
         PAServicePojo re=result.get(0);
-        if(!paServicePojo.getTag1().equals("")){
+        if(!"".equals(paServicePojo.getTag1())){
             re.setTag1(paServicePojo.getTag1());
         }
-        if(!paServicePojo.getType().equals("")){
+        if(!"".equals(paServicePojo.getType())){
             re.setType(paServicePojo.getType());
         }
-        if(!paServicePojo.getCreditcost().equals("")) {
+        if(!"".equals(paServicePojo.getCreditcost())) {
             re.setCreditcost(paServicePojo.getCreditcost());
         }
-        if(!paServicePojo.getAmount().equals("")) {
+        if(!"".equals(paServicePojo.getAmount())) {
             re.setAmount(paServicePojo.getAmount());
         }
-        if(!paServicePojo.getLeftnum().equals("")) {
+        if(!"".equals(paServicePojo.getLeftnum())) {
             re.setLeftnum(paServicePojo.getLeftnum());
         }
         paServiceDao.update(re);
