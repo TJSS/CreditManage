@@ -88,7 +88,6 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoFieldList, List<String> valueList) {
-        //不懂不懂瞎写的
         return shopInfoDao.queryShopInfo(shopInfoFieldList,valueList);
 
     }
@@ -101,22 +100,39 @@ public class ShopServiceImpl implements ShopService {
         List<ShopUserPojo> result=shopUserDao.findByUsername(shopUserPojo.getUsername());
         if(!(result.size()>0)){
             return false;
-            //return shopUserDao.save(shopUserPojo);
+
         }
+        shopUserDao.save(shopUserPojo);
         return false;
     }
 
     @Override
     public boolean updateShopUser(ShopUserPojo shopUserPojo) {
-        //还是没有下面也没有
+       List<ShopUserPojo> result= shopUserDao.findByShopid(shopUserPojo.getShopid());
+       if(result.size()<1){
+           return false;
+       }
+        ShopUserPojo re= result.get(0);
+        if(!shopUserPojo.getPasswd().equals("")){
+            re.setPasswd(shopUserPojo.getPasswd());
+        }
+        if(!shopUserPojo.getUsername().equals("")){
+            re.setUsername(shopUserPojo.getUsername());
+        }
+        if(!shopUserPojo.getUsername().equals("")){
+            re.setUsername(shopUserPojo.getUsername());
+        }
        shopUserDao.update(shopUserPojo);
         return true;
     }
 
     @Override
     public boolean deleteShopUser(ShopUserPojo shopUserPojo) {
-
-        shopUserDao.delete(shopUserPojo);
+        List<ShopUserPojo> result= shopUserDao.findByShopid(shopUserPojo.getShopid());
+        if(result.size()<1){
+            return false;
+        }
+        shopUserDao.delete(result.get(0));
         return true;
     }
 
