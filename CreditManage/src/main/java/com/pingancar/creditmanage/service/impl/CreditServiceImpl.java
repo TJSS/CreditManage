@@ -26,6 +26,9 @@ public class CreditServiceImpl implements CreditService {
     public boolean updateCredit(CreditPojo creditPojo) {
         if(checkUsername(creditPojo.getUsername())){
             List<CreditPojo> result=creditDao.findByUsername(creditPojo.getUsername());
+            if(result == null){
+                return false;
+            }
             CreditPojo re =result.get(0);
             re.setCredit(creditPojo.getCredit());
             creditDao.update(re);

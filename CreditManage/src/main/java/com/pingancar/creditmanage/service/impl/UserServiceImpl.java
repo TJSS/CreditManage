@@ -4,6 +4,7 @@ import com.pingancar.creditmanage.dao.UserDao;
 import com.pingancar.creditmanage.pojo.UserPojo;
 import com.pingancar.creditmanage.service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -20,10 +21,16 @@ public class UserServiceImpl implements UserService {
         }
         List<UserPojo> result1= userDao.findByUsername(userPojo.getUsername());
         List<UserPojo> result2= userDao.findByCarnumber(userPojo.getCarnumber());
+        if(result1 == null){
+            result1 = new ArrayList<UserPojo>();
+        }
+        if(result2 == null){
+            result2 = new ArrayList<UserPojo>();
+        }
         if(result2.size()<1){
             return false;
         }
-        if(result1.size()>0||result2.get(0).getUsername().equals("")){
+        if(result1.size()>0||"".equals(result2.get(0).getUsername())){
             return false;
         }
         UserPojo re =result2.get(0) ;
@@ -32,7 +39,7 @@ public class UserServiceImpl implements UserService {
         re.setCon(userPojo.getCon());
         re.setEmail(userPojo.getEmail());
         re.setRegtime(userPojo.getRegtime());
-        userDao.update(userPojo);
+        userDao.update(re);
         return true;
     }
 
@@ -40,6 +47,9 @@ public class UserServiceImpl implements UserService {
     public boolean login(UserPojo userPojo) {
       if(checkUser(userPojo)){
           List<UserPojo> result= userDao.findByUsername(userPojo.getUsername());
+          if(result == null){
+              result = new ArrayList<UserPojo>();
+          }
           if(result.size()>0){
               if(result.get(0).getPasswd().equals(userPojo.getPasswd())){
                   return true;
