@@ -12,7 +12,7 @@ public class CreditAction extends ActionSupport{
     private CreditPojo creditPojo;
 
     public String updateCredit(){
-        boolean result= creditService.updateCredit(creditPojo);
+        boolean result=    creditService.updateCredit(creditPojo);
         if(result){
             return SUCCESS;
         }else{
