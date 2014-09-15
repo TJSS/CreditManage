@@ -2,6 +2,7 @@ package com.pingancar.creditmanage.service.impl;
 
 import com.pingancar.creditmanage.dao.ShopInfoDao;
 import com.pingancar.creditmanage.dao.ShopUserDao;
+import com.pingancar.creditmanage.pojo.PAServicePojo;
 import com.pingancar.creditmanage.pojo.ShopInfoPojo;
 import com.pingancar.creditmanage.pojo.ShopUserPojo;
 import com.pingancar.creditmanage.service.ShopService;
@@ -40,13 +41,48 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public boolean updateShopInfo(ShopInfoPojo shopInfoPojo) {
        //返回值呀返回值
-        shopInfoDao.save(shopInfoPojo);
+        List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid()));
+        if(result.size()<1){
+            return false;
+        }
+        ShopInfoPojo re=result.get(0);
+        if(!shopInfoPojo.getName().equals("")){
+           re.setName(shopInfoPojo.getName());
+        }
+        if(!shopInfoPojo.getLocation().equals("")){
+            re.setLocation(shopInfoPojo.getLocation());
+        }
+        if(!shopInfoPojo.getXpos().equals("")){
+            re.setXpos(shopInfoPojo.getXpos());
+        }
+        if(!shopInfoPojo.getYpos().equals("")){
+            re.setYpos(shopInfoPojo.getYpos());
+        }
+        if(!shopInfoPojo.getInterf().equals("")){
+            re.setInterf(shopInfoPojo.getInterf());
+        }
+        if(!shopInfoPojo.getTag2().equals("")){
+            re.setTag2(shopInfoPojo.getTag2());
+        }
+        if(!shopInfoPojo.getTag1().equals("")){
+            re.setTag1(shopInfoPojo.getTag1());
+        }
+        if(!shopInfoPojo.getCon().equals("")){
+            re.setCon(shopInfoPojo.getCon());
+        }
+        if(!shopInfoPojo.getStatus().equals("")){
+            re.setStatus(shopInfoPojo.getStatus());
+        }
         return true;
     }
 
     @Override
     public boolean deleteShopInfo(ShopInfoPojo shopInfoPojo) {
-        shopInfoDao.delete(shopInfoPojo);
+        List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid()));
+        if(result.size()<1){
+            return false;
+        }
+        shopInfoDao.delete(result.get(0));
         return false;
     }
 

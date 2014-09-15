@@ -17,7 +17,7 @@ public class PAServiceServiceImpl implements PAServiceService {
     PAServiceDao paServiceDao;
     @Override
     public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldList, List<String> valueList) {
-        return null;
+        return paServiceDao.queryPAService(paServiceFieldList,valueList);
     }
 
     @Override
@@ -29,7 +29,27 @@ public class PAServiceServiceImpl implements PAServiceService {
 
     @Override
     public boolean updatePAService(PAServicePojo paServicePojo) {
-        paServiceDao.update(paServicePojo);
+        List<PAServicePojo> result=paServiceDao.findByPaserviceid(paServicePojo.getPaserviceid());
+        if(result.size()<1){
+            return false;
+        }
+        PAServicePojo re=result.get(0);
+        if(!paServicePojo.getTag1().equals("")){
+            re.setTag1(paServicePojo.getTag1());
+        }
+        if(!paServicePojo.getType().equals("")){
+            re.setType(paServicePojo.getType());
+        }
+        if(!paServicePojo.getCreditcost().equals("")) {
+            re.setCreditcost(paServicePojo.getCreditcost());
+        }
+        if(!paServicePojo.getAmount().equals("")) {
+            re.setAmount(paServicePojo.getAmount());
+        }
+        if(!paServicePojo.getLeftnum().equals("")) {
+            re.setLeftnum(paServicePojo.getLeftnum());
+        }
+        paServiceDao.update(re);
         return true;
     }
 

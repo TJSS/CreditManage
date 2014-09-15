@@ -20,10 +20,19 @@ public class UserServiceImpl implements UserService {
         }
         List<UserPojo> result1= userDao.findByUsername(userPojo.getUsername());
         List<UserPojo> result2= userDao.findByCarnumber(userPojo.getCarnumber());
-        if(result1.size()>0||result2.size()>0){
+        if(result2.size()<1){
             return false;
         }
-        userDao.save(userPojo);
+        if(result1.size()>0||result2.get(0).getUsername().equals(null)){
+            return false;
+        }
+        UserPojo re =result2.get(0) ;
+        re.setUsername(userPojo.getUsername());
+        re.setPasswd(userPojo.getPasswd());
+        re.setCon(userPojo.getCon());
+        re.setEmail(userPojo.getEmail());
+        re.setRegtime(userPojo.getRegtime());
+        userDao.update(userPojo);
         return true;
     }
 

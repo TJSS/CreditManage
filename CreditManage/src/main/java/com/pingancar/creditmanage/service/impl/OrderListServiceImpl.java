@@ -38,14 +38,32 @@ public class OrderListServiceImpl implements OrderListService {
     @Override
     public boolean updateOrderList(OrderListPojo orderListPojo) {
         //好像都没有返回值？？？？
-        orderListDao.update(orderListPojo);
+        List<OrderListPojo> result=orderListDao.findByOrderlistid(orderListPojo.getOrderlistid());
+        if(result.size()<1){
+            return false;
+        }
+        OrderListPojo re=result.get(0);
+        if(!orderListPojo.getStatus().equals("")) {
+            re.setStatus(orderListPojo.getStatus());
+        }if(!orderListPojo.getUsername().equals("")){
+            re.setOrderlistid(orderListPojo.getUsername());
+        }if(!orderListPojo.getOrdertime().equals("")){
+            re.setOrdertime(orderListPojo.getOrdertime());
+        }if(!orderListPojo.getPaserviceid().equals("")){
+            re.setPaserviceid(orderListPojo.getPaserviceid());
+        }
+        orderListDao.update(re);
         return true;
     }
 
     @Override
     public boolean deleteOrderList(OrderListPojo orderListPojo) {
+        List<OrderListPojo> result=orderListDao.findByOrderlistid(orderListPojo.getOrderlistid());
+        if(result.size()<1){
+            return false;
+        }
         //好像都没有返回值？？？？
-        orderListDao.delete(orderListPojo);
+        orderListDao.delete(result.get(0));
         return true;
     }
 
