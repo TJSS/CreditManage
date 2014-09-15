@@ -28,15 +28,20 @@ public class ShopInfoDaoImpl implements ShopInfoDao {
 
     @Override
     public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoList, List<String> valuesList) {
-        String query = "select * from ShopInfoPojo ol";
+        String query = "from ShopInfoPojo temp where ";
         for(int i = 0; i < shopInfoList.size(); i++){
             if( i != 0 ){
                 query += " and ";
             }
+            if(valuesList.get(i).isEmpty())
+                continue;
+            query += "temp.";
             query += shopInfoList.get(i).toString();
+            query += " = ";
+            query += valuesList.get(i).toString();
         }
 
-        return  (List<ShopInfoPojo>)getHibernateTemplate().find(query);
+        return  (List<ShopInfoPojo>) getHibernateTemplate().find(query);
     }
 
     public ShopInfoPojo findById(Integer id){

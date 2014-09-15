@@ -27,16 +27,21 @@ public class PAServiceDaoImpl implements PAServiceDao {
 	}
 
     @Override
-    public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldsLis, List<String> valuesList) {
-        String query = "select * from PAServicePojoPojo ol";
-        for(int i = 0; i < paServiceFieldsLis.size(); i++){
+    public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldsList, List<String> valuesList) {
+        String query = "from PAServicePojo temp where ";
+        for(int i = 0; i < paServiceFieldsList.size(); i++){
             if( i != 0 ){
                 query += " and ";
             }
-            query += paServiceFieldsLis.get(i).toString();
+            if(valuesList.get(i).isEmpty())
+                continue;
+            query += "temp.";
+            query += paServiceFieldsList.get(i).toString();
+            query += " = ";
+            query += valuesList.get(i).toString();
         }
 
-        return  (List<PAServicePojo>)getHibernateTemplate().find(query);
+        return  (List<PAServicePojo>) getHibernateTemplate().find(query);
     }
 
     public PAServicePojo findById(Integer id){
