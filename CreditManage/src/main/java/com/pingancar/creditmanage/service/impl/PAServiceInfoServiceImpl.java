@@ -19,8 +19,9 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
 
     @Override
     public boolean addPAServiceInfo(PAServiceInfoPojo paServiceInfoPojo) {
+
+        paServiceInfoDao.save(paServiceInfoPojo);
         return false;
-        //return paServiceInfoDao.save(paServiceInfoPojo);
     }
 
     @Override
