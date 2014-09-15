@@ -30,15 +30,20 @@ public class OrderListDaoImpl implements OrderListDao {
 
     @Override
     public List<OrderListPojo> queryOrderList(List<OrderListField> orderListFieldsList, List<String> valuesList) {
-        String query = "select * from OrderListPojoPojo ol";
+        String query = "from OrderListPojoPojo temp where ";
         for(int i = 0; i < orderListFieldsList.size(); i++){
             if( i != 0 ){
                 query += " and ";
             }
+            if(valuesList.get(i).isEmpty())
+                continue;
+            query += "temp.";
             query += orderListFieldsList.get(i).toString();
+            query += " = ";
+            query += valuesList.get(i).toString();
         }
 
-        return  (List<OrderListPojo>)getHibernateTemplate().find(query);
+        return  (List<OrderListPojo>) getHibernateTemplate().find(query);
     }
 
     public OrderListPojo findById(Integer id){

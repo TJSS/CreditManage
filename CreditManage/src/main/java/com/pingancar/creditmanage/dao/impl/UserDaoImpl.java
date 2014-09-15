@@ -29,15 +29,20 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<UserPojo> queryUser(List<UserField> userFieldList, List<String> valueList) {
-        String query = "select * from user ol";
+        String query = "from UserPojo temp where ";
         for(int i = 0; i < userFieldList.size(); i++){
             if( i != 0 ){
                 query += " and ";
             }
+            if(valueList.get(i).isEmpty())
+                continue;
+            query += "temp.";
             query += userFieldList.get(i).toString();
+            query += " = ";
+            query += valueList.get(i).toString();
         }
 
-        return  (List<UserPojo>)getHibernateTemplate().find(query);
+        return  (List<UserPojo>) getHibernateTemplate().find(query);
     }
 
     public UserPojo findById(Integer id){
