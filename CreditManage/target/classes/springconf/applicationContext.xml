@@ -47,16 +47,88 @@
     </bean>
 
     <!-- 配置Service -->
-    <bean id="xxService" class="com.pingancar.creditmanage.service.impl.XXServiceImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="xxDao">
-            <ref bean="xxDao"/>
+    <!-- 管理员Service-->
+    <bean id="adminService" class="com.pingancar.creditmanage.service.impl.AdminServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="adminDao">
+            <ref bean="adminDao"/>
+        </property>
+    </bean>
+    <!-- 积分Service-->
+    <bean id="creditService" class="com.pingancar.creditmanage.service.impl.CreditServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="creditDao">
+            <ref bean="creditDao"/>
+        </property>
+    </bean>
+    <!-- 订单Service -->
+    <bean id="orderListService" class="com.pingancar.creditmanage.service.impl.OrderListServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="orderListDao">
+            <ref bean="orderListDao"/>
+        </property>
+    </bean>
+    <!-- 服务信息Service -->
+     <bean id="paServiceInfoService" class="com.pingancar.creditmanage.service.impl.PAServiceInfoServiceImpl" abstract="false" lazy-init="default" autowire="default">
+         <property name="paServiceInfoDao">
+             <ref bean="paServiceInfoDao"/>
+         </property>
+     </bean>
+    <!-- 服务Service -->
+    <bean id="paServiceService" class="com.pingancar.creditmanage.service.impl.PAServiceServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="paServiceDao">
+            <ref bean="paServiceDao"/>
+        </property>
+    </bean>
+    <!-- 商店Service -->
+    <bean id="shopService" class="com.pingancar.creditmanage.service.impl.ShopServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="shopDao">
+            <ref bean="shopDao"/>
+        </property>
+    </bean>
+    <!-- 用户Service -->
+    <bean id="userService" class="com.pingancar.creditmanage.service.impl.UserServiceImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="userDao">
+            <ref bean="userDao"/>
         </property>
     </bean>
 
     <!-- 配置Action -->
-    <bean id="xxAction" class="com.pingancar.creditmanage.action.XXAction" abstract="false" lazy-init="default" autowire="default">
-        <property name="xxService">
-            <ref bean="xxService"/>
+    <bean id="adminAction" class="com.pingancar.creditmanage.action.AdminAction" abstract="false" lazy-init="default" autowire="default">
+        <property name="adminService">
+            <ref bean="adminService"/>
+        </property>
+    </bean>
+    <bean id="creditAction" class="com.pingancar.creditmanage.action.CreditAction" abstract="false" lazy-init="default" autowire="default">
+        <property name="creditService">
+            <ref bean="creditService"/>
+        </property>
+    </bean>
+
+    <bean id="userAction" class="com.pingancar.creditmanage.action.UserAction" abstract="false" lazy-init="default" autowire="default">
+        <property name="userService">
+            <ref bean="userService"/>
+        </property>
+    </bean>
+
+    <bean id = "orderListAction" class = "com.pingancar.creditmanage.action.OrderListAction" abstract = "false" lazy-init="default" autowire="default">
+        <property name="orderListService">
+            <ref bean = "orderListService"/>
+        </property>
+    </bean>
+
+    <bean id = "pAServiceAction" class = "com.pingancar.creditmanage.action.PAServiceAction" abstract = "false" lazy-init="default" autowire="default">
+        <property name="paServiceService"  >
+           <ref bean="paServiceService"/>
+        </property>
+    </bean>
+
+    <bean id = "pAServiceInfoAction" class = "com.pingancar.creditmanage.action.PAServiceInfoAction" abstract = "false" lazy-init="default" autowire="default">
+        <property name="paServiceInfoService">
+            <ref bean = "paServiceInfoService"/>
+        </property>
+    </bean>
+
+    <bean id = "shopAction" class = "com.pingancar.creditmanage.action.ShopAction" abstract = "false" lazy-init="default" autowire="default">
+        <property name="shopService">
+            <ref bean = "shopService"/>
         </property>
     </bean>
 </beans>
