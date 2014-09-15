@@ -14,7 +14,15 @@ public class AdminDaoImpl implements AdminDao {
 	SessionFactory sessionFactory;
 	HibernateTemplate hibernateTemplate;
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+        this.hibernateTemplate = hibernateTemplate;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
@@ -30,7 +38,7 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	public List<AdminPojo> findAll(){
-		String query = "from Admin";
+		String query = "from AdminPojo";
 		return (List<AdminPojo>)(getHibernateTemplate().find(query));
 	}
 
@@ -49,12 +57,12 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	public List<AdminPojo> findByUsername(String username){
-		String query = "from Admin temp where temp.username = ?";
+		String query = "from AdminPojo temp where temp.username = ?";
 		return (List<AdminPojo>)(getHibernateTemplate().find(query, username));
 	}
 
 	public List<AdminPojo> findByPasswd(String passwd){
-		String query = "from Admin temp where temp.passwd = ?";
+		String query = "from AdminPojo temp where temp.passwd = ?";
 		return (List<AdminPojo>)(getHibernateTemplate().find(query, passwd));
 	}
 

@@ -25,7 +25,10 @@ public class CreditServiceImpl implements CreditService {
     @Override
     public boolean updateCredit(CreditPojo creditPojo) {
         if(checkUsername(creditPojo.getUsername())){
-            creditDao.update(creditPojo);
+            List<CreditPojo> result=creditDao.findByUsername(creditPojo.getUsername());
+            CreditPojo re =result.get(0);
+            re.setCredit(creditPojo.getCredit());
+            creditDao.update(re);
             return true;
         }
         return false;
@@ -46,4 +49,11 @@ public class CreditServiceImpl implements CreditService {
         return true;
     }
 
+    public CreditDao getCreditDao() {
+        return creditDao;
+    }
+
+    public void setCreditDao(CreditDao creditDao) {
+        this.creditDao = creditDao;
+    }
 }

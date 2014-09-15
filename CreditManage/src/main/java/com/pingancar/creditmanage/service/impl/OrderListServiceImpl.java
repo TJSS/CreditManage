@@ -23,27 +23,55 @@ public class OrderListServiceImpl implements OrderListService {
     @Override
     public List<OrderListPojo> queryOrderList(List<OrderListField> orderListFieldList, List<String> valueList) {
 
-              //这个搞不太懂。。。。。。。
-             return  orderListDao.findBySqlSentence(orderListFieldList.toString(),valueList);
+
+       return  orderListDao.queryOrderList(orderListFieldList, valueList);
+
     }
 
     @Override
     public boolean addOrderList(OrderListPojo orderListPojo) {
-        return false;
-        //return orderListDao.save(orderListPojo);
+
+        orderListDao.save(orderListPojo);
+        return true;
     }
 
     @Override
     public boolean updateOrderList(OrderListPojo orderListPojo) {
         //好像都没有返回值？？？？
-        orderListDao.update(orderListPojo);
-        return false;
+        List<OrderListPojo> result=orderListDao.findByOrderlistid(orderListPojo.getOrderlistid());
+        if(result.size()<1){
+            return false;
+        }
+        OrderListPojo re=result.get(0);
+        if(!orderListPojo.getStatus().equals("")) {
+            re.setStatus(orderListPojo.getStatus());
+        }if(!orderListPojo.getUsername().equals("")){
+            re.setOrderlistid(orderListPojo.getUsername());
+        }if(!orderListPojo.getOrdertime().equals("")){
+            re.setOrdertime(orderListPojo.getOrdertime());
+        }if(!orderListPojo.getPaserviceid().equals("")){
+            re.setPaserviceid(orderListPojo.getPaserviceid());
+        }
+        orderListDao.update(re);
+        return true;
     }
 
     @Override
     public boolean deleteOrderList(OrderListPojo orderListPojo) {
+        List<OrderListPojo> result=orderListDao.findByOrderlistid(orderListPojo.getOrderlistid());
+        if(result.size()<1){
+            return false;
+        }
         //好像都没有返回值？？？？
-        orderListDao.delete(orderListPojo);
-        return false;
+        orderListDao.delete(result.get(0));
+        return true;
+    }
+
+    public OrderListDao getOrderListDao() {
+        return orderListDao;
+    }
+
+    public void setOrderListDao(OrderListDao orderListDao) {
+        this.orderListDao = orderListDao;
     }
 }

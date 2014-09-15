@@ -18,7 +18,7 @@
         <!-- 指定Hibernate映射文件的路径 -->
         <property name="mappingResources">
             <list>
-                <value>org/tju/wx/pojo/Announce.hbm.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/AdminHbmXml.xml</value>
             </list>
         </property>
     </bean>
@@ -28,22 +28,73 @@
             <value>com.mysql.jdbc.Driver</value>
         </property>
         <property name="url">
-            <value>jdbc:mysql://localhost:3306/tjutwwx?useUnicode=true&amp;characterEncoding=UTF-8</value>
+            <value>jdbc:mysql://localhost:3306/creditmanage?useUnicode=true&amp;characterEncoding=UTF-8</value>
         </property>
         <property name="username">
-            <value>tjuscs</value>
+            <value>root</value>
         </property>
         <property name="password">
-            <value>tjuscs</value>
+            <value>123123</value>
         </property>
     </bean>
 
 
     <!-- 配置Dao -->
-    <bean id="xxDao" class="com.pingancar.creditmanage.dao.impl.XXDaoImpl" abstract="false" lazy-init="default" autowire="default">
-        <!--<property name="sessionFactory">-->
-            <!--<ref bean="sessionFactory"/>-->
-        <!--</property>-->
+    <bean id="adminDao" class="com.pingancar.creditmanage.dao.impl.AdminDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="advertisementDao" class="com.pingancar.creditmanage.dao.impl.AdminDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="creditDao" class="com.pingancar.creditmanage.dao.impl.CreditDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="orderListDao" class="com.pingancar.creditmanage.dao.impl.OrderListDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="paServiceDao" class="com.pingancar.creditmanage.dao.impl.PAServiceDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="paServiceInfoDao" class="com.pingancar.creditmanage.dao.impl.PAServiceInfoDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="shopInfoDao" class="com.pingancar.creditmanage.dao.impl.ShopInfoDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="shopUserDao" class="com.pingancar.creditmanage.dao.impl.ShopUserDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <bean id="userDao" class="com.pingancar.creditmanage.dao.impl.UserDaoImpl" abstract="false" lazy-init="default" autowire="default">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+        <property name="creditDao">
+            <ref bean="creditDao" />
+        </property>
     </bean>
 
     <!-- 配置Service -->
@@ -79,8 +130,11 @@
     </bean>
     <!-- 商店Service -->
     <bean id="shopService" class="com.pingancar.creditmanage.service.impl.ShopServiceImpl" abstract="false" lazy-init="default" autowire="default">
-        <property name="shopDao">
-            <ref bean="shopDao"/>
+        <property name="shopInfoDao">
+            <ref bean="shopInfoDao"/>
+        </property>
+        <property name="shopUserDao">
+            <ref bean="shopUserDao"/>
         </property>
     </bean>
     <!-- 用户Service -->

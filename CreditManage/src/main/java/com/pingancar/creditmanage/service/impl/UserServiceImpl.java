@@ -15,15 +15,24 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
     @Override
     public boolean registerUser(UserPojo userPojo) {
-        if(checkUser(userPojo)){
+        if(!checkUser(userPojo)){
             return false;
         }
         List<UserPojo> result1= userDao.findByUsername(userPojo.getUsername());
         List<UserPojo> result2= userDao.findByCarnumber(userPojo.getCarnumber());
-        if(result1.size()>0||result2.size()>0){
+        if(result2.size()<1){
             return false;
         }
-        userDao.save(userPojo);
+        if(result1.size()>0||result2.get(0).getUsername().equals("")){
+            return false;
+        }
+        UserPojo re =result2.get(0) ;
+        re.setUsername(userPojo.getUsername());
+        re.setPasswd(userPojo.getPasswd());
+        re.setCon(userPojo.getCon());
+        re.setEmail(userPojo.getEmail());
+        re.setRegtime(userPojo.getRegtime());
+        userDao.update(userPojo);
         return true;
     }
 
@@ -32,7 +41,7 @@ public class UserServiceImpl implements UserService {
       if(checkUser(userPojo)){
           List<UserPojo> result= userDao.findByUsername(userPojo.getUsername());
           if(result.size()>0){
-              if(result.get(0).getPasswd()==userPojo.getPasswd()){
+              if(result.get(0).getPasswd().equals(userPojo.getPasswd())){
                   return true;
               }
           }
@@ -65,5 +74,13 @@ public class UserServiceImpl implements UserService {
         }
 
         return true;
+    }
+
+    public UserDao getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 }
