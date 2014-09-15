@@ -21,21 +21,21 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
     public boolean addPAServiceInfo(PAServiceInfoPojo paServiceInfoPojo) {
 
         paServiceInfoDao.save(paServiceInfoPojo);
-        return false;
+        return true;
     }
 
     @Override
     public boolean updatePAServiceInfo(PAServiceInfoPojo paServiceInfoPojo) {
         //返回值
         paServiceInfoDao.update(paServiceInfoPojo);
-        return false;
+        return true;
     }
 
     @Override
     public boolean deletePAServiceInfo(PAServiceInfoPojo paServiceInfoPojo) {
         //返回值
         paServiceInfoDao.delete(paServiceInfoPojo);
-        return false;
+        return true;
     }
 
     public PAServiceInfoDao getPaServiceInfoDao() {

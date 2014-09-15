@@ -23,28 +23,30 @@ public class OrderListServiceImpl implements OrderListService {
     @Override
     public List<OrderListPojo> queryOrderList(List<OrderListField> orderListFieldList, List<String> valueList) {
 
-              //这个搞不太懂。。。。。。。
-             return  orderListDao.findBySqlSentence(orderListFieldList.toString(),valueList);
+
+       return  orderListDao.queryOrderList(orderListFieldList, valueList);
+
     }
 
     @Override
     public boolean addOrderList(OrderListPojo orderListPojo) {
-        return false;
-        //return orderListDao.save(orderListPojo);
+
+        orderListDao.save(orderListPojo);
+        return true;
     }
 
     @Override
     public boolean updateOrderList(OrderListPojo orderListPojo) {
         //好像都没有返回值？？？？
         orderListDao.update(orderListPojo);
-        return false;
+        return true;
     }
 
     @Override
     public boolean deleteOrderList(OrderListPojo orderListPojo) {
         //好像都没有返回值？？？？
         orderListDao.delete(orderListPojo);
-        return false;
+        return true;
     }
 
     public OrderListDao getOrderListDao() {
