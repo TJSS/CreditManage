@@ -21,6 +21,30 @@ public class PAServiceAction extends ActionSupport{
     private String searchtype;
 
 
+    public String getSearchpaserviceinfoid() {
+        return searchpaserviceinfoid;
+    }
+
+    public void setSearchpaserviceinfoid(String searchpaserviceinfoid) {
+        this.searchpaserviceinfoid = searchpaserviceinfoid;
+    }
+
+    public String getSearchpaserviceid() {
+        return searchpaserviceid;
+    }
+
+    public void setSearchpaserviceid(String searchpaserviceid) {
+        this.searchpaserviceid = searchpaserviceid;
+    }
+
+    public String getSearchtype() {
+        return searchtype;
+    }
+
+    public void setSearchtype(String searchtype) {
+        this.searchtype = searchtype;
+    }
+
     public String queryPAService(){
         paServiceFieldList = new ArrayList<PAServiceField>();
         valueList = new ArrayList<String>();
@@ -30,7 +54,7 @@ public class PAServiceAction extends ActionSupport{
             List<PAServicePojo> getservice = paServiceService.queryPAService(paServiceFieldList,valueList);
 
             if(getservice.size()!=0){
-                ActionContext.getContext().getSession().put("service", getservice.get(0));
+                ActionContext.getContext().getSession().put("serviceList", getservice);
                 return SUCCESS;
             }else {
                 return ERROR;
@@ -43,7 +67,7 @@ public class PAServiceAction extends ActionSupport{
             List<PAServicePojo> getservice = paServiceService.queryPAService(paServiceFieldList,valueList);
 
             if(getservice.size()!=0){
-                ActionContext.getContext().getSession().put("service", getservice.get(0));
+                ActionContext.getContext().getSession().put("serviceList", getservice);
                 return SUCCESS;
             }else {
                 return ERROR;
@@ -56,7 +80,8 @@ public class PAServiceAction extends ActionSupport{
             List<PAServicePojo> getservice = paServiceService.queryPAService(paServiceFieldList,valueList);
 
             if(getservice.size()!=0){
-                ActionContext.getContext().getSession().put("service", getservice.get(0));
+                ActionContext.getContext().getSession().put("serviceList", getservice);
+
                 return SUCCESS;
             }else {
                 return ERROR;

@@ -8,6 +8,7 @@ import com.pingancar.creditmanage.service.ShopService;
 import com.pingancar.creditmanage.util.myenum.ShopInfoField;
 import com.pingancar.creditmanage.util.myenum.UserType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +22,11 @@ public class ShopAction extends ActionSupport{
     private String password;
     private List<ShopInfoField> shopInfoFields;
     private List<String> valueList;
+    private  String shopid;
+    private String paserviceinfoid;
+    private String tag1;
+
+
 
     public List<String> getValueList() {
         return valueList;
@@ -40,13 +46,46 @@ public class ShopAction extends ActionSupport{
     }
 
     public String queryShopInfo(){
-        List<ShopInfoPojo> shopInfo= shopService.queryShopInfo(shopInfoFields,valueList);
-        ActionContext.getContext().getSession().put("shopInfo", shopInfo);
-        if(shopInfo.size()==0){
-            return SUCCESS;
+        shopInfoFields = new ArrayList<ShopInfoField>();
+        valueList = new ArrayList<String>();
+        if(shopid !=null && shopid.length() != 0){
+            shopInfoFields.add(ShopInfoField.SHOPID);
+            valueList.add(shopid);
+            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
+            if(getshopInfoList.size()!=0){
+                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
+                return SUCCESS;
+            }else {
+                return ERROR;
+            }
+        }
+
+        if(paserviceinfoid !=null && paserviceinfoid.length() != 0){
+            shopInfoFields.add(ShopInfoField.PASERVICEINFOID);
+            valueList.add(paserviceinfoid);
+            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
+            if(getshopInfoList.size()!=0){
+                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
+                return SUCCESS;
+            }else {
+                return ERROR;
+            }
+        }
+
+        if(tag1 !=null && tag1.length() != 0){
+            shopInfoFields.add(ShopInfoField.TAG1);
+            valueList.add(tag1);
+            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
+            if(getshopInfoList.size()!=0){
+                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
+                return SUCCESS;
+            }else {
+                return ERROR;
+            }
         }else {
             return ERROR;
         }
+
     }
 
     public String login(){
