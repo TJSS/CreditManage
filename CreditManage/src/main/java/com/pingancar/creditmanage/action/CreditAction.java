@@ -13,12 +13,15 @@ import java.util.List;
 public class CreditAction extends ActionSupport{
     private CreditService creditService;
     private CreditPojo creditPojo;
-    private String creditByUsernameId;
+    private String creditbyusernameid;
+
+
 
     public String queryCreditByUsername(){
-        List<CreditPojo> creditByUsername = creditService.queryCreditByUsername(creditByUsernameId);
-        ActionContext.getContext().getSession().put("creditByUsername", creditByUsername);
-        if(creditByUsername.size()==0){
+        List<CreditPojo> creditByUsername = creditService.queryCreditByUsername(creditbyusernameid);
+
+        if(creditByUsername.size()!=0){
+            ActionContext.getContext().getSession().put("creditByUsername", creditByUsername.get(0));
             return SUCCESS;
         }else {
             return ERROR;
@@ -40,5 +43,22 @@ public class CreditAction extends ActionSupport{
 
     public void setCreditService(CreditService creditService) {
         this.creditService = creditService;
+    }
+
+    public String getCreditbyusernameid() {
+        return creditbyusernameid;
+    }
+
+    public void setCreditbyusernameid(String creditbyusernameid) {
+        this.creditbyusernameid = creditbyusernameid;
+    }
+
+    public CreditPojo getCreditPojo() {
+
+        return creditPojo;
+    }
+
+    public void setCreditPojo(CreditPojo creditPojo) {
+        this.creditPojo = creditPojo;
     }
 }

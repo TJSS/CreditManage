@@ -105,7 +105,7 @@
             <result name = "error">/</result>
         </action>
 
-        <action name="userCredit" class="com.pingancar.creditmanage.action.CreditAction" method = "queryCreditByUsername">
+        <action name="getuserCredit" class="com.pingancar.creditmanage.action.CreditAction" method = "queryCreditByUsername">
             <result name="success">/</result>
             <result name = "error">/</result>
         </action>

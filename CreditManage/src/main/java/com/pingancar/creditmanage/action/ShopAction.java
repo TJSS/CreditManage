@@ -22,6 +22,22 @@ public class ShopAction extends ActionSupport{
     private List<ShopInfoField> shopInfoFields;
     private List<String> valueList;
 
+    public List<String> getValueList() {
+        return valueList;
+    }
+
+    public void setValueList(List<String> valueList) {
+        this.valueList = valueList;
+    }
+
+    public List<ShopInfoField> getShopInfoFields() {
+
+        return shopInfoFields;
+    }
+
+    public void setShopInfoFields(List<ShopInfoField> shopInfoFields) {
+        this.shopInfoFields = shopInfoFields;
+    }
 
     public String queryShopInfo(){
         List<ShopInfoPojo> shopInfo= shopService.queryShopInfo(shopInfoFields,valueList);

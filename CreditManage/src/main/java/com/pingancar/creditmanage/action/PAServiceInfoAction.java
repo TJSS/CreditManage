@@ -14,16 +14,34 @@ import java.util.List;
 public class PAServiceInfoAction extends ActionSupport{
     private PAServiceInfoService paServiceInfoService;
     private PAServiceInfoPojo paServiceInfoPojo;
-    private String PAServiceInfoid;
+    private String paserviceinfoid;
 
     public String queryPAServiceInfo(){
-        List<PAServiceInfoPojo> serviceInfo= paServiceInfoService.queryPAServiceInfo(PAServiceInfoid);
-        ActionContext.getContext().getSession().put("serviceInfo", serviceInfo);
-        if(serviceInfo.size()==0){
+        List<PAServiceInfoPojo> serviceInfo= paServiceInfoService.queryPAServiceInfo(paserviceinfoid);
+
+        if(serviceInfo.size()!=0){
+            ActionContext.getContext().getSession().put("serviceInfo", serviceInfo.get(0));
             return SUCCESS;
         }else {
             return ERROR;
         }
+    }
+
+    public String getPaserviceinfoid() {
+        return paserviceinfoid;
+    }
+
+    public void setPaserviceinfoid(String paserviceinfoid) {
+        this.paserviceinfoid = paserviceinfoid;
+    }
+
+    public PAServiceInfoPojo getPaServiceInfoPojo() {
+
+        return paServiceInfoPojo;
+    }
+
+    public void setPaServiceInfoPojo(PAServiceInfoPojo paServiceInfoPojo) {
+        this.paServiceInfoPojo = paServiceInfoPojo;
     }
 
     public String addPAServiceInfo(){
@@ -31,6 +49,7 @@ public class PAServiceInfoAction extends ActionSupport{
         if (result){
             return SUCCESS;
         }else {
+
             addActionError("添加服务信息失败");
             return ERROR;
         }
