@@ -17,5 +17,5 @@ public enum PAServiceField {
     /**
      *类型
      */
-    TYPE;
+    TYPE
 }

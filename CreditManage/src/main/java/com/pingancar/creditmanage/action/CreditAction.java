@@ -1,8 +1,11 @@
 package com.pingancar.creditmanage.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.pingancar.creditmanage.pojo.CreditPojo;
 import com.pingancar.creditmanage.service.CreditService;
+
+import java.util.List;
 
 /**
  * Created by kx on 2014/9/12.
@@ -10,9 +13,20 @@ import com.pingancar.creditmanage.service.CreditService;
 public class CreditAction extends ActionSupport{
     private CreditService creditService;
     private CreditPojo creditPojo;
+    private String creditByUsernameId;
+
+    public String queryCreditByUsername(){
+        List<CreditPojo> creditByUsername = creditService.queryCreditByUsername(creditByUsernameId);
+        ActionContext.getContext().getSession().put("creditByUsername", creditByUsername);
+        if(creditByUsername.size()==0){
+            return SUCCESS;
+        }else {
+            return ERROR;
+        }
+    }
 
     public String updateCredit(){
-        boolean result= creditService.updateCredit(creditPojo);
+        boolean result=    creditService.updateCredit(creditPojo);
         if(result){
             return SUCCESS;
         }else{

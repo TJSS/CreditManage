@@ -1,3 +1,4 @@
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!doctype html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 
 <body>
 	<div id="sub-page-header">
-    	<a href="details.html" class="ui-nodisc-icon ui-alt-icon ui-icon-carat-l ui-btn-icon-left"></a><div id="title-text">服 务 选 择</div>
+    	<a href="details.jsp" class="ui-nodisc-icon ui-alt-icon ui-icon-carat-l ui-btn-icon-left"></a><div id="title-text">服 务 选 择</div>
     </div>
     
     <div class="container" style="padding-top:5em;">

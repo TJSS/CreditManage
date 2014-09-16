@@ -1,3 +1,4 @@
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!doctype html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 
 <body>
 	<div id="sub-page-header">
-    	<a href="index.html" class="ui-nodisc-icon ui-alt-icon ui-icon-carat-l ui-btn-icon-left"></a><div id="title-text">免 费 洗 车</div>
+    	<a href="index.jsp" class="ui-nodisc-icon ui-alt-icon ui-icon-carat-l ui-btn-icon-left"></a><div id="title-text">免 费 洗 车</div>
     </div>
     
     <div class="container" style="padding-top:5em">
@@ -21,7 +22,7 @@
         
         <div class="credit-area">
         	<div class="need-credit" style="float:left">需要积分: <font color="#f60">100</font>~<font color="#f60">300</font>分</div>
-            <a href="select_service.html" class="ui-btn my-btn my-btn-adjust" style="float:right; font-size:1em">立即兑换</a>
+            <a href="select_service.jsp" class="ui-btn my-btn my-btn-adjust" style="float:right; font-size:1em">立即兑换</a>
         </div>
     </div>
     

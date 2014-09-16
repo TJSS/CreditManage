@@ -2,11 +2,13 @@ package com.pingancar.creditmanage.service.impl;
 
 import com.pingancar.creditmanage.dao.ShopInfoDao;
 import com.pingancar.creditmanage.dao.ShopUserDao;
+import com.pingancar.creditmanage.pojo.PAServicePojo;
 import com.pingancar.creditmanage.pojo.ShopInfoPojo;
 import com.pingancar.creditmanage.pojo.ShopUserPojo;
 import com.pingancar.creditmanage.service.ShopService;
 import com.pingancar.creditmanage.util.myenum.ShopInfoField;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -23,8 +25,11 @@ public class ShopServiceImpl implements ShopService {
             return false;
         }
         List<ShopUserPojo> result=shopUserDao.findByUsername(shopUserPojo.getUsername());
+        if(result == null){
+            result = new ArrayList<ShopUserPojo>();
+        }
         if(result.size()>0){
-            if(result.get(0).getPasswd()==shopUserPojo.getPasswd()){
+            if(result.get(0).getPasswd().equals(shopUserPojo.getPasswd())){
                 return true;
             }
         }
@@ -40,20 +45,60 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public boolean updateShopInfo(ShopInfoPojo shopInfoPojo) {
        //返回值呀返回值
-        shopInfoDao.save(shopInfoPojo);
+        List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid());
+        if(result == null){
+            result = new ArrayList<ShopInfoPojo>();
+        }
+        if(result.size()<1){
+            return false;
+        }
+        ShopInfoPojo re=result.get(0);
+        if(!shopInfoPojo.getName().equals("")){
+           re.setName(shopInfoPojo.getName());
+        }
+        if(!shopInfoPojo.getLocation().equals("")){
+            re.setLocation(shopInfoPojo.getLocation());
+        }
+        if(!shopInfoPojo.getXpos().equals("")){
+            re.setXpos(shopInfoPojo.getXpos());
+        }
+        if(!shopInfoPojo.getYpos().equals("")){
+            re.setYpos(shopInfoPojo.getYpos());
+        }
+        if(!shopInfoPojo.getInterf().equals("")){
+            re.setInterf(shopInfoPojo.getInterf());
+        }
+        if(!shopInfoPojo.getTag2().equals("")){
+            re.setTag2(shopInfoPojo.getTag2());
+        }
+        if(!shopInfoPojo.getTag1().equals("")){
+            re.setTag1(shopInfoPojo.getTag1());
+        }
+        if(!shopInfoPojo.getCon().equals("")){
+            re.setCon(shopInfoPojo.getCon());
+        }
+        if(!shopInfoPojo.getStatus().equals("")){
+            re.setStatus(shopInfoPojo.getStatus());
+        }
         return true;
     }
 
     @Override
     public boolean deleteShopInfo(ShopInfoPojo shopInfoPojo) {
-        shopInfoDao.delete(shopInfoPojo);
+        List <ShopInfoPojo> result= shopInfoDao.findByShopid(shopInfoPojo.getShopid());
+        if(result == null){
+            result = new ArrayList<ShopInfoPojo>();
+        }
+        if(result.size()<1){
+            return false;
+        }
+        shopInfoDao.delete(result.get(0));
         return false;
     }
 
     @Override
     public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoFieldList, List<String> valueList) {
-        //不懂不懂瞎写的
-        return shopInfoDao.findBySqlSentence(shopInfoFieldList.toString(),valueList);
+        return shopInfoDao.queryShopInfo(shopInfoFieldList,valueList);
 
     }
 
@@ -63,24 +108,50 @@ public class ShopServiceImpl implements ShopService {
             return false;
         }
         List<ShopUserPojo> result=shopUserDao.findByUsername(shopUserPojo.getUsername());
+        if(result == null){
+            result = new ArrayList<ShopUserPojo>();
+        }
         if(!(result.size()>0)){
             return false;
-            //return shopUserDao.save(shopUserPojo);
+
         }
+        shopUserDao.save(shopUserPojo);
         return false;
     }
 
     @Override
     public boolean updateShopUser(ShopUserPojo shopUserPojo) {
-        //还是没有下面也没有
+       List<ShopUserPojo> result= shopUserDao.findByShopid(shopUserPojo.getShopid());
+        if(result == null){
+            result = new ArrayList<ShopUserPojo>();
+        }
+       if(result.size()<1){
+           return false;
+       }
+        ShopUserPojo re= result.get(0);
+        if(!shopUserPojo.getPasswd().equals("")){
+            re.setPasswd(shopUserPojo.getPasswd());
+        }
+        if(!shopUserPojo.getUsername().equals("")){
+            re.setUsername(shopUserPojo.getUsername());
+        }
+        if(!shopUserPojo.getUsername().equals("")){
+            re.setUsername(shopUserPojo.getUsername());
+        }
        shopUserDao.update(shopUserPojo);
         return true;
     }
 
     @Override
     public boolean deleteShopUser(ShopUserPojo shopUserPojo) {
-
-        shopUserDao.delete(shopUserPojo);
+        List<ShopUserPojo> result= shopUserDao.findByShopid(shopUserPojo.getShopid());
+        if(result == null){
+            result = new ArrayList<ShopUserPojo>();
+        }
+        if(result.size()<1){
+            return false;
+        }
+        shopUserDao.delete(result.get(0));
         return true;
     }
 

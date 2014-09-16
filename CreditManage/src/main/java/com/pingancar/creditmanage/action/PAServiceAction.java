@@ -1,15 +1,31 @@
 package com.pingancar.creditmanage.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.pingancar.creditmanage.pojo.PAServicePojo;
 import com.pingancar.creditmanage.service.PAServiceService;
-
+import java.util.List;
+import com.pingancar.creditmanage.util.myenum.PAServiceField;
 /**
  * Created by kx on 2014/9/12.
  */
 public class PAServiceAction extends ActionSupport{
     private PAServiceService paServiceService;
     private PAServicePojo paServicePojo;
+    private List<PAServiceField> paServiceFieldList;
+
+
+    private List<String> valueList;
+
+    public String queryPAService(){
+        List<PAServicePojo> getservice=paServiceService.queryPAService(paServiceFieldList,valueList);
+        ActionContext.getContext().getSession().put("service", getservice);
+        if(getservice.size()==0){
+            return SUCCESS;
+        }else {
+            return ERROR;
+        }
+    }
 
     public String addPAService(){
         boolean result=paServiceService.addPAService(paServicePojo);

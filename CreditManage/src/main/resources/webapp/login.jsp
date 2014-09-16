@@ -1,4 +1,5 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!doctype html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 
 <body>
 	<div id="sub-page-header">
-    	<a href="index.html" class="ui-nodisc-icon ui-alt-icon ui-icon-carat-l ui-btn-icon-left"></a><div id="title-text">会 员 登 录</div>
+    	<a href="index.jsp" class="ui-nodisc-icon ui-alt-icon ui-icon-carat-l ui-btn-icon-left"></a><div id="title-text">会 员 登 录</div>
     </div>
     
     <div class="container">
@@ -33,7 +34,6 @@
                     <button class="ui-btn my-btn">登录</button>
                 </div>
             </form>
-            <s:actionmessage />
             <s:actionerror />
         </div>
     </div>
