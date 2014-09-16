@@ -22,6 +22,11 @@ public class ShopAction extends ActionSupport{
     private List<ShopInfoField> shopInfoFields;
     private List<String> valueList;
 
+    public String getAllTags(){
+        //shopService
+        return SUCCESS;
+    }
+
     public List<String> getValueList() {
         return valueList;
     }

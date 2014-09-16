@@ -20,6 +20,10 @@ public class PAServiceAction extends ActionSupport{
     private String  searchpaserviceid;
     private String searchtype;
 
+    public String getAllTags(){
+        //paServiceService
+        return SUCCESS;
+    }
 
     public String queryPAService(){
         paServiceFieldList = new ArrayList<PAServiceField>();
