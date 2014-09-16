@@ -37,4 +37,11 @@ public interface PAServiceService {
      * @return
      */
     public boolean deletePAService(PAServicePojo paServicePojo);
+
+    /**
+     * 获得所有服务的分段
+     * @param paserviceinfoid
+     * @return
+     */
+    public List<String> getAllTags(String paserviceinfoid);
 }

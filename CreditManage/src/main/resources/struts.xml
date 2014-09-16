@@ -96,8 +96,8 @@
         </action>
 
         <action name="getServiceInfo" class="com.pingancar.creditmanage.action.PAServiceInfoAction" method = "queryPAServiceInfo">
-            <result name="success">/</result>
-            <result name = "error">/</result>
+            <result name="success">/details.jsp</result>
+            <result name = "error">/error.html</result>
         </action>
 
         <action name="getShopInfo" class="com.pingancar.creditmanage.action.ShopAction" method = "queryShopInfo">
