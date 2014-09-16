@@ -30,10 +30,10 @@ public class UserServiceImpl implements UserService {
         if(result2.size()<1){
             return false;
         }
-        if(result1.size()>0||"".equals(result2.get(0).getUsername())){
+        if(result1.size()>0||"".equals(result2.get(0).getUsername())|| result2.get(0).getUsername() == null){
             return false;
         }
-        UserPojo re =result2.get(0) ;
+        UserPojo re=result2.get(0) ;
         re.setUsername(userPojo.getUsername());
         re.setPasswd(userPojo.getPasswd());
         re.setCon(userPojo.getCon());

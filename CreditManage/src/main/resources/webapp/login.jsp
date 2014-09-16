@@ -1,4 +1,5 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!doctype html>
 <html>
 <head>
@@ -33,7 +34,6 @@
                     <button class="ui-btn my-btn">登录</button>
                 </div>
             </form>
-            <s:actionmessage />
             <s:actionerror />
         </div>
     </div>
