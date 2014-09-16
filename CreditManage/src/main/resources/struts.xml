@@ -100,12 +100,22 @@
             <result name = "error">/error.html</result>
         </action>
 
+        <action name="getService" class="com.pingancar.creditmanage.action.PAServiceAction" method = "queryPAService">
+            <result name="success">/details.jsp</result>
+            <result name = "error">/error.html</result>
+        </action>
+
         <action name="getShopInfo" class="com.pingancar.creditmanage.action.ShopAction" method = "queryShopInfo">
             <result name="success">/</result>
             <result name = "error">/</result>
         </action>
 
         <action name="getuserCredit" class="com.pingancar.creditmanage.action.CreditAction" method = "queryCreditByUsername">
+            <result name="success">/</result>
+            <result name = "error">/</result>
+        </action>
+
+        <action name="getOrderList" class="com.pingancar.creditmanage.action.OrderListAction" method = "queryOrderList">
             <result name="success">/</result>
             <result name = "error">/</result>
         </action>

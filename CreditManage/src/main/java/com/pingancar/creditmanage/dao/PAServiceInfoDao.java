@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface PAServiceInfoDao {
 
-	public PAServiceInfoPojo findById(Integer id);
+    public PAServiceInfoPojo findById(Integer id);
 
 	public List<PAServiceInfoPojo> findAll();
 

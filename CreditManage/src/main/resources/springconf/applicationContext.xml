@@ -46,7 +46,6 @@
         </property>
     </bean>
 
-
     <!-- 配置Dao -->
     <bean id="adminDao" class="com.pingancar.creditmanage.dao.impl.AdminDaoImpl" abstract="false" lazy-init="default" autowire="default">
         <property name="sessionFactory">
