@@ -61,7 +61,13 @@ public class UserDaoImpl implements UserDao {
 		return (List<UserPojo>)(getHibernateTemplate().find(query));
 	}
 
-	public Integer save(UserPojo user){
+    @Override
+    public void add(UserPojo user) {
+        save(user);
+        update(user);
+    }
+
+    public Integer save(UserPojo user){
 		double credit = calculateCredit(user.getPremium());
         CreditPojo cp = new CreditPojo();
         cp.setCredit(credit);
