@@ -181,4 +181,5 @@ public class UserDaoImpl implements UserDao {
     public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
         this.hibernateTemplate = hibernateTemplate;
     }
+    }
 }

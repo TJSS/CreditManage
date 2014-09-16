@@ -26,7 +26,7 @@ public class PAServiceInfoDaoImpl implements PAServiceInfoDao {
 		return hibernateTemplate;
 	}
 
-	public PAServiceInfoPojo findById(Integer id){
+    public PAServiceInfoPojo findById(Integer id){
 		return (PAServiceInfoPojo)getHibernateTemplate().get(PAServiceInfoPojo.class, id);
 	}
 

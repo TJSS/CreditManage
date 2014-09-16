@@ -44,6 +44,19 @@ public class PAServiceDaoImpl implements PAServiceDao {
         return  (List<PAServicePojo>) getHibernateTemplate().find(query);
     }
 
+    @Override
+    public List<String> getAllTags(String paserviceinfoid) {
+        List<String> tagList = null;
+        List<PAServicePojo> paList = this.findByPaserviceinfoid(paserviceinfoid);
+        if(paList != null){
+              for(int i=0; i<paList.size(); i++){
+                  if(!tagList.contains(paList.get(i).getTag1()))
+                    tagList.add(paList.get(i).getTag1());
+              }
+        }
+        return tagList;
+    }
+
     public PAServicePojo findById(Integer id){
 		return (PAServicePojo)getHibernateTemplate().get(PAServicePojo.class, id);
 	}
