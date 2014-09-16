@@ -4,6 +4,8 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.pingancar.creditmanage.pojo.PAServicePojo;
 import com.pingancar.creditmanage.service.PAServiceService;
+
+import java.util.ArrayList;
 import java.util.List;
 import com.pingancar.creditmanage.util.myenum.PAServiceField;
 /**
@@ -14,8 +16,16 @@ public class PAServiceAction extends ActionSupport{
     private PAServicePojo paServicePojo;
     private List<PAServiceField> paServiceFieldList;
     private List<String> valueList;
+    private String searchPASERVICEINFOID;
+    private String ss;
 
     public String queryPAService(){
+        paServiceFieldList = new ArrayList<PAServiceField>();
+        valueList = new ArrayList<String>();
+        if(searchPASERVICEINFOID != null && searchPASERVICEINFOID.length() != 0){
+            paServiceFieldList.add(PAServiceField.PASERVICEID);
+            valueList.add(searchPASERVICEINFOID);
+        }
 
         List<PAServicePojo> getservice=paServiceService.queryPAService(paServiceFieldList,valueList);
         ActionContext.getContext().getSession().put("service", getservice);
