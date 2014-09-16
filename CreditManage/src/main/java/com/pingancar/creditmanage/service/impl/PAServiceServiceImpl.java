@@ -15,6 +15,12 @@ import java.util.List;
  */
 public class PAServiceServiceImpl implements PAServiceService {
     PAServiceDao paServiceDao;
+
+    @Override
+    public List<String> getAllTags(String paserviceinfoid) {
+        return null;
+    }
+
     @Override
     public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldList, List<String> valueList) {
         return paServiceDao.queryPAService(paServiceFieldList,valueList);

@@ -19,6 +19,12 @@ public class ShopServiceImpl implements ShopService {
 
     ShopUserDao shopUserDao;
     ShopInfoDao shopInfoDao;
+
+    @Override
+    public List<String> getAllTags(String paserviceinfoid) {
+        return null;
+    }
+
     @Override
     public boolean login(ShopUserPojo shopUserPojo) {
         if(!checkUser(shopUserPojo)){
