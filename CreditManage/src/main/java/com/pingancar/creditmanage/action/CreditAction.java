@@ -21,7 +21,7 @@ public class CreditAction extends ActionSupport{
         List<CreditPojo> creditByUsername = creditService.queryCreditByUsername(creditbyusernameid);
 
         if(creditByUsername.size()!=0){
-            ActionContext.getContext().getSession().put("creditByUsername", creditByUsername.get(0));
+            ActionContext.getContext().getSession().put("creditbyusername", creditByUsername.get(0));
             return SUCCESS;
         }else {
             return ERROR;
