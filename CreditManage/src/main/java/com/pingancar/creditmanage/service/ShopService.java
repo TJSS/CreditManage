@@ -66,4 +66,11 @@ public interface ShopService {
      * @return
      */
     public boolean deleteShopUser(ShopUserPojo shopUserPojo);
+
+    /**
+     * 获得所有服务信息的分段
+     * @param paserviceinfoid
+     * @return
+     */
+    public List<String> getAllTags(String paserviceinfoid);
 }
