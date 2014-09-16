@@ -1,4 +1,5 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!doctype html>
 <html>
 <head>
@@ -30,7 +31,7 @@
     	<div class="sub-title"><div class="sub-title-text">标题一</div></div>
         <div class="container">
         	<div class="info">
-        		这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。
+        		<s:property value="#session.serviceinfo.tag1"/>
         	</div>
         </div>
     </div>
@@ -39,7 +40,7 @@
     	<div class="sub-title"><div class="sub-title-text">标题一</div></div>
         <div class="container">
         	<div class="info">
-        		这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。
+        		<s:property value="#session.serviceinfo.tag2"/>
         	</div>
         </div>
     </div>
@@ -48,7 +49,7 @@
     	<div class="sub-title"><div class="sub-title-text">标题一</div></div>
         <div class="container">
         	<div class="info">
-        		这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。
+        		<s:property value="#session.serviceinfo.tag3"/>
         	</div>
         </div>
     </div>
@@ -57,7 +58,7 @@
     	<div class="sub-title"><div class="sub-title-text">标题一</div></div>
         <div class="container">
         	<div class="info">
-        		这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。
+        		<s:property value="#session.serviceinfo.tag4"/>
         	</div>
         </div>
     </div>
@@ -66,16 +67,7 @@
     	<div class="sub-title"><div class="sub-title-text">标题一</div></div>
         <div class="container">
         	<div class="info">
-        		这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。
-        	</div>
-        </div>
-    </div>
-    
-    <div class="block">
-    	<div class="sub-title"><div class="sub-title-text">标题一</div></div>
-        <div class="container">
-        	<div class="info">
-        		这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。这里是介绍。
+        		<s:property value="#session.serviceinfo.tag5"/>
         	</div>
         </div>
     </div>

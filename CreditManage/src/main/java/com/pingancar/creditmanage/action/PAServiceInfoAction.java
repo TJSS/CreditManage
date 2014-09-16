@@ -20,7 +20,7 @@ public class PAServiceInfoAction extends ActionSupport{
         List<PAServiceInfoPojo> serviceInfo= paServiceInfoService.queryPAServiceInfo(paserviceinfoid);
 
         if(serviceInfo.size()!=0){
-            ActionContext.getContext().getSession().put("serviceInfo", serviceInfo.get(0));
+            ActionContext.getContext().getSession().put("serviceinfo", serviceInfo.get(0));
             return SUCCESS;
         }else {
             return ERROR;
