@@ -14,7 +14,11 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
     PAServiceInfoDao paServiceInfoDao;
     @Override
     public List<PAServiceInfoPojo> queryPAServiceInfo(String paServiceInfoId) {
-        return paServiceInfoDao.findByPaserviceinfoid(Integer.getInteger(paServiceInfoId));
+        List<PAServiceInfoPojo> result = paServiceInfoDao.findByPaserviceinfoid(Integer.getInteger(paServiceInfoId));
+        if(result == null){
+            result = new ArrayList<PAServiceInfoPojo>();
+        }
+        return result;
 
     }
 

@@ -1,4 +1,5 @@
-﻿<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +53,7 @@
     </div>
     <div class="divide"></div>
     <div id="exchange-list">
-        <a href="details.jsp"><img src="images/item-washcar.png" class="list list-left"/></a>
+        <a href="getShopInfo?paserviceinfoid=1"><img src="images/item-washcar.png" class="list list-left"/></a>
         <img src="images/item-vertify.png" class="list list-right"/>
         <img src="images/item-drive.png" class="list list-left"/>
         <img src="images/item-maintain.png" class="list list-right"/>
