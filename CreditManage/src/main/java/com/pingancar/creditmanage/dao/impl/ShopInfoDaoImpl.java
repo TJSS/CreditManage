@@ -27,6 +27,19 @@ public class ShopInfoDaoImpl implements ShopInfoDao {
 	}
 
     @Override
+    public List<String> getAllTags(String paserviceinfoid) {
+        List<String> tagList = null;
+        List<ShopInfoPojo> paList = this.findByPaserviceinfoid(paserviceinfoid);
+        if(paList != null){
+            for(int i=0; i<paList.size(); i++){
+                if(!tagList.contains(paList.get(i).getTag1()))
+                    tagList.add(paList.get(i).getTag1());
+            }
+        }
+        return tagList;
+    }
+
+    @Override
     public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoList, List<String> valuesList) {
         String query = "from ShopInfoPojo temp where ";
         for(int i = 0; i < shopInfoList.size(); i++){
