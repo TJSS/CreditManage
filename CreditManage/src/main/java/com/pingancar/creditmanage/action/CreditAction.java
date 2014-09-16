@@ -15,6 +15,8 @@ public class CreditAction extends ActionSupport{
     private CreditPojo creditPojo;
     private String creditByUsernameId;
 
+
+
     public String queryCreditByUsername(){
         List<CreditPojo> creditByUsername = creditService.queryCreditByUsername(creditByUsernameId);
         ActionContext.getContext().getSession().put("creditByUsername", creditByUsername);
@@ -40,5 +42,21 @@ public class CreditAction extends ActionSupport{
 
     public void setCreditService(CreditService creditService) {
         this.creditService = creditService;
+    }
+    public String getCreditByUsernameId() {
+        return creditByUsernameId;
+    }
+
+    public void setCreditByUsernameId(String creditByUsernameId) {
+        this.creditByUsernameId = creditByUsernameId;
+    }
+
+    public CreditPojo getCreditPojo() {
+
+        return creditPojo;
+    }
+
+    public void setCreditPojo(CreditPojo creditPojo) {
+        this.creditPojo = creditPojo;
     }
 }

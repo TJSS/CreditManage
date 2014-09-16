@@ -29,6 +29,9 @@ public class OrderListAction extends ActionSupport{
             return ERROR;
         }
     }
+
+
+
     public String deleteOrderList(){
         boolean result=orderListService.deleteOrderList(orderlistPojo);
         if(result){
@@ -37,6 +40,14 @@ public class OrderListAction extends ActionSupport{
             addActionError("删除订单");
             return ERROR;
         }
+
+    }
+    public OrderListPojo getOrderlistPojo() {
+        return orderlistPojo;
+    }
+
+    public void setOrderlistPojo(OrderListPojo orderlistPojo) {
+        this.orderlistPojo = orderlistPojo;
     }
 
     public OrderListService getOrderListService() {

@@ -13,11 +13,10 @@ public class PAServiceAction extends ActionSupport{
     private PAServiceService paServiceService;
     private PAServicePojo paServicePojo;
     private List<PAServiceField> paServiceFieldList;
-
-
     private List<String> valueList;
 
     public String queryPAService(){
+
         List<PAServicePojo> getservice=paServiceService.queryPAService(paServiceFieldList,valueList);
         ActionContext.getContext().getSession().put("service", getservice);
         if(getservice.size()==0){
@@ -60,5 +59,29 @@ public class PAServiceAction extends ActionSupport{
 
     public void setPaServiceService(PAServiceService paServiceService) {
         this.paServiceService = paServiceService;
+    }
+    public List<String> getValueList() {
+        return valueList;
+    }
+
+    public void setValueList(List<String> valueList) {
+        this.valueList = valueList;
+    }
+
+    public List<PAServiceField> getPaServiceFieldList() {
+
+        return paServiceFieldList;
+    }
+
+    public void setPaServiceFieldList(List<PAServiceField> paServiceFieldList) {
+        this.paServiceFieldList = paServiceFieldList;
+    }
+    public PAServicePojo getPaServicePojo() {
+
+        return paServicePojo;
+    }
+
+    public void setPaServicePojo(PAServicePojo paServicePojo) {
+        this.paServicePojo = paServicePojo;
     }
 }
