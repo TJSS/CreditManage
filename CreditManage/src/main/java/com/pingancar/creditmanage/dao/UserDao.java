@@ -16,6 +16,8 @@ public interface UserDao {
 
 	public List<UserPojo> findAll();
 
+    public void add(UserPojo user);
+
 	public Integer save(UserPojo user);
 
 	public void delete(UserPojo user);
