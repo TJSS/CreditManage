@@ -16,13 +16,20 @@ public class PAServiceAction extends ActionSupport{
     private PAServicePojo paServicePojo;
     private List<PAServiceField> paServiceFieldList;
     private List<String> valueList;
+    private List<String> allTag;
     private String searchpaserviceinfoid;
     private String  searchpaserviceid;
     private String searchtype;
+    private String paserviceinfoid;
 
     public String getAllTags(){
-        //paServiceService
-        return SUCCESS;
+        allTag = paServiceService.getAllTags(paserviceinfoid);
+        if(allTag.size()!=0){
+            ActionContext.getContext().getSession().put("alltag",allTag);
+            return SUCCESS;
+        }else{
+            return ERROR;
+        }
     }
 
     public String getSearchpaserviceinfoid() {

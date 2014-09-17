@@ -120,6 +120,16 @@
             <result name = "error">/</result>
         </action>
 
+        <action name="getallTagfromshop" class="com.pingancar.creditmanage.action.ShopAction" method = "getAllTags">
+            <result name="success">/</result>
+            <result name = "error">/</result>
+        </action>
+
+        <action name="getallTagfromPA" class="com.pingancar.creditmanage.action.PAServiceAction" method = "getAllTags">
+            <result name="success">/</result>
+            <result name = "error">/</result>
+        </action>
+
 
 
 
