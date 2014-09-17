@@ -7,10 +7,10 @@ package com.pingancar.creditmanage.pojo;
 public class PAServicePojo {
 
 	Integer id;
-	String paserviceinfoid;
-	String paserviceid;
-	String type;
-	String tag1;
+	String paserviceinfoid="";
+	String paserviceid="";
+	String type="";
+	String tag1="";
 	Integer leftnum;
 	Integer amount;
 	Double creditcost;

@@ -7,9 +7,9 @@ package com.pingancar.creditmanage.pojo;
 public class ShopUserPojo {
 
 	Integer id;
-	String shopid;
-	String username;
-	String passwd;
+	String shopid="";
+	String username="";
+	String passwd="";
 
 	public Integer getId() {
 		return this.id;

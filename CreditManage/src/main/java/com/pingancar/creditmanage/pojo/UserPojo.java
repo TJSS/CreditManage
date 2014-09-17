@@ -9,20 +9,20 @@ import java.sql.Timestamp;
 public class UserPojo {
 
 	Integer id;
-	String passwd;
-	String username;
-	String con;
-	String email;
+	String passwd="";
+	String username="";
+	String con="";
+	String email="";
 	Timestamp regtime;
 	Double premium;
-	String insured;
-	String carowner;
-	String factory;
-	String cartype;
-	String carnumber;
+	String insured="";
+	String carowner="";
+	String factory="";
+	String cartype="";
+	String carnumber="";
 	Timestamp starttime;
 	Timestamp endtime;
-	String mobilephone;
+	String mobilephone="";
 
 	public Integer getId() {
 		return this.id;

@@ -7,7 +7,7 @@ package com.pingancar.creditmanage.pojo;
 public class CreditPojo {
 
 	Integer id;
-	String username;
+	String username="";
 	Double credit;
 
 	public Integer getId() {
