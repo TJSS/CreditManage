@@ -8,12 +8,12 @@ import java.sql.Timestamp;
  */
 public class PAServiceInfoPojo {
 	Integer paserviceinfoid;
-	String imgurl;
-	String tag1;
-	String tag2;
-	String tag3;
-	String tag4;
-	String tag5;
+	String imgurl="";
+	String tag1="";
+	String tag2="";
+	String tag3="";
+	String tag4="";
+	String tag5="";
 	Timestamp servicestart;
 	Timestamp serviceend;
 

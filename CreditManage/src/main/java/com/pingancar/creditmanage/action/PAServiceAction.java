@@ -25,7 +25,7 @@ public class PAServiceAction extends ActionSupport{
     public String getAllTags(){
         allTag = paServiceService.getAllTags(paserviceinfoid);
         if(allTag.size()!=0){
-            ActionContext.getContext().getSession().put("alltag",allTag);
+            ActionContext.getContext().getSession().put("allservicetags",allTag);
             return SUCCESS;
         }else{
             return ERROR;
@@ -62,46 +62,47 @@ public class PAServiceAction extends ActionSupport{
         if(searchpaserviceinfoid != null && searchpaserviceinfoid.length() != 0){
             paServiceFieldList.add(PAServiceField.PASERVICEINFOID);
             valueList.add(searchpaserviceinfoid);
-            List<PAServicePojo> getservice = paServiceService.queryPAService(paServiceFieldList,valueList);
-
-            if(getservice.size()!=0){
-                ActionContext.getContext().getSession().put("serviceList", getservice);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
         }
 
         if(searchpaserviceid !=null && searchpaserviceid.length() != 0){
             paServiceFieldList.add(PAServiceField.PASERVICEID);
             valueList.add(searchpaserviceid);
-            List<PAServicePojo> getservice = paServiceService.queryPAService(paServiceFieldList,valueList);
 
-            if(getservice.size()!=0){
-                ActionContext.getContext().getSession().put("serviceList", getservice);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
         }
 
         if(searchtype != null && searchtype.length() != 0){
             paServiceFieldList.add(PAServiceField.TYPE);
             valueList.add(searchtype);
-            List<PAServicePojo> getservice = paServiceService.queryPAService(paServiceFieldList,valueList);
 
-            if(getservice.size()!=0){
-                ActionContext.getContext().getSession().put("serviceList", getservice);
+        }
 
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
-        }else{
+        List<PAServicePojo> getservice = paServiceService.queryPAService(paServiceFieldList,valueList);
+
+        if(getservice.size()!=0){
+            ActionContext.getContext().getSession().put("serviceList", getservice);
+
+            return SUCCESS;
+        }else {
             return ERROR;
         }
 
 
+    }
+
+    public List<String> getAllTag() {
+        return allTag;
+    }
+
+    public void setAllTag(List<String> allTag) {
+        this.allTag = allTag;
+    }
+
+    public String getPaserviceinfoid() {
+        return paserviceinfoid;
+    }
+
+    public void setPaserviceinfoid(String paserviceinfoid) {
+        this.paserviceinfoid = paserviceinfoid;
     }
 
     public String addPAService(){

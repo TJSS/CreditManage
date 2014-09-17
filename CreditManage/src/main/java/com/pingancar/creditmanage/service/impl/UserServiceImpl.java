@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
         re.setCon(userPojo.getCon());
         re.setEmail(userPojo.getEmail());
         re.setRegtime(userPojo.getRegtime());
-        userDao.update(re);
+        userDao.add(re);
         return true;
     }
 

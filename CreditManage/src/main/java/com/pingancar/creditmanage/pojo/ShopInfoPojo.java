@@ -7,17 +7,17 @@ package com.pingancar.creditmanage.pojo;
 public class ShopInfoPojo {
 
 	Integer id;
-	String shopid;
-	String paserviceinfoid;
-	String name;
-	String location;
+	String shopid="";
+	String paserviceinfoid="";
+	String name="";
+	String location="";
 	Double xpos;
 	Double ypos;
-	String interf;
-	String tag1;
-	String tag2;
-	String con;
-	String status;
+	String interf="";
+	String tag1="";
+	String tag2="";
+	String con="";
+	String status="";
 
 	public Integer getId() {
 		return this.id;
