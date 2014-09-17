@@ -46,7 +46,7 @@ public interface PAServiceService {
     public List<String> getAllTags(String paserviceinfoid);
 
     /**
-     *
+     *通过tag1搜索
      */
     public List<PAServicePojo> findByTag1(String tag1);
 }

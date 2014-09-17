@@ -19,7 +19,7 @@ public class PAServiceAction extends ActionSupport{
     private List<String> allTag;
     private String searchpaserviceinfoid;
     private String searchpaserviceid;
-    private String searchtype;
+    private String searchtag1;
     private String paserviceinfoid;
 
     public String getAllTags(){
@@ -49,14 +49,6 @@ public class PAServiceAction extends ActionSupport{
         this.searchpaserviceid = searchpaserviceid;
     }
 
-    public String getSearchtype() {
-        return searchtype;
-    }
-
-    public void setSearchtype(String searchtype) {
-        this.searchtype = searchtype;
-    }
-
     public String queryPAService(){
         paServiceFieldList = new ArrayList<PAServiceField>();
         valueList = new ArrayList<String>();
@@ -71,9 +63,9 @@ public class PAServiceAction extends ActionSupport{
 
         }
 
-        if(searchtype != null && searchtype.length() != 0){
-            paServiceFieldList.add(PAServiceField.TYPE);
-            valueList.add(searchtype);
+        if(searchtag1 != null && searchtag1.length() != 0){
+            paServiceFieldList.add(PAServiceField.TAG1);
+            valueList.add(searchtag1);
 
         }
 
@@ -163,5 +155,13 @@ public class PAServiceAction extends ActionSupport{
 
     public void setPaServicePojo(PAServicePojo paServicePojo) {
         this.paServicePojo = paServicePojo;
+    }
+
+    public String getSearchtag1() {
+        return searchtag1;
+    }
+
+    public void setSearchtag1(String searchtag1) {
+        this.searchtag1 = searchtag1;
     }
 }

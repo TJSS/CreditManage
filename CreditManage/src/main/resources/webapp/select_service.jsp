@@ -59,7 +59,7 @@
                                 请选择车型
                             </option>
                             <s:iterator value="#session.allservicetags" id="servicetag" status="st">
-                                <a href="">
+                                <a href="findByTag1?tag1=<s:property value='servicetag' />">
                                     <option value="<s:property value='servicetag' />">
                                         <s:property value="servicetag" />
                                     </option>
