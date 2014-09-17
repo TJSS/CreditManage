@@ -121,13 +121,16 @@
         </action>
 
         <action name="getallTagfromshop" class="com.pingancar.creditmanage.action.ShopAction" method = "getAllTags">
-            <result name="success">/</result>
-            <result name = "error">/</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">getallTagfromPA</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name = "error">/error.html</result>
         </action>
 
         <action name="getallTagfromPA" class="com.pingancar.creditmanage.action.PAServiceAction" method = "getAllTags">
-            <result name="success">/</result>
-            <result name = "error">/</result>
+            <result name="success">/select_service.jsp</result>
+            <result name = "error">/error.html</result>
         </action>
 
 

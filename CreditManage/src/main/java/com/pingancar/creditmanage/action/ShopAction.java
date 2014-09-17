@@ -33,6 +33,7 @@ public class ShopAction extends ActionSupport{
         //shopService
         allTag = shopService.getAllTags(paserviceinfoid);
         if(allTag.size()!=0){
+            ActionContext.getContext().getSession().put("paserviceinfoid",paserviceinfoid);
             ActionContext.getContext().getSession().put("allshoptags",allTag);
             return SUCCESS;
         }else{
@@ -65,41 +66,62 @@ public class ShopAction extends ActionSupport{
         if(shopid !=null && shopid.length() != 0){
             shopInfoFields.add(ShopInfoField.SHOPID);
             valueList.add(shopid);
-            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
-            if(getshopInfoList.size()!=0){
-                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
+
         }
 
         if(paserviceinfoid !=null && paserviceinfoid.length() != 0){
             shopInfoFields.add(ShopInfoField.PASERVICEINFOID);
             valueList.add(paserviceinfoid);
-            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
-            if(getshopInfoList.size()!=0){
-                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
+
         }
 
         if(tag1 !=null && tag1.length() != 0){
             shopInfoFields.add(ShopInfoField.TAG1);
             valueList.add(tag1);
-            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
-            if(getshopInfoList.size()!=0){
-                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
+
+        }
+
+        List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
+        if(getshopInfoList.size()!=0){
+            ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
+            return SUCCESS;
         }else {
             return ERROR;
         }
 
+
+    }
+
+    public List<String> getAllTag() {
+        return allTag;
+    }
+
+    public void setAllTag(List<String> allTag) {
+        this.allTag = allTag;
+    }
+
+    public String getShopid() {
+        return shopid;
+    }
+
+    public void setShopid(String shopid) {
+        this.shopid = shopid;
+    }
+
+    public String getPaserviceinfoid() {
+        return paserviceinfoid;
+    }
+
+    public void setPaserviceinfoid(String paserviceinfoid) {
+        this.paserviceinfoid = paserviceinfoid;
+    }
+
+    public String getTag1() {
+        return tag1;
+    }
+
+    public void setTag1(String tag1) {
+        this.tag1 = tag1;
     }
 
     public String login(){
