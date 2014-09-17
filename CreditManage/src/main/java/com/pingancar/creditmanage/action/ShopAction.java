@@ -22,6 +22,7 @@ public class ShopAction extends ActionSupport{
     private String password;
     private List<ShopInfoField> shopInfoFields;
     private List<String> valueList;
+    private List<String> allTag;
     private  String shopid;
     private String paserviceinfoid;
     private String tag1;
@@ -30,7 +31,15 @@ public class ShopAction extends ActionSupport{
 
     public String getAllTags(){
         //shopService
-        return SUCCESS;
+        allTag = shopService.getAllTags(paserviceinfoid);
+        if(allTag.size()!=0){
+            ActionContext.getContext().getSession().put("alltags",allTag);
+            return SUCCESS;
+        }else{
+            return ERROR;
+        }
+
+
     }
 
     public List<String> getValueList() {
