@@ -44,4 +44,9 @@ public interface PAServiceService {
      * @return
      */
     public List<String> getAllTags(String paserviceinfoid);
+
+    /**
+     *
+     */
+    public List<PAServicePojo> findByTag1(String tag1);
 }

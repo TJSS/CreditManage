@@ -18,7 +18,7 @@ public class PAServiceAction extends ActionSupport{
     private List<String> valueList;
     private List<String> allTag;
     private String searchpaserviceinfoid;
-    private String  searchpaserviceid;
+    private String searchpaserviceid;
     private String searchtype;
     private String paserviceinfoid;
 

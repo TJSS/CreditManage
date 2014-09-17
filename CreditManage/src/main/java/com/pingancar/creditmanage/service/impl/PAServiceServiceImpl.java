@@ -8,6 +8,7 @@ import com.pingancar.creditmanage.service.PAServiceInfoService;
 import com.pingancar.creditmanage.service.PAServiceService;
 import com.pingancar.creditmanage.util.myenum.PAServiceField;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +16,15 @@ import java.util.List;
  */
 public class PAServiceServiceImpl implements PAServiceService {
     PAServiceDao paServiceDao;
+
+    @Override
+    public List<PAServicePojo> findByTag1(String tag1) {
+        List<PAServicePojo> result = paServiceDao.findByTag1(tag1);
+        if( result == null ){
+            return new ArrayList<PAServicePojo>();
+        }
+        return result;
+    }
 
     @Override
     public List<String> getAllTags(String paserviceinfoid) {
