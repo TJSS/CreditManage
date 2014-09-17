@@ -39,17 +39,20 @@ public class OrderListServiceImpl implements OrderListService {
     public boolean updateOrderList(OrderListPojo orderListPojo) {
         //好像都没有返回值？？？？
         List<OrderListPojo> result=orderListDao.findByOrderlistid(orderListPojo.getOrderlistid());
+        if(result == null){
+            result = new ArrayList<OrderListPojo>();
+        }
         if(result.size()<1){
             return false;
         }
         OrderListPojo re=result.get(0);
-        if(!orderListPojo.getStatus().equals("")) {
+        if(!"".equals(orderListPojo.getStatus())) {
             re.setStatus(orderListPojo.getStatus());
-        }if(!orderListPojo.getUsername().equals("")){
+        }if(!"".equals(orderListPojo.getUsername())){
             re.setOrderlistid(orderListPojo.getUsername());
-        }if(!orderListPojo.getOrdertime().equals("")){
+        }if(!"".equals(orderListPojo.getOrdertime())){
             re.setOrdertime(orderListPojo.getOrdertime());
-        }if(!orderListPojo.getPaserviceid().equals("")){
+        }if(!"".equals(orderListPojo.getPaserviceid())){
             re.setPaserviceid(orderListPojo.getPaserviceid());
         }
         orderListDao.update(re);
@@ -59,6 +62,9 @@ public class OrderListServiceImpl implements OrderListService {
     @Override
     public boolean deleteOrderList(OrderListPojo orderListPojo) {
         List<OrderListPojo> result=orderListDao.findByOrderlistid(orderListPojo.getOrderlistid());
+        if(result == null){
+            result = new ArrayList<OrderListPojo>();
+        }
         if(result.size()<1){
             return false;
         }

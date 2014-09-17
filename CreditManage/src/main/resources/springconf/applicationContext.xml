@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
@@ -19,6 +19,14 @@
         <property name="mappingResources">
             <list>
                 <value>/com/pingancar/creditmanage/pojo/AdminHbmXml.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/UserHbmXml.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/CreditHbmXml.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/OrderListHbmXml.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/PAServiceHbmXml.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/PAServiceInfoHbmXml.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/ShopInfoHbmXml.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/ShopUserHbmXml.xml</value>
+                <value>/com/pingancar/creditmanage/pojo/AdvertisementHbmXml.xml</value>
             </list>
         </property>
     </bean>
@@ -28,16 +36,15 @@
             <value>com.mysql.jdbc.Driver</value>
         </property>
         <property name="url">
-            <value>jdbc:mysql://localhost:3306/creditmanage?useUnicode=true&amp;characterEncoding=UTF-8</value>
+            <value>jdbc:mysql://114.215.140.130:3306/creditmanage?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</value>
         </property>
         <property name="username">
-            <value>root</value>
+            <value>tju</value>
         </property>
         <property name="password">
-            <value>111</value>
+            <value>123456</value>
         </property>
     </bean>
-
 
     <!-- 配置Dao -->
     <bean id="adminDao" class="com.pingancar.creditmanage.dao.impl.AdminDaoImpl" abstract="false" lazy-init="default" autowire="default">

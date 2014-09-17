@@ -4,6 +4,7 @@ import com.pingancar.creditmanage.dao.PAServiceInfoDao;
 import com.pingancar.creditmanage.pojo.PAServiceInfoPojo;
 import com.pingancar.creditmanage.service.PAServiceInfoService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,11 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
     PAServiceInfoDao paServiceInfoDao;
     @Override
     public List<PAServiceInfoPojo> queryPAServiceInfo(String paServiceInfoId) {
-        return paServiceInfoDao.findByPaserviceinfoid(Integer.getInteger(paServiceInfoId));
+        List<PAServiceInfoPojo> result = paServiceInfoDao.findByPaserviceinfoid(Integer.parseInt(paServiceInfoId));
+        if(result == null){
+            result = new ArrayList<PAServiceInfoPojo>();
+        }
+        return result;
 
     }
 
@@ -28,33 +33,36 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
     public boolean updatePAServiceInfo(PAServiceInfoPojo paServiceInfoPojo) {
         //返回值
         List<PAServiceInfoPojo> result= paServiceInfoDao.findByPaserviceinfoid(paServiceInfoPojo.getPaserviceinfoid());
+        if(result == null){
+            result = new ArrayList<PAServiceInfoPojo>();
+        }
         if(result.size()<1){
             return false;
         }
         PAServiceInfoPojo re=result.get(0);
-        if(paServiceInfoPojo.getImgurl().equals("")){
+        if(!"".equals(paServiceInfoPojo.getImgurl())){
             re.setImgurl(paServiceInfoPojo.getImgurl());
         }
 
-        if(paServiceInfoPojo.getTag1().equals("")) {
+        if(!"".equals(paServiceInfoPojo.getTag1())) {
             re.setTag1(paServiceInfoPojo.getTag1());
         }
-        if(paServiceInfoPojo.getTag2().equals("")){
+        if(!"".equals(paServiceInfoPojo.getTag2())){
             re.setTag2(paServiceInfoPojo.getTag2());
         }
-        if(paServiceInfoPojo.getTag3().equals("")){
+        if(!"".equals(paServiceInfoPojo.getTag3())){
             re.setTag3(paServiceInfoPojo.getTag3());
         }
-        if(paServiceInfoPojo.getTag4().equals("")){
+        if(!"".equals(paServiceInfoPojo.getTag4())){
             re.setTag4(paServiceInfoPojo.getTag4());
         }
-        if(paServiceInfoPojo.getTag5().equals("")){
+        if(!"".equals(paServiceInfoPojo.getTag5())){
             re.setTag5(paServiceInfoPojo.getTag5());
         }
-        if(paServiceInfoPojo.getServicestart().equals("")){
+        if(!"".equals(paServiceInfoPojo.getServicestart())){
             re.setServicestart(paServiceInfoPojo.getServicestart());
         }
-        if(paServiceInfoPojo.getServiceend().equals("")){
+        if(!"".equals(paServiceInfoPojo.getServiceend())){
             re.setServiceend(paServiceInfoPojo.getServiceend());
         }
         paServiceInfoDao.update(re);

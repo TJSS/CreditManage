@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <script src="js/jquery-2.0.3.min.js">
+        </script>
+        <script src="js/bootstrap.min.js">
+        </script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+        <link href="css/main.css" rel="stylesheet" media="screen">
+        <title>
+            查询订单
+        </title>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            服务信息
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/Admin/letter/add_letter.jsp">
+                                    修改服务信息
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/letter/getletter.action?pageNum=1">
+                                    查询服务
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            订单信息
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/Admin/letter/add_letter.jsp">
+                                    查询订单
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/letter/add_letter.jsp">
+                                    所有订单
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <form id="addform" action="addletter.action?preAction=add" method="post"
+            onsubmit="return check();" role="form">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    订单id
+                                </div>
+                                <input type="text" class="form-control" id="tag1" name="paServiceInfoPojo.tag1"
+                                placeholder="请输入信息">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-primary btn-lg active form-control"
+                        value="查询" />
+                    </div>
+                </div>
+            </form>
+            <table border="0" align="center" width="50%" class="table table-hover panel">
+                <tr>
+                    <div class="row">
+                        <th class="col-sm-1">
+                            订单id
+                        </th>
+                        <th class="col-sm-2">
+                            用户名
+                        </th>
+                        <th class="col-sm-2">
+                            服务id
+                        </th>
+                        <th class="col-sm-2">
+                            订单状态
+                        </th>
+                        <th class="col-sm-2">
+                            下单时间
+                        </th>
+                        <th class="col-sm-2">
+                            操作
+                        </th>
+                    </div>
+                </tr>
+                <s:iterator value="#session.letterlist" id="letter" status="st">
+                    <tr>
+                        <td>
+                            1<s:property value="#letter.lid" />
+                        </td>
+                        <td>
+                            aaa<s:property value="#letter.receiver" />
+                        </td>
+                        <td>
+                            1<s:if test="#letter.sender!=''">
+                                <s:property value="#letter.sender" />
+                            </s:if>
+                            <s:else>
+                                无
+                            </s:else>
+                        </td>
+                        <td>
+                            未使用<s:if test="#letter.senderaddr!=''">
+                                <s:property value="#letter.senderaddr" />
+                            </s:if>
+                            <s:else>
+                                无
+                            </s:else>
+                        </td>
+                        <td>
+                            0000<s:property value="#letter.time" />
+                        </td>
+                        <td>
+                            <s:if test="#letter.status==1">
+                                <a class="btn btn-primary btn-lg active" href="sendletter.action?preAction=add&letter.lid=<s:property value='#letter.lid'/>">
+                                    使用
+                                </a>
+                            </s:if>
+                            <s:else>
+                                <a class="btn btn-warning btn-lg active" href="backletter.action?preAction=add&letter.lid=<s:property value='#letter.lid'/>">
+                                    激活
+                                </a>
+                            </s:else>
+                            <a class="btn btn-default btn-lg active" href="deleteletter.action?preAction=add&letter.lid=<s:property value='#letter.lid'/>">
+                                删除
+                            </a>
+                        </td>
+                    </tr>
+                </s:iterator>
+            </table>
+        </div>
+    </body>
+
+</html>

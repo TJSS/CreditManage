@@ -11,6 +11,8 @@ public interface PAServiceDao {
 
 	public List<PAServicePojo> queryPAService(List<PAServiceField> paServiceFieldsLis,List<String> valuesList);
 
+    public List<String> getAllTags(String paserviceinfoid);
+
     public PAServicePojo findById(Integer id);
 
 	public List<PAServicePojo> findAll();

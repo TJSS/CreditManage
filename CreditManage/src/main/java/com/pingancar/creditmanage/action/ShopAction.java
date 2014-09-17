@@ -5,7 +5,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.pingancar.creditmanage.pojo.ShopInfoPojo;
 import com.pingancar.creditmanage.pojo.ShopUserPojo;
 import com.pingancar.creditmanage.service.ShopService;
+import com.pingancar.creditmanage.util.myenum.ShopInfoField;
 import com.pingancar.creditmanage.util.myenum.UserType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kx on 2014/9/13
@@ -14,7 +18,95 @@ public class ShopAction extends ActionSupport{
     private ShopService shopService;
     private ShopInfoPojo shopInfoPojo;
     private ShopUserPojo shopUserPojo;
+    private String username;
+    private String password;
+    private List<ShopInfoField> shopInfoFields;
+    private List<String> valueList;
+    private List<String> allTag;
+    private  String shopid;
+    private String paserviceinfoid;
+    private String tag1;
+
+
+
+    public String getAllTags(){
+        //shopService
+        allTag = shopService.getAllTags(paserviceinfoid);
+        if(allTag.size()!=0){
+            ActionContext.getContext().getSession().put("alltags",allTag);
+            return SUCCESS;
+        }else{
+            return ERROR;
+        }
+
+
+    }
+
+    public List<String> getValueList() {
+        return valueList;
+    }
+
+    public void setValueList(List<String> valueList) {
+        this.valueList = valueList;
+    }
+
+    public List<ShopInfoField> getShopInfoFields() {
+
+        return shopInfoFields;
+    }
+
+    public void setShopInfoFields(List<ShopInfoField> shopInfoFields) {
+        this.shopInfoFields = shopInfoFields;
+    }
+
+    public String queryShopInfo(){
+        shopInfoFields = new ArrayList<ShopInfoField>();
+        valueList = new ArrayList<String>();
+        if(shopid !=null && shopid.length() != 0){
+            shopInfoFields.add(ShopInfoField.SHOPID);
+            valueList.add(shopid);
+            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
+            if(getshopInfoList.size()!=0){
+                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
+                return SUCCESS;
+            }else {
+                return ERROR;
+            }
+        }
+
+        if(paserviceinfoid !=null && paserviceinfoid.length() != 0){
+            shopInfoFields.add(ShopInfoField.PASERVICEINFOID);
+            valueList.add(paserviceinfoid);
+            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
+            if(getshopInfoList.size()!=0){
+                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
+                return SUCCESS;
+            }else {
+                return ERROR;
+            }
+        }
+
+        if(tag1 !=null && tag1.length() != 0){
+            shopInfoFields.add(ShopInfoField.TAG1);
+            valueList.add(tag1);
+            List<ShopInfoPojo> getshopInfoList = shopService.queryShopInfo(shopInfoFields,valueList);
+            if(getshopInfoList.size()!=0){
+                ActionContext.getContext().getSession().put("shopinfolist",getshopInfoList);
+                return SUCCESS;
+            }else {
+                return ERROR;
+            }
+        }else {
+            return ERROR;
+        }
+
+    }
+
     public String login(){
+        shopUserPojo = new ShopUserPojo();
+        shopUserPojo.setUsername(username);
+        shopUserPojo.setPasswd(password);
+
         boolean result = shopService.login(shopUserPojo);
         if (result){
             ActionContext.getContext().getSession().put("user", shopUserPojo);
@@ -83,6 +175,40 @@ public class ShopAction extends ActionSupport{
             addActionError("删除商家用户失败");
             return ERROR;
         }
+    }
+
+    public ShopInfoPojo getShopInfoPojo() {
+        return shopInfoPojo;
+    }
+
+    public void setShopInfoPojo(ShopInfoPojo shopInfoPojo) {
+        this.shopInfoPojo = shopInfoPojo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public ShopUserPojo getShopUserPojo() {
+
+        return shopUserPojo;
+    }
+
+    public void setShopUserPojo(ShopUserPojo shopUserPojo) {
+        this.shopUserPojo = shopUserPojo;
     }
 
     public ShopService getShopService() {

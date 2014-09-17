@@ -10,6 +10,8 @@ import java.util.List;
  */
 public interface ShopInfoDao {
 
+    public List<String> getAllTags(String paserviceinfoid);
+
     public List<ShopInfoPojo> queryShopInfo(List<ShopInfoField> shopInfoList,List<String> valuesList);
 
 	public ShopInfoPojo findById(Integer id);
