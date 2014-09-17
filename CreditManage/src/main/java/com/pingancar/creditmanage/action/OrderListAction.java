@@ -30,56 +30,31 @@ public class OrderListAction extends ActionSupport{
         if(searchorderlistid !=null && searchorderlistid.length() != 0){
             orderListFieldList.add(OrderListField.ORDERLISTID);
             valueList.add(searchorderlistid);
-            List<OrderListPojo> getOrderList= orderListService.queryOrderList( orderListFieldList,  valueList);
-            if(getOrderList.size()!=0){
-                ActionContext.getContext().getSession().put("orderlist", getOrderList);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
         }
 
         if(searchpaderviceid !=null && searchpaderviceid.length() != 0){
             orderListFieldList.add(OrderListField.PASERVICEID);
             valueList.add(searchpaderviceid);
-            List<OrderListPojo> getOrderList= orderListService.queryOrderList( orderListFieldList,  valueList);
-            if(getOrderList.size()!=0){
-                ActionContext.getContext().getSession().put("orderlist", getOrderList);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
         }
 
         if(searchusername !=null && searchusername.length() != 0){
             orderListFieldList.add(OrderListField.USERNAME);
             valueList.add(searchusername);
-            List<OrderListPojo> getOrderList= orderListService.queryOrderList( orderListFieldList,  valueList);
-            if(getOrderList.size()!=0){
-                ActionContext.getContext().getSession().put("orderlist", getOrderList);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
         }
 
         if(searchstatus!=null && searchstatus.length() != 0){
             orderListFieldList.add(OrderListField.STATUS);
             valueList.add(searchstatus);
-            List<OrderListPojo> getOrderList= orderListService.queryOrderList( orderListFieldList,  valueList);
-            if(getOrderList.size()!=0){
-                ActionContext.getContext().getSession().put("orderlist", getOrderList);
-                return SUCCESS;
-            }else {
-                return ERROR;
-            }
-        }else {
-            return ERROR;
         }
 
 
-
-
+        List<OrderListPojo> getOrderList= orderListService.queryOrderList( orderListFieldList,  valueList);
+        if(getOrderList.size()!=0){
+            ActionContext.getContext().getSession().put("orderlist", getOrderList);
+            return SUCCESS;
+        }else {
+            return ERROR;
+        }
     }
 
 
