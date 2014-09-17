@@ -8,6 +8,7 @@ import com.pingancar.creditmanage.service.PAServiceInfoService;
 import com.pingancar.creditmanage.service.PAServiceService;
 import com.pingancar.creditmanage.util.myenum.PAServiceField;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +29,14 @@ public class PAServiceServiceImpl implements PAServiceService {
 
     @Override
     public boolean addPAService(PAServicePojo paServicePojo) {
+        List<PAServicePojo> result=paServiceDao.findByPaserviceid(paServicePojo.getPaserviceinfoid());
+        if(result == null){
+            result=new ArrayList<PAServicePojo>();
+        }
+        if(!(result.size()>0)){
+            return false;
 
+        }
         paServiceDao.save(paServicePojo);
         return true;
     }
@@ -36,6 +44,9 @@ public class PAServiceServiceImpl implements PAServiceService {
     @Override
     public boolean updatePAService(PAServicePojo paServicePojo) {
         List<PAServicePojo> result=paServiceDao.findByPaserviceid(paServicePojo.getPaserviceid());
+        if(result == null){
+            return false;
+        }
         if(result.size()<1){
             return false;
         }
@@ -61,7 +72,15 @@ public class PAServiceServiceImpl implements PAServiceService {
 
     @Override
     public boolean deletePAService(PAServicePojo paServicePojo) {
-        paServiceDao.delete(paServicePojo);
+        List<PAServicePojo> result=paServiceDao.findByPaserviceid(paServicePojo.getPaserviceid());
+        if(result == null){
+            return false;
+        }
+        if(result.size()<1){
+            return false;
+        }
+        PAServicePojo re=result.get(0);
+        paServiceDao.delete(re);
         return true;
     }
 
