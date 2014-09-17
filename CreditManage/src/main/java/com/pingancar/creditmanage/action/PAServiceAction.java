@@ -26,7 +26,7 @@ public class PAServiceAction extends ActionSupport{
     public String findByTag1() {
         List<PAServicePojo> serviceByTag1 = paServiceService.findByTag1(tag1);
         if(serviceByTag1.size()!=0){
-            ActionContext.getContext().getSession().put("paservicepojolist",serviceByTag1);
+            ActionContext.getContext(). getSession().put("paservicepojolist",serviceByTag1);
             return SUCCESS;
         }else {
             return ERROR;
