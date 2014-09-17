@@ -23,6 +23,7 @@ public class PAServiceAction extends ActionSupport{
     private String paserviceinfoid;
 
     public String getAllTags(){
+        paserviceinfoid = (String)ActionContext.getContext().getSession().get("paserviceinfoid");
         allTag = paServiceService.getAllTags(paserviceinfoid);
         if(allTag.size()!=0){
             ActionContext.getContext().getSession().put("allservicetags",allTag);
