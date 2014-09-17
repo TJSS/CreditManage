@@ -22,22 +22,21 @@
     <div class="container" style="padding-top:5em;">
     	<form>
             <div class="ui-select">
-                <select name="select-choice-a" id="select-choice-a" data-native-menu="false" tabindex="-1">
+                <select name="tag1" id="select-choice-a" data-native-menu="false" tabindex="-1">
                     <option data-placeholder="true">请选择地区</option>
-                    <option value="heping">和平区</option>
-                    <option value="standard">河东区</option>
-                    <option value="rush">南开区</option>
-                    <option value="express">红桥区</option>
-                    <option value="overnight">塘沽区</option>
+                    <s:iterator value="#session.allshoptags" id="tag" status="st">
+                        <a href="getShopInfo?tag1=<s:property value='tag'/ >"><option value="<s:property value='tag' />">"<s:property value="tag"/ ></option></a>
+                    </s:iterator>
+                    
                 </select>
             </div>
             
             <div class="ui-select">
-                <select name="select-choice-b" id="select-choice-b" data-native-menu="false" tabindex="-1">
+                <select name="shopid" id="select-choice-b" data-native-menu="false" tabindex="-1">
                     <option data-placeholder="true">请选择店铺</option>
-                    <option value="heping">洗车1</option>
-                    <option value="standard">洗车2</option>
-                    <option value="rush">洗车3</option>
+                    <s:iterator value="#session.shopinfolist" id="shop" status="st">
+                        <option value="<s:property value='shopinfo.shopid'>" />"<s:property value="shop.name" /></option>
+                    </s:iterator>
                 </select>
             </div>
             
