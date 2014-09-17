@@ -9,11 +9,11 @@ import java.sql.Timestamp;
 public class OrderListPojo {
 
 	Integer id;
-	String orderlistid;
-	String paserviceid;
-	String username;
+	String orderlistid="";
+	String paserviceid="";
+	String username="";
 	Timestamp ordertime;
-	String status;
+	String status="";
 
 	public Integer getId() {
 		return this.id;

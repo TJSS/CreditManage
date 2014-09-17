@@ -7,8 +7,8 @@ package com.pingancar.creditmanage.pojo;
 public class AdminPojo {
 
 	Integer id;
-	String username;
-	String passwd;
+	String username="";
+	String passwd="";
 
 	public Integer getId() {
 		return this.id;

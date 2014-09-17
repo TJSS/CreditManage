@@ -7,8 +7,8 @@ package com.pingancar.creditmanage.pojo;
 public class AdvertisementPojo {
 
 	Integer id;
-	String adid;
-	String imgurl;
+	String adid="";
+	String imgurl="";
 
 	public Integer getId() {
 		return this.id;
