@@ -22,7 +22,11 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public List<String> getAllTags(String paserviceinfoid) {
-        return null;
+        List<String> result = shopInfoDao.getAllTags(paserviceinfoid);
+        if(result == null){
+            result = new ArrayList<String>();
+        }
+        return result;
     }
 
     @Override

@@ -133,13 +133,6 @@
             <result name = "error">/error.html</result>
         </action>
 
-        <action name="getservicebytag1" class="com.pingancar.creditmanage.action.PAServiceAction" method = "findByTag1">
-            <result name="success">/select_service.jsp</result>
-            <result name = "error">/error.html</result>
-        </action>
-
-
-
 
     </package>
 

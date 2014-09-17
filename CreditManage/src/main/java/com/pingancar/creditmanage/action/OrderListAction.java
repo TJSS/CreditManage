@@ -61,6 +61,7 @@ public class OrderListAction extends ActionSupport{
 
 
     public String addOrderList(){
+        orderlistPojo.setStatus("1");
         boolean result=orderListService.addOrderList(orderlistPojo);
         if(result){
             return SUCCESS;

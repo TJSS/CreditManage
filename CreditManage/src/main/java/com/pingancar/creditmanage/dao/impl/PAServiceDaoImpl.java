@@ -6,6 +6,7 @@ import com.pingancar.creditmanage.util.myenum.PAServiceField;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
@@ -36,7 +37,7 @@ public class PAServiceDaoImpl implements PAServiceDao {
             if(valuesList.get(i).isEmpty())
                 continue;
             query += "temp.";
-            query += paServiceFieldsList.get(i).toString();
+            query += paServiceFieldsList.get(i).toString().toLowerCase();
             query += " = ";
             query += valuesList.get(i).toString();
         }
@@ -46,7 +47,7 @@ public class PAServiceDaoImpl implements PAServiceDao {
 
     @Override
     public List<String> getAllTags(String paserviceinfoid) {
-        List<String> tagList = null;
+        List<String> tagList = new ArrayList<String>();
         List<PAServicePojo> paList = this.findByPaserviceinfoid(paserviceinfoid);
         if(paList != null){
               for(int i=0; i<paList.size(); i++){

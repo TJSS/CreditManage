@@ -1,4 +1,4 @@
-﻿﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xmlns:tx="http://www.springframework.org/schema/tx"
@@ -46,22 +46,29 @@
             <value>123456</value>
         </property>
     </bean>
-    <bean id="transactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
-
-        <!-- 使用cglib方式实现动态代理
-        <property name="proxyTargetClass" value="true"></property>
-         -->
-
-        <property name="transactionManager" ref="transactionManager"></property>
-        <property name="transactionAttributes">
-            <props>
-                <prop key="add*">PROPAGATION_REQUIRED</prop>
-                <prop key="update*">PROPAGATION_REQUIRED</prop>
-                <prop key="del*">PROPAGATION_REQUIRED</prop>
-                <prop key="*">PROPAGATION_REQUIRED, readOnly</prop>
-            </props>
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
         </property>
     </bean>
+
+    <!--<bean id="transactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">-->
+
+        <!--&lt;!&ndash; 使用cglib方式实现动态代理-->
+        <!--<property name="proxyTargetClass" value="true"></property>-->
+         <!--&ndash;&gt;-->
+
+        <!--<property name="transactionManager" ref="transactionManager"></property>-->
+        <!--<property name="transactionAttributes">-->
+            <!--<props>-->
+                <!--<prop key="add*">PROPAGATION_REQUIRED</prop>-->
+                <!--<prop key="update*">PROPAGATION_REQUIRED</prop>-->
+                <!--<prop key="del*">PROPAGATION_REQUIRED</prop>-->
+                <!--<prop key="*">PROPAGATION_REQUIRED, readOnly</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <!-- 配置Dao -->
     <bean id="adminDao" class="com.pingancar.creditmanage.dao.impl.AdminDaoImpl" abstract="false" lazy-init="default" autowire="default">
@@ -112,7 +119,7 @@
         </property>
     </bean>
 
-    <bean id="userDao" parent="transactionProxy" class="com.pingancar.creditmanage.dao.impl.UserDaoImpl" abstract="false" lazy-init="default" autowire="default">
+    <bean id="userDao" class="com.pingancar.creditmanage.dao.impl.UserDaoImpl" abstract="false" lazy-init="default" autowire="default">
         <property name="sessionFactory">
             <ref bean="sessionFactory" />
         </property>
@@ -209,5 +216,4 @@
             <ref bean = "shopService"/>
         </property>
     </bean>
-    <tx:jta-transaction-manager id="transactionManager"/>
 </beans>

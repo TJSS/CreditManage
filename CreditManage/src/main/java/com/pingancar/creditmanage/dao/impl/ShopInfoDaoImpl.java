@@ -6,6 +6,7 @@ import com.pingancar.creditmanage.util.myenum.ShopInfoField;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  *Created by system on Tue Sep 09 11:17:13 CST 2014
@@ -28,7 +29,7 @@ public class ShopInfoDaoImpl implements ShopInfoDao {
 
     @Override
     public List<String> getAllTags(String paserviceinfoid) {
-        List<String> tagList = null;
+        List<String> tagList = new ArrayList<String>();
         List<ShopInfoPojo> paList = this.findByPaserviceinfoid(paserviceinfoid);
         if(paList != null){
             for(int i=0; i<paList.size(); i++){

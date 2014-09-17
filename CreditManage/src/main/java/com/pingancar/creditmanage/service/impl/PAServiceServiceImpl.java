@@ -28,7 +28,11 @@ public class PAServiceServiceImpl implements PAServiceService {
 
     @Override
     public List<String> getAllTags(String paserviceinfoid) {
-        return null;
+        List<String> result = paServiceDao.getAllTags(paserviceinfoid);
+        if(result == null){
+            result = new ArrayList<String>();
+        }
+        return result;
     }
 
     @Override

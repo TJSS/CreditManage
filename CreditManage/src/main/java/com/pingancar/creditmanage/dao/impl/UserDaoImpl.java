@@ -7,7 +7,9 @@ import com.pingancar.creditmanage.pojo.UserPojo;
 import com.pingancar.creditmanage.util.myenum.UserField;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate3.HibernateTransactionManager;
 
+import javax.transaction.TransactionManager;
 import java.sql.Timestamp;
 import java.util.List;
 /**
@@ -18,6 +20,7 @@ public class UserDaoImpl implements UserDao {
     private CreditDao creditDao;
 	SessionFactory sessionFactory;
 	HibernateTemplate hibernateTemplate;
+    HibernateTransactionManager transactionManager;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
@@ -181,5 +184,12 @@ public class UserDaoImpl implements UserDao {
     public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
         this.hibernateTemplate = hibernateTemplate;
     }
+
+    public HibernateTransactionManager getTransactionManager() {
+        return transactionManager;
+    }
+
+    public void setTransactionManager(HibernateTransactionManager transactionManager) {
+        this.transactionManager = transactionManager;
     }
 }

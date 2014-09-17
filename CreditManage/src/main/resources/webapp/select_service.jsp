@@ -59,7 +59,7 @@
                                 请选择车型
                             </option>
                             <s:iterator value="#session.allservicetags" id="servicetag" status="st">
-                                <a href="findByTag1?tag1=<s:property value='servicetag' />">
+                                <a href="getService?searchtag1=<s:property value='servicetag' />&paserviceinfoid=<s:property value='#session.paserviceinfoid' />">
                                     <option value="<s:property value='servicetag' />">
                                         <s:property value="servicetag" />
                                     </option>
@@ -70,15 +70,13 @@
                     <div style="padding-top:1em">
                         消耗积分：
                         <font id="cost" color="#f60">
-                            300
+                            <s:property value="#session.servicelist[0].creditcost" />
                         </font>
                         分
                     </div>
-                    <div class="ui-field-contain">
-                    </div>
-                    <button class="my-btn">
+                    <a href="addOrderList?orderlistPojo.paserviceid=<s:property value='#session.servicelist[0].paserviceid' />&username=<s:property value='#session.user.username' />" class="ui-btn my-btn">
                         确认兑换
-                    </button>
+                    </a>
                 </form>
             </div>
         </body>
