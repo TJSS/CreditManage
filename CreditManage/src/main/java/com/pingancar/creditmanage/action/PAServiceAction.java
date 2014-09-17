@@ -21,7 +21,17 @@ public class PAServiceAction extends ActionSupport{
     private String searchpaserviceid;
     private String searchtag1;
     private String paserviceinfoid;
+    private String tag1;
 
+    public String findByTag1() {
+        List<PAServicePojo> serviceByTag1 = paServiceService.findByTag1(tag1);
+        if(serviceByTag1.size()!=0){
+            ActionContext.getContext(). getSession().put("paservicepojolist",serviceByTag1);
+            return SUCCESS;
+        }else {
+            return ERROR;
+        }
+    }
     public String getAllTags(){
         paserviceinfoid = (String)ActionContext.getContext().getSession().get("paserviceinfoid");
         allTag = paServiceService.getAllTags(paserviceinfoid);
