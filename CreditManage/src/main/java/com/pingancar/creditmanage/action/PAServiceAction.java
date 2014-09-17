@@ -25,7 +25,7 @@ public class PAServiceAction extends ActionSupport{
     public String getAllTags(){
         allTag = paServiceService.getAllTags(paserviceinfoid);
         if(allTag.size()!=0){
-            ActionContext.getContext().getSession().put("alltag",allTag);
+            ActionContext.getContext().getSession().put("allservicetags",allTag);
             return SUCCESS;
         }else{
             return ERROR;

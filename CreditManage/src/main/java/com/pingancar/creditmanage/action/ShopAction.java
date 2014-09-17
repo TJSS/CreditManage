@@ -33,7 +33,7 @@ public class ShopAction extends ActionSupport{
         //shopService
         allTag = shopService.getAllTags(paserviceinfoid);
         if(allTag.size()!=0){
-            ActionContext.getContext().getSession().put("alltags",allTag);
+            ActionContext.getContext().getSession().put("allshoptags",allTag);
             return SUCCESS;
         }else{
             return ERROR;
