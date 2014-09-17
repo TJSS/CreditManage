@@ -19,7 +19,6 @@ public class CreditServiceImpl implements CreditService {
            return creditDao.findByUsername(username);
        }
         return new ArrayList<CreditPojo>();
-
     }
 
     @Override
@@ -29,9 +28,15 @@ public class CreditServiceImpl implements CreditService {
             if(result == null){
                 return false;
             }
+            if(result.size()<0){
+                return false;
+            }
             CreditPojo re =result.get(0);
-            re.setCredit(creditPojo.getCredit());
-            creditDao.update(re);
+            if(re.getCredit()!=creditPojo.getCredit()){
+                re.setCredit(creditPojo.getCredit());
+                creditDao.update(re);
+            }
+
             return true;
         }
         return false;

@@ -27,12 +27,19 @@ public class UserServiceImpl implements UserService {
         if(result2 == null){
             result2 = new ArrayList<UserPojo>();
         }
+        //判断该车是否投保
         if(result2.size()<1){
             return false;
         }
-        if(result1.size()>0||"".equals(result2.get(0).getUsername())|| result2.get(0).getUsername() == null){
+        //判断用户名是否已用
+        if(result1.size()>0){
             return false;
         }
+        //判断车牌是否被注册
+        if(!("".equals(result2.get(0).getUsername())|| result2.get(0).getUsername() == null)){
+            return false;
+        }
+
         UserPojo re=result2.get(0) ;
         re.setUsername(userPojo.getUsername());
         re.setPasswd(userPojo.getPasswd());
@@ -48,7 +55,7 @@ public class UserServiceImpl implements UserService {
       if(checkUser(userPojo)){
           List<UserPojo> result= userDao.findByUsername(userPojo.getUsername());
           if(result == null){
-              result = new ArrayList<UserPojo>();
+              return false;
           }
           if(result.size()>0){
               if(result.get(0).getPasswd().equals(userPojo.getPasswd())){
@@ -62,6 +69,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean updateUser(UserPojo userPojo) {
         //木有返回值怎么搞？？
+
+        UserPojo result=userDao.findById(userPojo.getId());
+
+        result.setUsername(userPojo.getUsername());
+        result.setPasswd(userPojo.getPasswd());
+        result.setCon(userPojo.getCon());
+        result.setEmail(userPojo.getEmail());
+        result.setRegtime(userPojo.getRegtime());
+        result.setCarnumber(userPojo.getCarnumber());
+        result.setCartype(userPojo.getCartype());
+        result.setCarowner(userPojo.getCarowner());
+        result.setEndtime(userPojo.getEndtime());
+        result.setMobilephone(userPojo.getMobilephone());
+        result.setStarttime(userPojo.getStarttime());
         userDao.update(userPojo);
         return false;
     }

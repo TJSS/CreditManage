@@ -129,7 +129,7 @@ public class ShopServiceImpl implements ShopService {
     public boolean updateShopUser(ShopUserPojo shopUserPojo) {
        List<ShopUserPojo> result= shopUserDao.findByShopid(shopUserPojo.getShopid());
         if(result == null){
-            result = new ArrayList<ShopUserPojo>();
+           return false;
         }
        if(result.size()<1){
            return false;

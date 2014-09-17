@@ -22,15 +22,12 @@ public class OrderListServiceImpl implements OrderListService {
 
     @Override
     public List<OrderListPojo> queryOrderList(List<OrderListField> orderListFieldList, List<String> valueList) {
-
-
        return  orderListDao.queryOrderList(orderListFieldList, valueList);
 
     }
 
     @Override
     public boolean addOrderList(OrderListPojo orderListPojo) {
-
         orderListDao.save(orderListPojo);
         return true;
     }
@@ -40,13 +37,13 @@ public class OrderListServiceImpl implements OrderListService {
         //好像都没有返回值？？？？
         List<OrderListPojo> result=orderListDao.findByOrderlistid(orderListPojo.getOrderlistid());
         if(result == null){
-            result = new ArrayList<OrderListPojo>();
+            return false;
         }
         if(result.size()<1){
             return false;
         }
         OrderListPojo re=result.get(0);
-        if(!"".equals(orderListPojo.getStatus())) {
+        if(!"".equals(orderListPojo.getStatus())){
             re.setStatus(orderListPojo.getStatus());
         }if(!"".equals(orderListPojo.getUsername())){
             re.setOrderlistid(orderListPojo.getUsername());
@@ -54,6 +51,9 @@ public class OrderListServiceImpl implements OrderListService {
             re.setOrdertime(orderListPojo.getOrdertime());
         }if(!"".equals(orderListPojo.getPaserviceid())){
             re.setPaserviceid(orderListPojo.getPaserviceid());
+        }
+        if(!"".equals(orderListPojo.getOrderlistid())){
+            re.setOrderlistid(orderListPojo.getOrderlistid());
         }
         orderListDao.update(re);
         return true;
@@ -63,7 +63,7 @@ public class OrderListServiceImpl implements OrderListService {
     public boolean deleteOrderList(OrderListPojo orderListPojo) {
         List<OrderListPojo> result=orderListDao.findByOrderlistid(orderListPojo.getOrderlistid());
         if(result == null){
-            result = new ArrayList<OrderListPojo>();
+           return false;
         }
         if(result.size()<1){
             return false;

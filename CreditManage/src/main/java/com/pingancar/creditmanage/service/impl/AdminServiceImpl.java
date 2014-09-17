@@ -24,16 +24,17 @@ public class AdminServiceImpl implements AdminService {
             return false;
         }
         //检验是否存在非法字符
-
         String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
         Pattern p = Pattern.compile(regEx);
         if(p.matcher(adminPojo.getPasswd()).find()||p.matcher(adminPojo.getUsername()).find()){
             return false;
         }
         List<AdminPojo> result=adminDao.findByUsername(adminPojo.getUsername());
+        //没有该用户
         if(result == null){
-            result = new ArrayList<AdminPojo>();
+            return false;
         }
+        // 密码验证
         if(result.size()>0){
             if(result.get(0).getPasswd().equals(adminPojo.getPasswd())){
                 return true;

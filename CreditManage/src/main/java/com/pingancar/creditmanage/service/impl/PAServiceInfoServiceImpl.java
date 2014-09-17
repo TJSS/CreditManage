@@ -24,7 +24,6 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
 
     @Override
     public boolean addPAServiceInfo(PAServiceInfoPojo paServiceInfoPojo) {
-
         paServiceInfoDao.save(paServiceInfoPojo);
         return true;
     }
@@ -34,7 +33,7 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
         //返回值
         List<PAServiceInfoPojo> result= paServiceInfoDao.findByPaserviceinfoid(paServiceInfoPojo.getPaserviceinfoid());
         if(result == null){
-            result = new ArrayList<PAServiceInfoPojo>();
+            return false;
         }
         if(result.size()<1){
             return false;
@@ -43,7 +42,6 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
         if(!"".equals(paServiceInfoPojo.getImgurl())){
             re.setImgurl(paServiceInfoPojo.getImgurl());
         }
-
         if(!"".equals(paServiceInfoPojo.getTag1())) {
             re.setTag1(paServiceInfoPojo.getTag1());
         }
@@ -73,6 +71,9 @@ public class PAServiceInfoServiceImpl implements PAServiceInfoService {
     public boolean deletePAServiceInfo(PAServiceInfoPojo paServiceInfoPojo) {
         //返回值
         List<PAServiceInfoPojo> result= paServiceInfoDao.findByPaserviceinfoid(paServiceInfoPojo.getPaserviceinfoid());
+        if(result == null){
+            return false;
+        }
         if(result.size()<1){
             paServiceInfoDao.delete(result.get(0));
         }
