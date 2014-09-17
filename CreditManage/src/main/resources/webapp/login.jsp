@@ -21,7 +21,7 @@
     
     <div class="container">
     	<div id="inputform" style="padding-top:5em">
-            <form id="login-form" action="login" method="post" data-ajax="false">
+            <form id="login-form" action="userLogin" method="post" data-ajax="false">
                 <div class="ui-field-contain">
                     <label for="textinput-disabled" class="vmiddle">用 户 名:</label>
                     <input type="text" name="username" id="textinput" placeholder="请输入用户名" value="" class="ui-corner-all ui-shadow-inset">

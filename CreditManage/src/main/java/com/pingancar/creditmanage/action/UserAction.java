@@ -36,6 +36,7 @@ public class UserAction extends ActionSupport{
         }
     }
     public String login(){
+        userPojo = new UserPojo();
         userPojo.setPasswd(password);
         userPojo.setUsername(username);
         boolean result=userService.login(userPojo);

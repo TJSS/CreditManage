@@ -21,6 +21,7 @@ public class PAServiceInfoAction extends ActionSupport{
 
         if(serviceInfo.size()!=0){
             ActionContext.getContext().getSession().put("serviceinfo", serviceInfo.get(0));
+            ActionContext.getContext().getSession().put("paserviceinfoid",paserviceinfoid);
             return SUCCESS;
         }else {
             return ERROR;

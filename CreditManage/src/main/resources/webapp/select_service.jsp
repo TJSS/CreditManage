@@ -1,4 +1,5 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
     <!doctype html>
     <html>
         
@@ -33,11 +34,11 @@
                                 请选择地区
                             </option>
                             <s:iterator value="#session.allshoptags" id="tag" status="st">
-                                <a href="getShopInfo?tag1=<s:property value='tag'/ >">
-                                    <option value="<s:property value='tag' />">
+                                <option value="<s:property value='#tag' />">
+                                    <a href="getShopInfo?tag1=<s:property value='#tag'/>">
                                         <s:property value="tag" />
-                                    </option>
-                                </a>
+                                    </a>
+                                </option>
                             </s:iterator>
                         </select>
                     </div>
@@ -47,8 +48,8 @@
                                 请选择店铺
                             </option>
                             <s:iterator value="#session.shopinfolist" id="shop" status="st">
-                                <option value="<s:property value='shopinfo.shopid'/>">
-                                    <s:property value="shop.name" />
+                                <option value="<s:property value='#shop.shopid'/>">
+                                    <s:property value="#shop.name" />
                                 </option>
                             </s:iterator>
                         </select>
@@ -59,11 +60,11 @@
                                 请选择车型
                             </option>
                             <s:iterator value="#session.allservicetags" id="servicetag" status="st">
-                                <a href="getService?searchtag1=<s:property value='servicetag' />&paserviceinfoid=<s:property value='#session.paserviceinfoid' />">
-                                    <option value="<s:property value='servicetag' />">
-                                        <s:property value="servicetag" />
-                                    </option>
-                                </a>
+                                <option value="<s:property value='#servicetag' />">
+                                     <a href="getService?searchtag1=<s:property value='#servicetag' />&paserviceinfoid=<s:property value='#session.paserviceinfoid' />">
+                                        <s:property value="#servicetag" />
+                                    </a>
+                                </option>
                             </s:iterator>
                         </select>
                     </div>

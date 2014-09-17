@@ -23,7 +23,7 @@
         
         <div class="credit-area">
         	<div class="need-credit" style="float:left">需要积分: <font color="#f60">100</font>~<font color="#f60">300</font>分</div>
-            <a href="select_service.jsp" class="ui-btn my-btn my-btn-adjust" style="float:right; font-size:1em">立即兑换</a>
+            <a href="getallTagfromshop?paserviceinfoid=<s:property value='#session.paserviceinfoid'/>" class="ui-btn my-btn my-btn-adjust" style="float:right; font-size:1em">立即兑换</a>
         </div>
     </div>
     
