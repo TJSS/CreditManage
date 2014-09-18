@@ -75,8 +75,8 @@ public class UserDaoImpl implements UserDao {
         CreditPojo cp = new CreditPojo();
         cp.setCredit(credit);
         cp.setUsername(user.getUsername());
-        creditDao.save(cp);
-        return (Integer)getHibernateTemplate().save(user);
+
+        return creditDao.save(cp);
 	}
 
 	public void delete(UserPojo user){
